@@ -1,0 +1,223 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68+post (git sha1 c12172fbae8af5e20f6fb52e3d4e92d56ed587b6, Release, AppleClang clang++ 17.0.0.17000604)
+
+-- Executing script file `/Users/pranavsrinivasan/Downloads/Optical Communications Project/AI-Equalizer-Benchmark/notebooks/Project/results/synthesis.ys' --
+
+1. Executing Verilog-2005 frontend: /Users/pranavsrinivasan/Downloads/Optical Communications Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv
+Parsing SystemVerilog input from `/Users/pranavsrinivasan/Downloads/Optical Communications Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv' to AST representation.
+Generating RTLIL representation for module `\ffe5tap_pam4'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ffe5tap_pam4
+
+2.2. Analyzing design hierarchy..
+Top module:  \ffe5tap_pam4
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:62$14 in module ffe5tap_pam4.
+Marked 2 switch rules as full_case in process $proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:53$11 in module ffe5tap_pam4.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~3 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:62$14'.
+     1/5: $0\y_out[11:0]
+     2/5: $0\x4[11:0]
+     3/5: $0\x3[11:0]
+     4/5: $0\x2[11:0]
+     5/5: $0\x1[11:0]
+Creating decoders for process `\ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:53$11'.
+     1/2: $2\y_sat[11:0]
+     2/2: $1\y_sat[11:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ffe5tap_pam4.\y_sat' from process `\ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:53$11'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ffe5tap_pam4.\y_out' using process `\ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:62$14'.
+  created $dff cell `$procdff$40' with positive edge clock.
+Creating register for signal `\ffe5tap_pam4.\x1' using process `\ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:62$14'.
+  created $dff cell `$procdff$41' with positive edge clock.
+Creating register for signal `\ffe5tap_pam4.\x2' using process `\ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:62$14'.
+  created $dff cell `$procdff$42' with positive edge clock.
+Creating register for signal `\ffe5tap_pam4.\x3' using process `\ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:62$14'.
+  created $dff cell `$procdff$43' with positive edge clock.
+Creating register for signal `\ffe5tap_pam4.\x4' using process `\ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:62$14'.
+  created $dff cell `$procdff$44' with positive edge clock.
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:62$14'.
+Removing empty process `ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:62$14'.
+Found and cleaned up 2 empty switches in `\ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:53$11'.
+Removing empty process `ffe5tap_pam4.$proc$/Users/pranavsrinivasan/Downloads/Optical$20Communications$20Project/AI-Equalizer-Benchmark/notebooks/Project/rtl/ffe5tap_pam4.sv:53$11'.
+Cleaned up 3 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe5tap_pam4.
+<suppressed ~6 debug messages>
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe5tap_pam4.
+<suppressed ~4 debug messages>
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe5tap_pam4'.
+Computing hashes of 24 cells of `\ffe5tap_pam4'.
+Finding duplicate cells in `\ffe5tap_pam4'.
+Removed a total of 0 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe5tap_pam4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$35.
+Removed 1 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe5tap_pam4.
+Performed a total of 0 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe5tap_pam4'.
+Computing hashes of 23 cells of `\ffe5tap_pam4'.
+Finding duplicate cells in `\ffe5tap_pam4'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$43 ($dff) from module ffe5tap_pam4 (D = \x2, Q = \x3, rval = 12'000000000000).
+Adding SRST signal on $procdff$44 ($dff) from module ffe5tap_pam4 (D = \x3, Q = \x4, rval = 12'000000000000).
+Adding SRST signal on $procdff$42 ($dff) from module ffe5tap_pam4 (D = \x1, Q = \x2, rval = 12'000000000000).
+Adding SRST signal on $procdff$40 ($dff) from module ffe5tap_pam4 (D = \y_sat, Q = \y_out, rval = 12'000000000000).
+Adding SRST signal on $procdff$41 ($dff) from module ffe5tap_pam4 (D = \x_in, Q = \x1, rval = 12'000000000000).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe5tap_pam4..
+Removed 6 unused cells and 31 unused wires.
+<suppressed ~7 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe5tap_pam4.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe5tap_pam4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe5tap_pam4.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe5tap_pam4'.
+Computing hashes of 17 cells of `\ffe5tap_pam4'.
+Finding duplicate cells in `\ffe5tap_pam4'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $auto$ff.cc:337:slice$48 ($sdff) from module ffe5tap_pam4 (D = $2\y_sat[11:0] [11], Q = \y_out [11], rval = 1'0).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe5tap_pam4..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe5tap_pam4.
+
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe5tap_pam4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe5tap_pam4.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe5tap_pam4'.
+Computing hashes of 20 cells of `\ffe5tap_pam4'.
+Finding duplicate cells in `\ffe5tap_pam4'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe5tap_pam4..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe5tap_pam4.
+
+4.23. Finished fast OPT passes. (There is nothing left to do.)
+
+5. Printing statistics.
+
+=== ffe5tap_pam4 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       29 wires
+      502 wire bits
+       21 public wires
+      402 public wire bits
+        4 ports
+       26 port bits
+       20 cells
+        4   $add
+        1   $gt
+        1   $lt
+        4   $mul
+        2   $mux
+        1   $not
+        1   $reduce_or
+        6   $sdff
+
+6. Executing Verilog backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Dumping module `\ffe5tap_pam4'.
+
+End of script. Logfile hash: 6cfa76848d, time: 0.04s, user: 0.02s, system: 0.02s, MEM: 14.38 MB peak
+Yosys 0.68+post (git sha1 c12172fbae8af5e20f6fb52e3d4e92d56ed587b6, Release, AppleClang clang++ 17.0.0.17000604)
+Time spent: 19% 2x read_verilog (0 sec), 14% 4x opt_merge (0 sec), ...
+

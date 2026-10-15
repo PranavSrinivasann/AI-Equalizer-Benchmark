@@ -1,0 +1,488 @@
+Warning: Use of default value for --package is deprecated. Please add '--package sg48' to arguments.
+Warning: No PCF file specified; IO pins will be placed automatically
+
+Info: Packing constants..
+Info: Packing IOs..
+Info: Packing LUT-FFs..
+Info:      185 LCs used as LUT4 only
+Info:       11 LCs used as LUT4 and DFF
+Info: Packing non-LUT FFs..
+Info:       48 LCs used as DFF only
+Info: Packing carries..
+Info:        0 LCs used as CARRY only
+Info: Packing indirect carry+LUT pairs...
+Info:        0 LUTs merged into carry LCs
+Info: Packing RAMs..
+Info: Placing PLLs..
+Info: Packing special functions..
+Info: Packing PLLs..
+Info: Promoting globals..
+Info: promoting clk$SB_IO_IN (fanout 59)
+Info: promoting rst_n_SB_LUT4_I3_O [reset] (fanout 59)
+Info: Constraining chains...
+Info:        1 LCs used to legalise carry chains.
+Info: Checksum: 0x6b3258ad
+
+Info: Device utilisation:
+Info: 	         ICESTORM_LC:     247/   5280     4%
+Info: 	        ICESTORM_RAM:       0/     30     0%
+Info: 	               SB_IO:      26/     39    66%
+Info: 	               SB_GB:       2/      8    25%
+Info: 	        ICESTORM_PLL:       0/      1     0%
+Info: 	         SB_WARMBOOT:       0/      1     0%
+Info: 	        ICESTORM_DSP:       0/      8     0%
+Info: 	      ICESTORM_HFOSC:       0/      1     0%
+Info: 	      ICESTORM_LFOSC:       0/      1     0%
+Info: 	              SB_I2C:       0/      2     0%
+Info: 	              SB_SPI:       0/      2     0%
+Info: 	              IO_I3C:       0/      2     0%
+Info: 	         SB_LEDDA_IP:       0/      1     0%
+Info: 	         SB_RGBA_DRV:       0/      1     0%
+Info: 	      ICESTORM_SPRAM:       0/      4     0%
+
+Info: Placed 0 cells based on constraints.
+Info: Creating initial analytic placement for 118 cells, random placement wirelen = 5962.
+Info:     at initial placer iter 0, wirelen = 605
+Info:     at initial placer iter 1, wirelen = 531
+Info:     at initial placer iter 2, wirelen = 537
+Info:     at initial placer iter 3, wirelen = 517
+Info: Running main analytical placer, max placement attempts per cell = 10000.
+Info:     at iteration #1, type ALL: wirelen solved = 524, spread = 1167, legal = 1182; time = 0.02s
+Info:     at iteration #2, type ALL: wirelen solved = 514, spread = 1136, legal = 1189; time = 0.01s
+Info:     at iteration #3, type ALL: wirelen solved = 517, spread = 1138, legal = 1195; time = 0.02s
+Info:     at iteration #4, type ALL: wirelen solved = 566, spread = 1142, legal = 1211; time = 0.04s
+Info:     at iteration #5, type ALL: wirelen solved = 540, spread = 1113, legal = 1217; time = 0.04s
+Info:     at iteration #6, type ALL: wirelen solved = 518, spread = 1251, legal = 1296; time = 0.05s
+Info: HeAP Placer Time: 0.27s
+Info:   of which solving equations: 0.16s
+Info:   of which spreading cells: 0.02s
+Info:   of which strict legalisation: 0.01s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 442, wirelen = 1182
+Info:   at iteration #5: temp = 0.000000, timing cost = 335, wirelen = 925
+Info:   at iteration #10: temp = 0.000000, timing cost = 335, wirelen = 902
+Info:   at iteration #15: temp = 0.000000, timing cost = 335, wirelen = 892
+Info:   at iteration #19: temp = 0.000000, timing cost = 340, wirelen = 890 
+Info: SA placement time 1.20s
+
+Info: Max frequency for clock 'clk$SB_IO_IN_$glb_clk': 38.86 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                       -> posedge clk$SB_IO_IN_$glb_clk: 26.95 ns
+Info: Max delay posedge clk$SB_IO_IN_$glb_clk -> <async>                      : 8.35 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ 57599,  58674) |*********************** 
+Info: [ 58674,  59749) |** 
+Info: [ 59749,  60824) |****** 
+Info: [ 60824,  61899) |* 
+Info: [ 61899,  62974) | 
+Info: [ 62974,  64049) | 
+Info: [ 64049,  65124) | 
+Info: [ 65124,  66199) |* 
+Info: [ 66199,  67274) | 
+Info: [ 67274,  68349) | 
+Info: [ 68349,  69424) | 
+Info: [ 69424,  70499) | 
+Info: [ 70499,  71574) | 
+Info: [ 71574,  72649) | 
+Info: [ 72649,  73724) | 
+Info: [ 73724,  74799) | 
+Info: [ 74799,  75874) | 
+Info: [ 75874,  76949) | 
+Info: [ 76949,  78024) |********* 
+Info: [ 78024,  79099) |*************************** 
+Info: Checksum: 0xb66b2fa9
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 681 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:        889 |      198        582 |  198   582 |         0|       2.09       2.09|
+Info: Routing complete.
+Info: Router1 time 2.09s
+Info: Checksum: 0xdd9c352b
+
+Info: Critical path report for clock 'clk$SB_IO_IN_$glb_clk' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  1.39  1.39 Source x4_SB_DFFSR_Q_11_DFFLC.O
+Info:    routing  1.76  3.15 Net x4[0] (17,5) -> (17,4)
+Info:                          Sink d04_SB_LUT4_O_3_I2_SB_LUT4_O_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:8.37-8.39
+Info:      logic  0.87  4.03 Source d04_SB_LUT4_O_3_I2_SB_LUT4_O_LC.O
+Info:    routing  1.76  5.79 Net d04_SB_LUT4_O_3_I2[2] (17,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_3_LC.I2
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.61  6.39 Source d04_SB_LUT4_O_3_LC.COUT
+Info:    routing  0.00  6.39 Net d04_SB_LUT4_O_2_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_2_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  6.67 Source d04_SB_LUT4_O_2_LC.COUT
+Info:    routing  0.00  6.67 Net d04_SB_LUT4_O_1_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_1_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  6.95 Source d04_SB_LUT4_O_1_LC.COUT
+Info:    routing  0.00  6.95 Net d04_SB_LUT4_O_11_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_11_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  7.23 Source d04_SB_LUT4_O_11_LC.COUT
+Info:    routing  0.00  7.23 Net d04_SB_LUT4_O_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  7.51 Source d04_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  7.51 Net d04_SB_LUT4_O_9_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_9_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  7.78 Source d04_SB_LUT4_O_9_LC.COUT
+Info:    routing  0.00  7.78 Net d04_SB_LUT4_O_10_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_10_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  8.06 Source d04_SB_LUT4_O_10_LC.COUT
+Info:    routing  0.00  8.06 Net d04_SB_LUT4_O_8_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_8_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  8.34 Source d04_SB_LUT4_O_8_LC.COUT
+Info:    routing  0.56  8.90 Net d04_SB_LUT4_O_4_I2[3] (16,4) -> (16,5)
+Info:                          Sink d04_SB_LUT4_O_4_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  9.18 Source d04_SB_LUT4_O_4_LC.COUT
+Info:    routing  0.00  9.18 Net d04_SB_LUT4_O_6_I2[3] (16,5) -> (16,5)
+Info:                          Sink d04_SB_LUT4_O_6_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  9.45 Source d04_SB_LUT4_O_6_LC.COUT
+Info:    routing  0.00  9.45 Net d04_SB_LUT4_O_7_I2[3] (16,5) -> (16,5)
+Info:                          Sink d04_SB_LUT4_O_7_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  9.73 Source d04_SB_LUT4_O_7_LC.COUT
+Info:    routing  0.66  10.39 Net d04_SB_LUT4_O_5_I3 (16,5) -> (16,5)
+Info:                          Sink d04_SB_LUT4_O_5_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.87  11.27 Source d04_SB_LUT4_O_5_LC.O
+Info:    routing  1.76  13.03 Net d04[11] (16,5) -> (15,4)
+Info:                          Sink a17_hi_SB_LUT4_O_10_LC.I1
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:28.25-28.31
+Info:      logic  0.68  13.70 Source a17_hi_SB_LUT4_O_10_LC.COUT
+Info:    routing  0.56  14.26 Net a17_hi_SB_LUT4_O_4_I3 (15,4) -> (15,5)
+Info:                          Sink a17_hi_SB_LUT4_O_4_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:35.21-35.48
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  14.54 Source a17_hi_SB_LUT4_O_4_LC.COUT
+Info:    routing  0.00  14.54 Net a17_hi_SB_LUT4_O_8_I3 (15,5) -> (15,5)
+Info:                          Sink a17_hi_SB_LUT4_O_8_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:35.21-35.48
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  14.81 Source a17_hi_SB_LUT4_O_8_LC.COUT
+Info:    routing  0.00  14.81 Net a17_hi_SB_LUT4_O_7_I3 (15,5) -> (15,5)
+Info:                          Sink a17_hi_SB_LUT4_O_7_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:35.21-35.48
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  15.09 Source a17_hi_SB_LUT4_O_7_LC.COUT
+Info:    routing  0.66  15.76 Net a17_hi_SB_LUT4_O_6_I3 (15,5) -> (15,5)
+Info:                          Sink a17_hi_SB_LUT4_O_6_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:35.21-35.48
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.87  16.63 Source a17_hi_SB_LUT4_O_6_LC.O
+Info:    routing  2.41  19.04 Net a17[15] (15,5) -> (14,2)
+Info:                          Sink w_SB_LUT4_O_13_LC.I2
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:34.29-34.35
+Info:      logic  0.61  19.65 Source w_SB_LUT4_O_13_LC.COUT
+Info:    routing  1.22  20.86 Net w_SB_LUT4_O_8_I3 (14,2) -> (14,3)
+Info:                          Sink w_SB_LUT4_O_8_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:45.16-45.25
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.87  21.74 Source w_SB_LUT4_O_8_LC.O
+Info:    routing  1.76  23.50 Net w[16] (14,3) -> (13,2)
+Info:                          Sink w3_hi_SB_LUT4_O_9_LC.I2
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:48.25-48.29
+Info:      logic  0.61  24.11 Source w3_hi_SB_LUT4_O_9_LC.COUT
+Info:    routing  0.56  24.67 Net w3_hi_SB_LUT4_O_7_I3 (13,2) -> (13,3)
+Info:                          Sink w3_hi_SB_LUT4_O_7_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:50.20-50.43
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  24.94 Source w3_hi_SB_LUT4_O_7_LC.COUT
+Info:    routing  0.66  25.60 Net w3_hi_SB_LUT4_O_14_I3 (13,3) -> (13,3)
+Info:                          Sink w3_hi_SB_LUT4_O_14_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:50.20-50.43
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.87  26.48 Source w3_hi_SB_LUT4_O_14_LC.O
+Info:    routing  1.76  28.24 Net acc_SB_LUT4_O_9_I2[1] (13,3) -> (12,3)
+Info:                          Sink acc_SB_LUT4_O_9_LC.I1
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:49.29-49.34
+Info:      logic  0.68  28.92 Source acc_SB_LUT4_O_9_LC.COUT
+Info:    routing  0.00  28.92 Net acc_SB_LUT4_O_12_I2[3] (12,3) -> (12,3)
+Info:                          Sink acc_SB_LUT4_O_12_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:70.18-70.30
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  29.19 Source acc_SB_LUT4_O_12_LC.COUT
+Info:    routing  0.66  29.85 Net acc_SB_LUT4_O_10_I2[3] (12,3) -> (12,3)
+Info:                          Sink acc_SB_LUT4_O_10_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:70.18-70.30
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      setup  0.82  30.68 Source acc_SB_LUT4_O_10_LC.I3
+Info: 13.93 ns logic, 16.75 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge clk$SB_IO_IN_$glb_clk':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source x_in[1]$sb_io.D_IN_0
+Info:    routing  6.26  6.26 Net d04_SB_LUT4_O_2_I2[1] (13,31) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_2_LC.I1
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:4.32-4.36
+Info:      logic  0.68  6.94 Source d04_SB_LUT4_O_2_LC.COUT
+Info:    routing  0.00  6.94 Net d04_SB_LUT4_O_1_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_1_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  7.21 Source d04_SB_LUT4_O_1_LC.COUT
+Info:    routing  0.00  7.21 Net d04_SB_LUT4_O_11_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_11_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  7.49 Source d04_SB_LUT4_O_11_LC.COUT
+Info:    routing  0.00  7.49 Net d04_SB_LUT4_O_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  7.77 Source d04_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  7.77 Net d04_SB_LUT4_O_9_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_9_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  8.05 Source d04_SB_LUT4_O_9_LC.COUT
+Info:    routing  0.00  8.05 Net d04_SB_LUT4_O_10_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_10_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  8.33 Source d04_SB_LUT4_O_10_LC.COUT
+Info:    routing  0.00  8.33 Net d04_SB_LUT4_O_8_I2[3] (16,4) -> (16,4)
+Info:                          Sink d04_SB_LUT4_O_8_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  8.60 Source d04_SB_LUT4_O_8_LC.COUT
+Info:    routing  0.56  9.16 Net d04_SB_LUT4_O_4_I2[3] (16,4) -> (16,5)
+Info:                          Sink d04_SB_LUT4_O_4_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  9.44 Source d04_SB_LUT4_O_4_LC.COUT
+Info:    routing  0.00  9.44 Net d04_SB_LUT4_O_6_I2[3] (16,5) -> (16,5)
+Info:                          Sink d04_SB_LUT4_O_6_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  9.72 Source d04_SB_LUT4_O_6_LC.COUT
+Info:    routing  0.00  9.72 Net d04_SB_LUT4_O_7_I2[3] (16,5) -> (16,5)
+Info:                          Sink d04_SB_LUT4_O_7_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  9.99 Source d04_SB_LUT4_O_7_LC.COUT
+Info:    routing  0.66  10.66 Net d04_SB_LUT4_O_5_I3 (16,5) -> (16,5)
+Info:                          Sink d04_SB_LUT4_O_5_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:24.18-24.27
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.87  11.53 Source d04_SB_LUT4_O_5_LC.O
+Info:    routing  1.76  13.29 Net d04[11] (16,5) -> (15,4)
+Info:                          Sink a17_hi_SB_LUT4_O_10_LC.I1
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:28.25-28.31
+Info:      logic  0.68  13.97 Source a17_hi_SB_LUT4_O_10_LC.COUT
+Info:    routing  0.56  14.52 Net a17_hi_SB_LUT4_O_4_I3 (15,4) -> (15,5)
+Info:                          Sink a17_hi_SB_LUT4_O_4_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:35.21-35.48
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  14.80 Source a17_hi_SB_LUT4_O_4_LC.COUT
+Info:    routing  0.00  14.80 Net a17_hi_SB_LUT4_O_8_I3 (15,5) -> (15,5)
+Info:                          Sink a17_hi_SB_LUT4_O_8_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:35.21-35.48
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  15.08 Source a17_hi_SB_LUT4_O_8_LC.COUT
+Info:    routing  0.00  15.08 Net a17_hi_SB_LUT4_O_7_I3 (15,5) -> (15,5)
+Info:                          Sink a17_hi_SB_LUT4_O_7_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:35.21-35.48
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  15.36 Source a17_hi_SB_LUT4_O_7_LC.COUT
+Info:    routing  0.66  16.02 Net a17_hi_SB_LUT4_O_6_I3 (15,5) -> (15,5)
+Info:                          Sink a17_hi_SB_LUT4_O_6_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:35.21-35.48
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.87  16.89 Source a17_hi_SB_LUT4_O_6_LC.O
+Info:    routing  2.41  19.30 Net a17[15] (15,5) -> (14,2)
+Info:                          Sink w_SB_LUT4_O_13_LC.I2
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:34.29-34.35
+Info:      logic  0.61  19.91 Source w_SB_LUT4_O_13_LC.COUT
+Info:    routing  1.22  21.13 Net w_SB_LUT4_O_8_I3 (14,2) -> (14,3)
+Info:                          Sink w_SB_LUT4_O_8_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:45.16-45.25
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.87  22.00 Source w_SB_LUT4_O_8_LC.O
+Info:    routing  1.76  23.76 Net w[16] (14,3) -> (13,2)
+Info:                          Sink w3_hi_SB_LUT4_O_9_LC.I2
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:48.25-48.29
+Info:      logic  0.61  24.37 Source w3_hi_SB_LUT4_O_9_LC.COUT
+Info:    routing  0.56  24.93 Net w3_hi_SB_LUT4_O_7_I3 (13,2) -> (13,3)
+Info:                          Sink w3_hi_SB_LUT4_O_7_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:50.20-50.43
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  25.21 Source w3_hi_SB_LUT4_O_7_LC.COUT
+Info:    routing  0.66  25.87 Net w3_hi_SB_LUT4_O_14_I3 (13,3) -> (13,3)
+Info:                          Sink w3_hi_SB_LUT4_O_14_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:50.20-50.43
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.87  26.74 Source w3_hi_SB_LUT4_O_14_LC.O
+Info:    routing  1.76  28.50 Net acc_SB_LUT4_O_9_I2[1] (13,3) -> (12,3)
+Info:                          Sink acc_SB_LUT4_O_9_LC.I1
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:49.29-49.34
+Info:      logic  0.68  29.18 Source acc_SB_LUT4_O_9_LC.COUT
+Info:    routing  0.00  29.18 Net acc_SB_LUT4_O_12_I2[3] (12,3) -> (12,3)
+Info:                          Sink acc_SB_LUT4_O_12_LC.CIN
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:70.18-70.30
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  29.46 Source acc_SB_LUT4_O_12_LC.COUT
+Info:    routing  0.66  30.12 Net acc_SB_LUT4_O_10_I2[3] (12,3) -> (12,3)
+Info:                          Sink acc_SB_LUT4_O_10_LC.I3
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:70.18-70.30
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/arith_map.v:62.5-70.4
+Info:                               /opt/homebrew/bin/../share/yosys/ice40/abc9_model.v:4.9-4.11
+Info:      setup  0.82  30.94 Source acc_SB_LUT4_O_10_LC.I3
+Info: 11.45 ns logic, 19.49 ns routing
+
+Info: Critical path report for cross-domain path 'posedge clk$SB_IO_IN_$glb_clk' -> '<async>':
+Info:       type curr  total name
+Info:   clk-to-q  1.39  1.39 Source acc_SB_LUT4_O_10_LC.O
+Info:    routing  7.58  8.97 Net y_out[10]$SB_IO_OUT (12,3) -> (19,31)
+Info:                          Sink y_out[11]$sb_io.D_OUT_0
+Info:                          Defined in:
+Info:                               rtl/generalization/optimized/ffe5tap_caseC_optimized.sv:9.25-9.28
+Info: 1.39 ns logic, 7.58 ns routing
+
+Info: Max frequency for clock 'clk$SB_IO_IN_$glb_clk': 32.60 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                       -> posedge clk$SB_IO_IN_$glb_clk: 30.94 ns
+Info: Max delay posedge clk$SB_IO_IN_$glb_clk -> <async>                      : 8.97 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ 52654,  53969) |************** 
+Info: [ 53969,  55284) |*********** 
+Info: [ 55284,  56599) |****** 
+Info: [ 56599,  57914) |* 
+Info: [ 57914,  59229) | 
+Info: [ 59229,  60544) | 
+Info: [ 60544,  61859) | 
+Info: [ 61859,  63174) | 
+Info: [ 63174,  64489) | 
+Info: [ 64489,  65804) |* 
+Info: [ 65804,  67119) | 
+Info: [ 67119,  68434) | 
+Info: [ 68434,  69749) | 
+Info: [ 69749,  71064) | 
+Info: [ 71064,  72379) | 
+Info: [ 72379,  73694) | 
+Info: [ 73694,  75009) | 
+Info: [ 75009,  76324) | 
+Info: [ 76324,  77639) | 
+Info: [ 77639,  78954) |************************************ 
+2 warnings, 0 errors
+
+Info: Program finished normally.

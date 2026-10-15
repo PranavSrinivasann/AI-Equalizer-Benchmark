@@ -1,0 +1,25 @@
+Optimize this SystemVerilog implementation specifically for minimum
+FPGA resource utilization on an iCE40 UP5K.
+
+Preserve exactly:
+
+- 5 taps
+- all coefficient values
+- signed 12-bit Q3.8 input/output
+- signed 12-bit Q1.10 coefficients
+- arithmetic right shift by 10
+- exact saturation behavior
+- synchronous active-low reset
+- 1 sample/cycle throughput
+- 1-cycle latency
+
+Do not reduce numerical precision or change the mathematical function.
+
+The objective is to reduce synthesized logic/resource utilization
+while maintaining the specified throughput and latency.
+
+Return complete synthesizable SystemVerilog and explain the
+architectural changes and expected resource tradeoffs.
+
+Do not assume that functional correctness or synthesis success
+means the design is optimal.
