@@ -31,12 +31,13 @@ check_file documentation/reproducibility.md
 check_file results/phase4/phase4_report.md
 check_file results/generalization/results.csv
 check_file prompts/generalization/ai_log.md
+check_file results/phase6/phase6_release_report.md
 check_dir rtl
 check_dir testbench
 check_dir test_vectors
 
 echo
-echo "Checking CSV schema and row structure..."
+echo "Checking CSV schema and all six implementation rows..."
 python3 - <<'PYCSV'
 import csv
 import sys
@@ -44,32 +45,55 @@ from pathlib import Path
 
 p = Path("results/generalization/results.csv")
 required = {
-    "case", "coefficient_structure", "coefficients",
-    "ai_iterations", "verification", "logic_cells",
-    "dsp", "bram", "max_frequency_mhz",
-    "manual_changes", "notes"
+    "case", "implementation", "coefficient_structure", "coefficients",
+    "functional_verification", "functional_samples",
+    "functional_mismatches", "nextpnr_logic_cells", "yosys_lut4",
+    "dsp_blocks", "bram_blocks", "max_frequency_mhz",
+    "manual_rtl_changes", "notes"
 }
 
 try:
     with p.open(newline="") as f:
         reader = csv.DictReader(f)
-        fields = set(reader.fieldnames or [])
-        missing = required - fields
+        missing = required - set(reader.fieldnames or [])
         if missing:
-            print("FAIL  Missing CSV columns:", ", ".join(sorted(missing)))
+            print("FAIL  Missing columns:", ", ".join(sorted(missing)))
             sys.exit(1)
         rows = list(reader)
 
-    if not rows:
-        print("FAIL  CSV contains no data rows")
+    expected = {
+        ("A", "baseline"), ("A", "optimized"),
+        ("B", "baseline"), ("B", "optimized"),
+        ("C", "baseline"), ("C", "optimized")
+    }
+    actual = {(r["case"], r["implementation"]) for r in rows}
+
+    if len(rows) != 6 or actual != expected:
+        print("FAIL  Expected exactly six unique case/implementation rows")
+        print("Rows found:", len(rows))
+        print("Missing:", sorted(expected - actual))
+        print("Unexpected:", sorted(actual - expected))
         sys.exit(1)
 
-    print(f"PASS  CSV schema valid; {len(rows)} rows found")
-    for row in rows:
+    for r in rows:
+        for col in ("nextpnr_logic_cells", "yosys_lut4",
+                    "dsp_blocks", "bram_blocks", "max_frequency_mhz"):
+            if not r[col].strip():
+                print("FAIL  Blank metric:", r["case"], r["implementation"], col)
+                sys.exit(1)
+
+        if r["case"] in ("B", "C"):
+            if r["functional_samples"] != "1000" or r["functional_mismatches"] != "0":
+                print("FAIL  Unexpected recorded verification values for", r["case"])
+                sys.exit(1)
+
+    print("PASS  CSV schema and six unique rows are valid")
+    for r in rows:
         print(
-            "  Case {} / {} / verification={} / frequency={} MHz".format(
-                row["case"], row["coefficient_structure"],
-                row["verification"], row["max_frequency_mhz"]
+            "  Case {}/{}: {} LC, {} LUT4, {} MHz, verification={}".format(
+                r["case"], r["implementation"], r["nextpnr_logic_cells"],
+                r["yosys_lut4"], r["max_frequency_mhz"],
+                r["functional_verification"]
             )
         )
 except (OSError, csv.Error) as e:
@@ -79,7 +103,7 @@ PYCSV
 if [ "$?" -ne 0 ]; then failed=1; fi
 
 echo
-echo "Checking tracked-file whitespace..."
+echo "Checking Git whitespace..."
 if git diff --check; then
     echo "PASS  No whitespace errors in unstaged tracked changes"
 else
@@ -88,14 +112,12 @@ else
 fi
 
 echo
-echo "Git status:"
+echo "Review status:"
 git status --short
-git log -1 --oneline 2>/dev/null || true
 
 if [ "$failed" -eq 0 ]; then
     echo
     echo "AUDIT RESULT: STRUCTURAL CHECKS PASSED"
-    echo "Functional correctness is not established by this audit."
 else
     echo
     echo "AUDIT RESULT: CHECKS FAILED"
