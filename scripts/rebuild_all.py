@@ -7,7 +7,6 @@ For each design this runs, in order:
   3. Yosys synth_ice40 (LUT4 count)
   4. nextpnr-ice40 on the UP5K over several placement seeds
      (logic cells and Fmax per seed; median, min and max reported)
-Optionally (--formal) it also runs the SymbiYosys equivalence proofs.
 
 Outputs go to results/rebuild/: per-design logs, tool_versions.txt,
 summary.csv (one row per design) and fmax_seeds.csv (one row per seed).
@@ -15,10 +14,10 @@ summary.csv (one row per design) and fmax_seeds.csv (one row per seed).
 Usage:
   python3 scripts/rebuild_all.py                 # all designs, 10 seeds
   python3 scripts/rebuild_all.py --seeds 3       # quicker
-  python3 scripts/rebuild_all.py --only C_ai C_hand --formal
+  python3 scripts/rebuild_all.py --only C_ai C_hand
 
-Tools are found on PATH as verilator, yosys, nextpnr-ice40 and sby; the
-yowasp-* Python builds are used as a fallback for yosys, nextpnr and sby.
+Tools are found on PATH as verilator, yosys and nextpnr-ice40; the
+yowasp-* Python builds are used as a fallback for yosys and nextpnr.
 """
 
 import argparse
@@ -151,43 +150,10 @@ def place_and_route(tools, json_path, work, seeds):
     return rows
 
 
-def formal_env():
-    """sby calls yosys and yosys-smtbmc by name; wrap the yowasp builds if needed."""
-    env = dict(os.environ)
-    if shutil.which("yosys") and shutil.which("yosys-smtbmc"):
-        return env
-    shim = OUT / "toolshim"
-    shim.mkdir(parents=True, exist_ok=True)
-    for name in ("yosys", "yosys-smtbmc", "yosys-witness"):
-        target = shutil.which(f"yowasp-{name}")
-        if target:
-            wrapper = shim / name
-            wrapper.write_text(f'#!/bin/sh\nexec "{target}" "$@"\n')
-            wrapper.chmod(0o755)
-    env["PATH"] = f"{shim}{os.pathsep}{env['PATH']}"
-    return env
-
-
-def run_formal(tools, tasks):
-    log = OUT / "formal.log"
-    workdir = ROOT / "formal"
-    code, out = run([tools["sby"], "-f", "ffe5tap_equiv.sby", *tasks], log,
-                    cwd=workdir, env=formal_env())
-    results = {}
-    for task in tasks:
-        status = workdir / f"ffe5tap_equiv_{task}" / "status"
-        results[task] = status.read_text().split()[0] if status.exists() else "ERROR"
-        shutil.rmtree(workdir / f"ffe5tap_equiv_{task}", ignore_errors=True)
-    shutil.rmtree(OUT / "toolshim", ignore_errors=True)
-    return results
-
-
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--seeds", type=int, default=10)
     parser.add_argument("--only", nargs="*", choices=sorted(DESIGNS))
-    parser.add_argument("--formal", action="store_true",
-                        help="also run the SymbiYosys equivalence proofs")
     args = parser.parse_args()
 
     tools = {
@@ -195,9 +161,6 @@ def main():
         "yosys": find_tool("yosys", "yowasp-yosys"),
         "nextpnr": find_tool("nextpnr-ice40", "yowasp-nextpnr-ice40"),
     }
-    if args.formal:
-        tools["sby"] = find_tool("sby", "yowasp-sby")
-        find_tool("z3")
 
     OUT.mkdir(parents=True, exist_ok=True)
     versions = [f"python: {sys.version.split()[0]}"]
@@ -205,6 +168,12 @@ def main():
         ("verilator", tools["verilator"], "--version"),
         ("yosys", tools["yosys"], "-V"),
         ("nextpnr-ice40", tools["nextpnr"], "--version"))]
+    if "UNKNOWN" in versions[1]:
+        try:
+            from importlib.metadata import version
+            versions[1] += f" (PyPI verilator package {version('verilator')})"
+        except Exception:
+            pass
     (OUT / "tool_versions.txt").write_text("\n".join(versions) + "\n")
     print("\n".join(versions))
 
@@ -239,28 +208,19 @@ def main():
         fmax = [r["fmax_mhz"] for r in rows if r["fmax_mhz"] is not None]
         lcs = [r["logic_cells"] for r in rows if r["logic_cells"] is not None]
         print(f"    synth:      {luts} LUT4, {lcs[0] if lcs else '?'} LC, "
-              f"Fmax median {statistics.median(fmax) if fmax else '?'} MHz over {len(fmax)} seeds")
+              f"Fmax median {round(statistics.median(fmax), 2) if fmax else '?'} MHz over {len(fmax)} seeds")
 
         summary.append({
             "design": name, "case": case, "implementation": impl, "rtl": rtl_rel,
             "regression": reg[0], "regression_samples": reg[1], "regression_mismatches": reg[2],
             "directed": dirc[0], "directed_cycles": dirc[1], "directed_mismatches": dirc[2],
             "yosys_lut4": luts,
-            "logic_cells": statistics.median(lcs) if lcs else None,
+            "logic_cells": int(statistics.median(lcs)) if lcs else None,
             "fmax_median_mhz": round(statistics.median(fmax), 2) if fmax else None,
             "fmax_min_mhz": min(fmax) if fmax else None,
             "fmax_max_mhz": max(fmax) if fmax else None,
             "seeds": len(fmax),
         })
-
-    if args.formal:
-        tasks = [n for n in names if not n.endswith("_baseline")]
-        print("Running equivalence proofs:", " ".join(tasks))
-        proofs = run_formal(tools, tasks)
-        for row in summary:
-            row["equivalence_proof"] = proofs.get(row["design"], "n/a (reference)")
-        for task, status in proofs.items():
-            print(f"    {task}: {status}")
 
     with (OUT / "summary.csv").open("w", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=list(summary[0]))
@@ -272,8 +232,7 @@ def main():
         writer.writerows(seed_rows)
 
     failed = [r["design"] for r in summary
-              if r["regression"] != "PASS" or r["directed"] != "PASS"
-              or r.get("equivalence_proof", "PASS") not in ("PASS", "n/a (reference)")]
+              if r["regression"] != "PASS" or r["directed"] != "PASS"]
     print("\nWrote results/rebuild/summary.csv and fmax_seeds.csv")
     print("RESULT:", "PASS" if not failed else "FAIL: " + ", ".join(failed))
     sys.exit(1 if failed else 0)

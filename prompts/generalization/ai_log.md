@@ -9,7 +9,7 @@ Version:
 Not recorded
 
 Date:
-[record date]
+Not recorded
 
 Prompt:
 See resource_optimization.txt
@@ -25,34 +25,46 @@ None
 ## Case B
 
 Model:
+Claude
 
 Version:
+Not recorded
 
 Date:
+Not recorded
 
 Prompt:
-See resource_optimization.txt
+See case_B_prompt.txt (embeds resource_optimization.txt)
 
 Generated RTL:
+rtl/generalization/optimized/ffe5tap_caseB_optimized.sv
+(identical to the RTL in results/generalization/case_B/optimized/ai_response.md, comments excluded)
 
 Manual changes:
+None
 
 ---
 
 ## Case C
 
 Model:
+Claude
 
 Version:
+Not recorded
 
 Date:
+Not recorded
 
 Prompt:
-See resource_optimization.txt
+See case_C_prompt.txt (embeds resource_optimization.txt)
 
 Generated RTL:
+rtl/generalization/optimized/ffe5tap_caseC_optimized.sv
+(identical to the RTL in results/generalization/case_C/optimized/ai_response.md, comments excluded)
 
 Manual changes:
+None
 ## Case B — AI Optimization Record
 
 - Prompt file: prompts/generalization/case_B_prompt.txt

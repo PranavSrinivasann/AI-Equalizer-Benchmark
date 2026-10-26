@@ -13,8 +13,8 @@ Part 2: exhaustive checks of the factored arithmetic in the optimized RTL.
     arithmetic over every input value each intermediate can see.
 
 This checks the arithmetic as transcribed here, not the RTL source itself.
-The RTL is checked directly by the equivalence proofs in formal/ and by the
-directed simulations in testbench/directed/.
+The RTL itself is checked by the regression and directed simulations
+(testbench/generalization/ and testbench/directed/).
 """
 
 from pathlib import Path

@@ -46,6 +46,19 @@ Depending on the implementation, the directories contain Verilator logs, generat
 
 The Phase 4 timing investigation artifacts are under `results/phase4/`.
 
+## One-command rebuild
+
+`scripts/rebuild_all.py` reruns verification, synthesis and place-and-route
+for every design (baseline, optimized and hand-optimized for Cases A-C):
+
+```bash
+python3 scripts/rebuild_all.py --seeds 10
+```
+
+It records tool versions, saves per-design logs under `results/rebuild/`,
+and writes `results/rebuild/summary.csv` and `results/rebuild/fmax_seeds.csv`.
+See `documentation/week1_walkthrough.md` for what each check covers.
+
 ## Recommended rerun procedure
 
 1. Confirm the current Git state and make a backup of any results that must be preserved.
@@ -62,7 +75,7 @@ Do not infer functional correctness from successful synthesis. A result should b
 
 ## Current evidence limitations
 
-- Case A functional verification was not established by the artifacts identified during the Phase 4 audit.
+- Case A functional verification was not established by the artifacts identified during the Phase 4 audit; it is now re-established by the saved logs in `results/rebuild/A_*/`.
 - Exact AI model/version, prompt count, and manual RTL change history are not fully recorded.
 - Timing-path excerpts do not necessarily identify the overall critical path.
 
