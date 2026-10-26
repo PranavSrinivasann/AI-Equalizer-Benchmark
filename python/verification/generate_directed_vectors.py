@@ -17,6 +17,7 @@ projectRoot = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(projectRoot / "python"))
 
 from coefficient_sets import coefficientSets  # noqa: E402
+import json  # noqa: E402
 
 X_MIN, X_MAX = -2048, 2047
 outputDir = projectRoot / "test_vectors" / "directed"
@@ -134,9 +135,19 @@ def build_stimulus(coefficients, rng):
     return stim
 
 
+def all_coefficient_sets():
+    """Cases A-C plus any channel-derived sets from results/channel/."""
+    sets = dict(coefficientSets)
+    channelSets = projectRoot / "results" / "channel" / "coefficient_sets.json"
+    if channelSets.exists():
+        for name, info in json.loads(channelSets.read_text()).items():
+            sets[name] = info["coefficients_q110"]
+    return sets
+
+
 def main():
     outputDir.mkdir(parents=True, exist_ok=True)
-    for case, coefficients in coefficientSets.items():
+    for case, coefficients in all_coefficient_sets().items():
         rng = random.Random(seed)
         golden = Golden(coefficients)
         stim = build_stimulus(coefficients, rng)

@@ -59,6 +59,13 @@ It records tool versions, saves per-design logs under `results/rebuild/`,
 and writes `results/rebuild/summary.csv` and `results/rebuild/fmax_seeds.csv`.
 See `documentation/week1_walkthrough.md` for what each check covers.
 
+## Channel experiments
+
+`python/channel/hardware_ber.py` runs the floating-point, fixed-point and
+RTL FFEs on the same PAM4 channel samples and writes `results/channel/`.
+See `documentation/channel_connection.md` and
+`documentation/week2_walkthrough.md`.
+
 ## Recommended rerun procedure
 
 1. Confirm the current Git state and make a backup of any results that must be preserved.

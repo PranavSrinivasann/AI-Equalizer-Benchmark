@@ -111,3 +111,31 @@ None
 - Manual RTL changes: Not recorded
 - Full logs: results/generalization/case_C/optimized/
 
+
+## Channel-derived sets (notebook, short_reach, pre_post, long_tail)
+
+Model:
+Claude (claude-opus-5-5)
+
+Date:
+2026-10-25
+
+Prompt:
+prompts/channel/<channel>_prompt.txt (same format as case_B_prompt.txt),
+sent to a fresh instance per set with an instruction to answer without tools
+
+Generated RTL:
+rtl/channel/optimized/ffe5tap_<channel>_optimized.sv
+(identical to the RTL in results/channel/<channel>/ai_response.md, apart
+from a provenance header comment)
+
+Iterations:
+1 per set
+
+Manual changes:
+None
+
+Verification:
+short_reach, pre_post, long_tail: PASS (directed tests; 2.2M channel cycles
+each, 0 mismatches vs. the fixed-point model)
+notebook: FAIL (overflow test checks acc[23:11] instead of acc[23:21])

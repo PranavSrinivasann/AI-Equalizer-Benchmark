@@ -1,0 +1,2 @@
+$ /usr/local/bin/yowasp-yosys -q -l results/channel/rebuild/long_tail_baseline/yosys.log -p read_verilog -sv rtl/channel/ffe5tap_long_tail_baseline.sv; hierarchy -top ffe5tap_pam4; synth_ice40 -top ffe5tap_pam4 -json results/channel/rebuild/long_tail_baseline/design.json; tee -o results/channel/rebuild/long_tail_baseline/yosys_stat.txt stat
+

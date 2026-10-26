@@ -22,6 +22,7 @@ yowasp-* Python builds are used as a fallback for yosys and nextpnr.
 
 import argparse
 import csv
+import json
 import os
 import re
 import shutil
@@ -54,6 +55,19 @@ DESIGNS = {
     "C_ai":       ("C", "ai",       "rtl/generalization/optimized/ffe5tap_caseC_optimized.sv"),
     "C_hand":     ("C", "hand",     "rtl/hand/ffe5tap_caseC_hand.sv"),
 }
+
+# Channel-derived coefficient sets (python/channel/hardware_ber.py) add
+# baseline, hand and, when present, optimized designs. They have no
+# 1000-sample regression set; the directed vectors and the channel BER
+# runs cover them.
+CHANNEL_SETS = ROOT / "results/channel/coefficient_sets.json"
+if CHANNEL_SETS.exists():
+    for _name in json.loads(CHANNEL_SETS.read_text()):
+        for _impl, _path in (("baseline", f"rtl/channel/ffe5tap_{_name}_baseline.sv"),
+                             ("hand", f"rtl/channel/ffe5tap_{_name}_hand.sv"),
+                             ("ai", f"rtl/channel/optimized/ffe5tap_{_name}_optimized.sv")):
+            if (ROOT / _path).exists():
+                DESIGNS[f"{_name}_{_impl}"] = (_name, _impl, _path)
 
 REGRESSION_TB = ROOT / "testbench/generalization/ffe5tap_generalization_tb.sv"
 DIRECTED_TB = ROOT / "testbench/directed/ffe5tap_directed_tb.sv"
@@ -154,7 +168,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--seeds", type=int, default=10)
     parser.add_argument("--only", nargs="*", choices=sorted(DESIGNS))
+    parser.add_argument("--out", default="results/rebuild",
+                        help="output folder, relative to the repo root")
     args = parser.parse_args()
+    global OUT
+    OUT = ROOT / args.out
 
     tools = {
         "verilator": find_tool("verilator"),
@@ -190,10 +208,13 @@ def main():
         work.mkdir(parents=True, exist_ok=True)
         print(f"[{name}] {rtl_rel}")
 
-        inp, exp = REGRESSION[case]
-        reg = simulate(tools, REGRESSION_TB, "ffe5tap_generalization_tb", rtl, work,
-                       [f"+INPUT={inp}", f"+EXPECTED={exp}"], "sim_regression")
-        print(f"    regression: {reg[0]} ({reg[1]} samples, {reg[2]} mismatches)")
+        if case in REGRESSION:
+            inp, exp = REGRESSION[case]
+            reg = simulate(tools, REGRESSION_TB, "ffe5tap_generalization_tb", rtl, work,
+                           [f"+INPUT={inp}", f"+EXPECTED={exp}"], "sim_regression")
+            print(f"    regression: {reg[0]} ({reg[1]} samples, {reg[2]} mismatches)")
+        else:
+            reg = ("n/a", None, None)
 
         vectors = DIRECTED_VECTORS / f"case_{case}.txt"
         n_cycles = sum(1 for line in vectors.open() if line.strip())
@@ -232,8 +253,8 @@ def main():
         writer.writerows(seed_rows)
 
     failed = [r["design"] for r in summary
-              if r["regression"] != "PASS" or r["directed"] != "PASS"]
-    print("\nWrote results/rebuild/summary.csv and fmax_seeds.csv")
+              if r["regression"] not in ("PASS", "n/a") or r["directed"] != "PASS"]
+    print(f"\nWrote {args.out}/summary.csv and fmax_seeds.csv")
     print("RESULT:", "PASS" if not failed else "FAIL: " + ", ".join(failed))
     sys.exit(1 if failed else 0)
 

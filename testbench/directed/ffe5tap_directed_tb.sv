@@ -5,6 +5,7 @@
 // rst_n and x_in are driven on the falling edge; y_out is checked just
 // after the following rising edge (1-cycle latency, synchronous reset).
 // Groups are defined in python/verification/generate_directed_vectors.py.
+// Optional +DUMP=<path> writes y_out for every cycle, one value per line.
 
 module ffe5tap_directed_tb;
 
@@ -24,6 +25,8 @@ module ffe5tap_directed_tb;
     integer groupMismatches [NUM_GROUPS];
     integer expectedCycles = -1;
     string  vectorPath;
+    string  dumpPath;
+    integer dumpFile = 0;
 
     ffe5tap_pam4 dut (
         .clk(clk),
@@ -46,6 +49,14 @@ module ffe5tap_directed_tb;
         end
         void'($value$plusargs("CYCLES=%d", expectedCycles));
 
+        if ($value$plusargs("DUMP=%s", dumpPath)) begin
+            dumpFile = $fopen(dumpPath, "w");
+            if (dumpFile == 0) begin
+                $display("ERROR: Could not open %s", dumpPath);
+                $fatal(1);
+            end
+        end
+
         vectorFile = $fopen(vectorPath, "r");
         if (vectorFile == 0) begin
             $display("ERROR: Could not open %s", vectorPath);
@@ -67,6 +78,7 @@ module ffe5tap_directed_tb;
 
             cycles++;
             groupCycles[group]++;
+            if (dumpFile != 0) $fdisplay(dumpFile, "%0d", $signed(y_out));
 
             if ($signed(y_out) !== expected) begin
                 mismatches++;
@@ -77,6 +89,7 @@ module ffe5tap_directed_tb;
             end
         end
         $fclose(vectorFile);
+        if (dumpFile != 0) $fclose(dumpFile);
 
         $display("========================================");
         $display("Directed Verification: %s", vectorPath);
