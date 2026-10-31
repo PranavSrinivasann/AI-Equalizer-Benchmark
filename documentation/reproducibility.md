@@ -97,3 +97,20 @@ python3 python/dj/run_phase3.py         # results/dj/, rtl/dj/
 
 Needs scikit-rf, SciPy, matplotlib and Verilator. See
 `documentation/phase3_802_3dj.md`.
+
+## Agent loop (Phase 5)
+
+```bash
+export V=/usr/local/lib/python3.13/site-packages/verilator   # wherever Verilator lives
+export PATH=$V/bin:$PATH VERILATOR_ROOT=$V
+python3 python/agent/loop.py setup          # evaluate the baseline and the hand CSD reference
+python3 python/agent/loop.py prompt N       # writes results/agent/round_NN/prompt.md
+# ... the model's reply is saved as results/agent/round_NN/response.md ...
+python3 python/agent/loop.py evaluate N     # gates G1-G3, synthesis, place and route; updates state.json
+python3 python/agent/loop.py control NAME   # evaluate a single-shot control sample
+python3 python/agent/report_agent.py        # results/agent/summary.csv and score_by_round.png
+```
+
+Every prompt, reply, report and synthesis log is kept under `results/agent/`.
+The model's replies cannot be regenerated bit for bit; the saved replies are the record.
+See `documentation/phase5_agent_loop.md`.
