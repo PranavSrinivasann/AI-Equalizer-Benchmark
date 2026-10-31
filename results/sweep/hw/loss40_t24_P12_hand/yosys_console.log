@@ -1,0 +1,2 @@
+$ /usr/local/bin/yowasp-yosys -q -l results/sweep/hw/loss40_t24_P12_hand/yosys.log -p read_verilog -sv rtl/sweep/loss40/ffe_t24_P12_hand.sv; hierarchy -top ffe_pam4; synth_ice40 -top ffe_pam4 -json results/sweep/hw/loss40_t24_P12_hand/design.json; tee -o results/sweep/hw/loss40_t24_P12_hand/stat.txt stat
+

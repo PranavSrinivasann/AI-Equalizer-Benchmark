@@ -1,0 +1,2543 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+
+-- Running command `read_verilog -sv rtl/sweep/loss40/ffe_t48_P12_hand.sv; hierarchy -top ffe_pam4; synth_ice40 -top ffe_pam4 -json results/sweep/hw/loss40_t48_P12_hand/design.json; tee -o results/sweep/hw/loss40_t48_P12_hand/stat.txt stat' --
+
+1. Executing Verilog-2005 frontend: rtl/sweep/loss40/ffe_t48_P12_hand.sv
+Parsing SystemVerilog input from `rtl/sweep/loss40/ffe_t48_P12_hand.sv' to AST representation.
+Generating RTLIL representation for module `\ffe_pam4'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ffe_pam4
+
+2.2. Analyzing design hierarchy..
+Top module:  \ffe_pam4
+Removed 0 unused modules.
+
+3. Executing SYNTH_ICE40 pass.
+
+3.1. Executing Verilog-2005 frontend: /share/ice40/cells_sim.v
+Parsing Verilog input from `/share/ice40/cells_sim.v' to AST representation.
+Generating RTLIL representation for module `\SB_IO'.
+Generating RTLIL representation for module `\SB_GB_IO'.
+Generating RTLIL representation for module `\SB_GB'.
+Generating RTLIL representation for module `\SB_LUT4'.
+Generating RTLIL representation for module `\SB_CARRY'.
+Generating RTLIL representation for module `\SB_DFF'.
+Generating RTLIL representation for module `\SB_DFFE'.
+Generating RTLIL representation for module `\SB_DFFSR'.
+Generating RTLIL representation for module `\SB_DFFR'.
+Generating RTLIL representation for module `\SB_DFFSS'.
+Generating RTLIL representation for module `\SB_DFFS'.
+Generating RTLIL representation for module `\SB_DFFESR'.
+Generating RTLIL representation for module `\SB_DFFER'.
+Generating RTLIL representation for module `\SB_DFFESS'.
+Generating RTLIL representation for module `\SB_DFFES'.
+Generating RTLIL representation for module `\SB_DFFN'.
+Generating RTLIL representation for module `\SB_DFFNE'.
+Generating RTLIL representation for module `\SB_DFFNSR'.
+Generating RTLIL representation for module `\SB_DFFNR'.
+Generating RTLIL representation for module `\SB_DFFNSS'.
+Generating RTLIL representation for module `\SB_DFFNS'.
+Generating RTLIL representation for module `\SB_DFFNESR'.
+Generating RTLIL representation for module `\SB_DFFNER'.
+Generating RTLIL representation for module `\SB_DFFNESS'.
+Generating RTLIL representation for module `\SB_DFFNES'.
+Generating RTLIL representation for module `\SB_RAM40_4K'.
+Generating RTLIL representation for module `\SB_RAM40_4KNR'.
+Generating RTLIL representation for module `\SB_RAM40_4KNW'.
+Generating RTLIL representation for module `\SB_RAM40_4KNRNW'.
+Generating RTLIL representation for module `\ICESTORM_LC'.
+Generating RTLIL representation for module `\SB_PLL40_CORE'.
+Generating RTLIL representation for module `\SB_PLL40_PAD'.
+Generating RTLIL representation for module `\SB_PLL40_2_PAD'.
+Generating RTLIL representation for module `\SB_PLL40_2F_CORE'.
+Generating RTLIL representation for module `\SB_PLL40_2F_PAD'.
+Generating RTLIL representation for module `\SB_WARMBOOT'.
+Generating RTLIL representation for module `\SB_SPRAM256KA'.
+Generating RTLIL representation for module `\SB_HFOSC'.
+Generating RTLIL representation for module `\SB_LFOSC'.
+Generating RTLIL representation for module `\SB_RGBA_DRV'.
+Generating RTLIL representation for module `\SB_LED_DRV_CUR'.
+Generating RTLIL representation for module `\SB_RGB_DRV'.
+Generating RTLIL representation for module `\SB_I2C'.
+Generating RTLIL representation for module `\SB_SPI'.
+Generating RTLIL representation for module `\SB_LEDDA_IP'.
+Generating RTLIL representation for module `\SB_FILTER_50NS'.
+Generating RTLIL representation for module `\SB_IO_I3C'.
+Generating RTLIL representation for module `\SB_IO_OD'.
+Generating RTLIL representation for module `\SB_MAC16'.
+Generating RTLIL representation for module `\ICESTORM_RAM'.
+Successfully finished Verilog frontend.
+
+3.2. Executing HIERARCHY pass (managing design hierarchy).
+
+3.2.1. Analyzing design hierarchy..
+Top module:  \ffe_pam4
+
+3.2.2. Analyzing design hierarchy..
+Top module:  \ffe_pam4
+Removed 0 unused modules.
+
+3.3. Executing PROC pass (convert processes to netlists).
+
+3.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293 in module ffe_pam4.
+Marked 2 switch rules as full_case in process $proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:164$290 in module ffe_pam4.
+Removed a total of 0 dead cases.
+
+3.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 48 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~3 debug messages>
+
+3.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+     1/48: $0\y_out[11:0]
+     2/48: $0\x47[11:0]
+     3/48: $0\x46[11:0]
+     4/48: $0\x45[11:0]
+     5/48: $0\x44[11:0]
+     6/48: $0\x43[11:0]
+     7/48: $0\x42[11:0]
+     8/48: $0\x41[11:0]
+     9/48: $0\x40[11:0]
+    10/48: $0\x39[11:0]
+    11/48: $0\x38[11:0]
+    12/48: $0\x37[11:0]
+    13/48: $0\x36[11:0]
+    14/48: $0\x35[11:0]
+    15/48: $0\x34[11:0]
+    16/48: $0\x33[11:0]
+    17/48: $0\x32[11:0]
+    18/48: $0\x31[11:0]
+    19/48: $0\x30[11:0]
+    20/48: $0\x29[11:0]
+    21/48: $0\x28[11:0]
+    22/48: $0\x27[11:0]
+    23/48: $0\x26[11:0]
+    24/48: $0\x25[11:0]
+    25/48: $0\x24[11:0]
+    26/48: $0\x23[11:0]
+    27/48: $0\x22[11:0]
+    28/48: $0\x21[11:0]
+    29/48: $0\x20[11:0]
+    30/48: $0\x19[11:0]
+    31/48: $0\x18[11:0]
+    32/48: $0\x17[11:0]
+    33/48: $0\x16[11:0]
+    34/48: $0\x15[11:0]
+    35/48: $0\x14[11:0]
+    36/48: $0\x13[11:0]
+    37/48: $0\x12[11:0]
+    38/48: $0\x11[11:0]
+    39/48: $0\x10[11:0]
+    40/48: $0\x9[11:0]
+    41/48: $0\x8[11:0]
+    42/48: $0\x7[11:0]
+    43/48: $0\x6[11:0]
+    44/48: $0\x5[11:0]
+    45/48: $0\x4[11:0]
+    46/48: $0\x3[11:0]
+    47/48: $0\x2[11:0]
+    48/48: $0\x1[11:0]
+Creating decoders for process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:164$290'.
+     1/2: $2\y_next[11:0]
+     2/2: $1\y_next[11:0]
+
+3.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ffe_pam4.\y_next' from process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:164$290'.
+
+3.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ffe_pam4.\y_out' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$828' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x1' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$829' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x2' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$830' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x3' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$831' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x4' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$832' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x5' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$833' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x6' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$834' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x7' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$835' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x8' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$836' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x9' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$837' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x10' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$838' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x11' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$839' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x12' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$840' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x13' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$841' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x14' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$842' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x15' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$843' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x16' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$844' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x17' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$845' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x18' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$846' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x19' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$847' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x20' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$848' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x21' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$849' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x22' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$850' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x23' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$851' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x24' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$852' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x25' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$853' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x26' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$854' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x27' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$855' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x28' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$856' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x29' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$857' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x30' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$858' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x31' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$859' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x32' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$860' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x33' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$861' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x34' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$862' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x35' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$863' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x36' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$864' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x37' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$865' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x38' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$866' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x39' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$867' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x40' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$868' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x41' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$869' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x42' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$870' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x43' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$871' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x44' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$872' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x45' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$873' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x46' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$874' with positive edge clock.
+Creating register for signal `\ffe_pam4.\x47' using process `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+  created $dff cell `$procdff$875' with positive edge clock.
+
+3.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+Removing empty process `ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:173$293'.
+Found and cleaned up 2 empty switches in `\ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:164$290'.
+Removing empty process `ffe_pam4.$proc$rtl/sweep/loss40/ffe_t48_P12_hand.sv:164$290'.
+Cleaned up 3 empty switches.
+
+3.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~171 debug messages>
+
+3.4. Executing CHECK pass (checking for obvious problems).
+Checking module ffe_pam4...
+Found and reported 0 problems.
+
+3.5. Executing FLATTEN pass (flatten design).
+
+3.6. Executing TRIBUF pass.
+
+3.7. Executing DEMINOUT pass (demote inout ports to input or output).
+
+3.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.9. Executing CHECK pass (checking for obvious problems).
+Checking module ffe_pam4...
+Found and reported 0 problems.
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 1 unused cells and 275 unused wires.
+<suppressed ~2 debug messages>
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 267 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe_pam4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$823.
+Removed 1 multiplexer ports.
+<suppressed ~99 debug messages>
+
+3.11.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe_pam4.
+Performed a total of 0 changes.
+
+3.11.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 266 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.11.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.11.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.11.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.11.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.11.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe_pam4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~98 debug messages>
+
+3.11.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe_pam4.
+Performed a total of 0 changes.
+
+3.11.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 266 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.11.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.11.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.11.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.11.16. Finished fast OPT passes. (There is nothing left to do.)
+
+3.12. Executing FSM pass (extract and optimize FSM).
+
+3.12.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+3.12.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+3.12.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.12.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.12.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+3.12.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+3.12.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+3.12.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+3.13. Executing OPT pass (performing simple optimizations).
+
+3.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 266 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe_pam4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~98 debug messages>
+
+3.13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe_pam4.
+Performed a total of 0 changes.
+
+3.13.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 266 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.13.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$875 ($dff) from module ffe_pam4 (D = \x46, Q = \x47, rval = 12'000000000000).
+Adding SRST signal on $procdff$874 ($dff) from module ffe_pam4 (D = \x45, Q = \x46, rval = 12'000000000000).
+Adding SRST signal on $procdff$873 ($dff) from module ffe_pam4 (D = \x44, Q = \x45, rval = 12'000000000000).
+Adding SRST signal on $procdff$872 ($dff) from module ffe_pam4 (D = \x43, Q = \x44, rval = 12'000000000000).
+Adding SRST signal on $procdff$871 ($dff) from module ffe_pam4 (D = \x42, Q = \x43, rval = 12'000000000000).
+Adding SRST signal on $procdff$870 ($dff) from module ffe_pam4 (D = \x41, Q = \x42, rval = 12'000000000000).
+Adding SRST signal on $procdff$869 ($dff) from module ffe_pam4 (D = \x40, Q = \x41, rval = 12'000000000000).
+Adding SRST signal on $procdff$868 ($dff) from module ffe_pam4 (D = \x39, Q = \x40, rval = 12'000000000000).
+Adding SRST signal on $procdff$867 ($dff) from module ffe_pam4 (D = \x38, Q = \x39, rval = 12'000000000000).
+Adding SRST signal on $procdff$866 ($dff) from module ffe_pam4 (D = \x37, Q = \x38, rval = 12'000000000000).
+Adding SRST signal on $procdff$865 ($dff) from module ffe_pam4 (D = \x36, Q = \x37, rval = 12'000000000000).
+Adding SRST signal on $procdff$864 ($dff) from module ffe_pam4 (D = \x35, Q = \x36, rval = 12'000000000000).
+Adding SRST signal on $procdff$863 ($dff) from module ffe_pam4 (D = \x34, Q = \x35, rval = 12'000000000000).
+Adding SRST signal on $procdff$862 ($dff) from module ffe_pam4 (D = \x33, Q = \x34, rval = 12'000000000000).
+Adding SRST signal on $procdff$861 ($dff) from module ffe_pam4 (D = \x32, Q = \x33, rval = 12'000000000000).
+Adding SRST signal on $procdff$860 ($dff) from module ffe_pam4 (D = \x31, Q = \x32, rval = 12'000000000000).
+Adding SRST signal on $procdff$859 ($dff) from module ffe_pam4 (D = \x30, Q = \x31, rval = 12'000000000000).
+Adding SRST signal on $procdff$858 ($dff) from module ffe_pam4 (D = \x29, Q = \x30, rval = 12'000000000000).
+Adding SRST signal on $procdff$857 ($dff) from module ffe_pam4 (D = \x28, Q = \x29, rval = 12'000000000000).
+Adding SRST signal on $procdff$856 ($dff) from module ffe_pam4 (D = \x27, Q = \x28, rval = 12'000000000000).
+Adding SRST signal on $procdff$855 ($dff) from module ffe_pam4 (D = \x26, Q = \x27, rval = 12'000000000000).
+Adding SRST signal on $procdff$854 ($dff) from module ffe_pam4 (D = \x25, Q = \x26, rval = 12'000000000000).
+Adding SRST signal on $procdff$853 ($dff) from module ffe_pam4 (D = \x24, Q = \x25, rval = 12'000000000000).
+Adding SRST signal on $procdff$852 ($dff) from module ffe_pam4 (D = \x23, Q = \x24, rval = 12'000000000000).
+Adding SRST signal on $procdff$851 ($dff) from module ffe_pam4 (D = \x22, Q = \x23, rval = 12'000000000000).
+Adding SRST signal on $procdff$850 ($dff) from module ffe_pam4 (D = \x21, Q = \x22, rval = 12'000000000000).
+Adding SRST signal on $procdff$849 ($dff) from module ffe_pam4 (D = \x20, Q = \x21, rval = 12'000000000000).
+Adding SRST signal on $procdff$848 ($dff) from module ffe_pam4 (D = \x19, Q = \x20, rval = 12'000000000000).
+Adding SRST signal on $procdff$847 ($dff) from module ffe_pam4 (D = \x18, Q = \x19, rval = 12'000000000000).
+Adding SRST signal on $procdff$846 ($dff) from module ffe_pam4 (D = \x17, Q = \x18, rval = 12'000000000000).
+Adding SRST signal on $procdff$845 ($dff) from module ffe_pam4 (D = \x16, Q = \x17, rval = 12'000000000000).
+Adding SRST signal on $procdff$844 ($dff) from module ffe_pam4 (D = \x15, Q = \x16, rval = 12'000000000000).
+Adding SRST signal on $procdff$843 ($dff) from module ffe_pam4 (D = \x14, Q = \x15, rval = 12'000000000000).
+Adding SRST signal on $procdff$842 ($dff) from module ffe_pam4 (D = \x13, Q = \x14, rval = 12'000000000000).
+Adding SRST signal on $procdff$841 ($dff) from module ffe_pam4 (D = \x12, Q = \x13, rval = 12'000000000000).
+Adding SRST signal on $procdff$840 ($dff) from module ffe_pam4 (D = \x11, Q = \x12, rval = 12'000000000000).
+Adding SRST signal on $procdff$839 ($dff) from module ffe_pam4 (D = \x10, Q = \x11, rval = 12'000000000000).
+Adding SRST signal on $procdff$838 ($dff) from module ffe_pam4 (D = \x9, Q = \x10, rval = 12'000000000000).
+Adding SRST signal on $procdff$837 ($dff) from module ffe_pam4 (D = \x8, Q = \x9, rval = 12'000000000000).
+Adding SRST signal on $procdff$836 ($dff) from module ffe_pam4 (D = \x7, Q = \x8, rval = 12'000000000000).
+Adding SRST signal on $procdff$835 ($dff) from module ffe_pam4 (D = \x6, Q = \x7, rval = 12'000000000000).
+Adding SRST signal on $procdff$834 ($dff) from module ffe_pam4 (D = \x5, Q = \x6, rval = 12'000000000000).
+Adding SRST signal on $procdff$833 ($dff) from module ffe_pam4 (D = \x4, Q = \x5, rval = 12'000000000000).
+Adding SRST signal on $procdff$832 ($dff) from module ffe_pam4 (D = \x3, Q = \x4, rval = 12'000000000000).
+Adding SRST signal on $procdff$831 ($dff) from module ffe_pam4 (D = \x2, Q = \x3, rval = 12'000000000000).
+Adding SRST signal on $procdff$830 ($dff) from module ffe_pam4 (D = \x1, Q = \x2, rval = 12'000000000000).
+Adding SRST signal on $procdff$829 ($dff) from module ffe_pam4 (D = \x_in, Q = \x1, rval = 12'000000000000).
+Adding SRST signal on $procdff$828 ($dff) from module ffe_pam4 (D = \y_next [10:0], Q = \y_out [10:0], rval = 11'00000000000).
+Adding SRST signal on $procdff$828 ($dff) from module ffe_pam4 (D = $2\y_next[11:0] [11], Q = \y_out [11], rval = 1'0).
+
+3.13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 48 unused cells and 48 unused wires.
+<suppressed ~49 debug messages>
+
+3.13.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.13.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.13.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe_pam4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+3.13.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe_pam4.
+Performed a total of 0 changes.
+
+3.13.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 221 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.13.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.13.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.13.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.13.16. Finished fast OPT passes. (There is nothing left to do.)
+
+3.14. Executing WREDUCE pass (reducing word size of cells).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:62$2 ($sub) from unsigned to signed.
+Removed top 11 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:62$2 ($sub).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:62$2 ($sub).
+Removed top 10 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:62$2 ($sub).
+Removed top 10 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$4 ($neg).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$6 ($sub).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$7 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$10 ($sub) from unsigned to signed.
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$10 ($sub).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$10 ($sub).
+Removed top 7 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$10 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$12 ($sub) from unsigned to signed.
+Removed top 7 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$12 ($sub).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$12 ($sub).
+Removed top 6 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$12 ($sub).
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:68$14 ($neg).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:68$16 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$19 ($add) from unsigned to signed.
+Removed top 7 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$19 ($add).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$19 ($add).
+Removed top 6 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$19 ($add).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$21 ($add) from unsigned to signed.
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$21 ($add).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$21 ($add).
+Removed top 5 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$21 ($add).
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$23 ($neg).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$25 ($add).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$27 ($add).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$30 ($sub) from unsigned to signed.
+Removed top 5 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$30 ($sub).
+Removed top 7 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$30 ($sub).
+Removed top 4 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$30 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$32 ($add) from unsigned to signed.
+Removed top 4 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$32 ($add).
+Removed top 9 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$32 ($add).
+Removed top 3 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$32 ($add).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$34 ($sub) from unsigned to signed.
+Removed top 3 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$34 ($sub).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$34 ($sub).
+Removed top 2 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$34 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$36 ($sub) from unsigned to signed.
+Removed top 2 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$36 ($sub).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$36 ($sub).
+Removed top 1 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$36 ($sub).
+Removed top 4 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$38 ($neg).
+Removed top 6 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$40 ($add).
+Removed top 8 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$42 ($add).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$44 ($add).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$46 ($add).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$49 ($add) from unsigned to signed.
+Removed top 4 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$49 ($add).
+Removed top 8 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$49 ($add).
+Removed top 3 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$49 ($add).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$51 ($add) from unsigned to signed.
+Removed top 3 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$51 ($add).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$51 ($add).
+Removed top 2 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$51 ($add).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$53 ($sub) from unsigned to signed.
+Removed top 2 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$53 ($sub).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$53 ($sub).
+Removed top 1 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$53 ($sub).
+Removed top 3 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:80$55 ($neg).
+Removed top 5 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:80$57 ($add).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$60 ($sub) from unsigned to signed.
+Removed top 3 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$60 ($sub).
+Removed top 5 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$60 ($sub).
+Removed top 2 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$60 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$62 ($sub) from unsigned to signed.
+Removed top 2 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$62 ($sub).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$62 ($sub).
+Removed top 1 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$62 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$64 ($sub) from unsigned to signed.
+Removed top 1 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$64 ($sub).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$64 ($sub).
+Removed top 5 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$66 ($neg).
+Removed top 7 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$68 ($add).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$70 ($sub).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$71 ($sub).
+Removed top 10 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$73 ($neg).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$75 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$76 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$79 ($sub) from unsigned to signed.
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$79 ($sub).
+Removed top 8 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$79 ($sub).
+Removed top 5 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$79 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$81 ($add) from unsigned to signed.
+Removed top 5 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$81 ($add).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$81 ($add).
+Removed top 4 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$81 ($add).
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$83 ($neg).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$85 ($sub).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$87 ($add).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$90 ($sub) from unsigned to signed.
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$90 ($sub).
+Removed top 9 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$90 ($sub).
+Removed top 5 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$90 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$92 ($add) from unsigned to signed.
+Removed top 5 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$92 ($add).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$92 ($add).
+Removed top 4 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$92 ($add).
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$94 ($neg).
+Removed top 8 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$96 ($add).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$98 ($add).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$100 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$101 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$104 ($sub) from unsigned to signed.
+Removed top 7 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$104 ($sub).
+Removed top 9 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$104 ($sub).
+Removed top 6 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$104 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$106 ($add) from unsigned to signed.
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$106 ($add).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$106 ($add).
+Removed top 5 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$106 ($add).
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:98$108 ($neg).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:98$110 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:98$111 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$114 ($sub) from unsigned to signed.
+Removed top 9 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$114 ($sub).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$114 ($sub).
+Removed top 8 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$114 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$116 ($sub) from unsigned to signed.
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$116 ($sub).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$116 ($sub).
+Removed top 7 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$116 ($sub).
+Removed top 9 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:102$118 ($neg).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:102$120 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$123 ($sub) from unsigned to signed.
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$123 ($sub).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$123 ($sub).
+Removed top 7 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$123 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$125 ($sub) from unsigned to signed.
+Removed top 7 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$125 ($sub).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$125 ($sub).
+Removed top 6 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$125 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$126 ($add) from unsigned to signed.
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$126 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$126 ($add).
+Removed top 5 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$126 ($add).
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:106$128 ($neg).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:106$130 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$133 ($sub) from unsigned to signed.
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$133 ($sub).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$133 ($sub).
+Removed top 7 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$133 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$134 ($add) from unsigned to signed.
+Removed top 7 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$134 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$134 ($add).
+Removed top 6 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$134 ($add).
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:110$136 ($neg).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:110$138 ($add).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:110$140 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$143 ($sub) from unsigned to signed.
+Removed top 9 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$143 ($sub).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$143 ($sub).
+Removed top 8 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$143 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$144 ($add) from unsigned to signed.
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$144 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$144 ($add).
+Removed top 7 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$144 ($add).
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$146 ($neg).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$148 ($sub).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$150 ($sub).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$151 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:116$153 ($add) from unsigned to signed.
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:116$153 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:116$153 ($add).
+Removed top 5 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:116$153 ($add).
+Removed top 5 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$155 ($neg).
+Removed top 8 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$157 ($add).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$159 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$160 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$163 ($add) from unsigned to signed.
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$163 ($add).
+Removed top 8 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$163 ($add).
+Removed top 5 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$163 ($add).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$165 ($add) from unsigned to signed.
+Removed top 5 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$165 ($add).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$165 ($add).
+Removed top 4 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$165 ($add).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$167 ($sub) from unsigned to signed.
+Removed top 4 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$167 ($sub).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$167 ($sub).
+Removed top 3 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$167 ($sub).
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:122$169 ($neg).
+Removed top 8 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:122$171 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:122$172 ($add).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$175 ($add) from unsigned to signed.
+Removed top 9 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$175 ($add).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$175 ($add).
+Removed top 8 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$175 ($add).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$176 ($sub) from unsigned to signed.
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$176 ($sub).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$176 ($sub).
+Removed top 7 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$176 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$179 ($sub) from unsigned to signed.
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$179 ($sub).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$179 ($sub).
+Removed top 7 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$179 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$181 ($add) from unsigned to signed.
+Removed top 7 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$181 ($add).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$181 ($add).
+Removed top 6 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$181 ($add).
+Removed top 7 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:128$183 ($neg).
+Removed top 9 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:128$185 ($add).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:128$187 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$190 ($sub) from unsigned to signed.
+Removed top 7 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$190 ($sub).
+Removed top 9 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$190 ($sub).
+Removed top 6 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$190 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$192 ($sub) from unsigned to signed.
+Removed top 6 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$192 ($sub).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$192 ($sub).
+Removed top 5 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$192 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$193 ($add) from unsigned to signed.
+Removed top 5 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$193 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$193 ($add).
+Removed top 4 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$193 ($add).
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$195 ($neg).
+Removed top 10 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$197 ($sub).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$199 ($sub).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$200 ($add).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$203 ($sub) from unsigned to signed.
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$203 ($sub).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$203 ($sub).
+Removed top 7 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$203 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$204 ($sub) from unsigned to signed.
+Removed top 7 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$204 ($sub).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$204 ($sub).
+Removed top 6 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$204 ($sub).
+Removed top 9 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:136$206 ($neg).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:136$208 ($add).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:138$210 ($add) from unsigned to signed.
+Removed top 12 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:138$210 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:138$210 ($add).
+Removed top 11 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:138$210 ($add).
+Removed top 11 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:142$213 ($neg).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:142$215 ($add).
+Removed top 12 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:144$217 ($neg).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:144$218 ($sub).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$221 ($sub) from unsigned to signed.
+Removed top 10 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$221 ($sub).
+Removed top 12 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$221 ($sub).
+Removed top 9 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$221 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$222 ($add) from unsigned to signed.
+Removed top 9 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$222 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$222 ($add).
+Removed top 8 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$222 ($add).
+Removed top 11 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:148$224 ($neg).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:148$226 ($add).
+Removed top 10 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:150$228 ($neg).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:150$230 ($add).
+Converting cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$233 ($sub) from unsigned to signed.
+Removed top 9 bits (of 26) from port A of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$233 ($sub).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$233 ($sub).
+Removed top 8 bits (of 26) from port Y of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$233 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$235 ($add) from unsigned to signed.
+Removed top 8 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$235 ($add).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$235 ($add).
+Removed top 7 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$235 ($add).
+Removed top 10 bits (of 26) from port A of cell ffe_pam4.$neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:154$237 ($neg).
+Removed top 13 bits (of 26) from port B of cell ffe_pam4.$sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:154$239 ($sub).
+Converting cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:156$241 ($add) from unsigned to signed.
+Removed top 12 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:156$241 ($add).
+Removed top 14 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:156$241 ($add).
+Removed top 11 bits (of 26) from port Y of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:156$241 ($add).
+Removed top 10 bits (of 26) from port A of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$242 ($add).
+Removed top 6 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$243 ($add).
+Removed top 5 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$245 ($add).
+Removed top 1 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$247 ($add).
+Removed top 1 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$249 ($add).
+Removed top 4 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$254 ($add).
+Removed top 4 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$256 ($add).
+Removed top 5 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$258 ($add).
+Removed top 7 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$260 ($add).
+Removed top 5 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$262 ($add).
+Removed top 6 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$264 ($add).
+Removed top 7 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$266 ($add).
+Removed top 5 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$268 ($add).
+Removed top 3 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$270 ($add).
+Removed top 7 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$272 ($add).
+Removed top 6 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$273 ($add).
+Removed top 4 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$275 ($add).
+Removed top 6 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$277 ($add).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279 ($add).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$280 ($add).
+Removed top 8 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$283 ($add).
+Removed top 7 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$286 ($add).
+Removed top 11 bits (of 26) from port B of cell ffe_pam4.$add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288 ($add).
+Removed top 4 bits (of 16) from port B of cell ffe_pam4.$gt$rtl/sweep/loss40/ffe_t48_P12_hand.sv:165$291 ($gt).
+Removed top 4 bits (of 16) from port B of cell ffe_pam4.$lt$rtl/sweep/loss40/ffe_t48_P12_hand.sv:167$292 ($lt).
+Removed top 1 bits (of 12) from mux cell ffe_pam4.$procmux$826 ($mux).
+Removed top 1 bits (of 12) from wire ffe_pam4.y_next.
+
+3.15. Executing PEEPOPT pass (run peephole optimizers).
+
+3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.17. Executing SHARE pass (SAT-based resource sharing).
+
+3.18. Executing TECHMAP pass (map to technology primitives).
+
+3.18.1. Executing Verilog-2005 frontend: /share/cmp2lut.v
+Parsing Verilog input from `/share/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+3.18.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~59 debug messages>
+
+3.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.20. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.21. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module ffe_pam4:
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$221 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$280 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$281 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:144$218 ($sub).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:144$217 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$282 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:142$215 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$283 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:142$213 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$284 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$285 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:138$210 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$286 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:136$208 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$287 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:136$206 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$204 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$203 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$269 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$200 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$199 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$197 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$268 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$195 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$193 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$192 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$190 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$266 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:128$187 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$265 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:128$185 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$264 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:128$183 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$263 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$181 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$262 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$179 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$261 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$260 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$176 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$175 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$259 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$258 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:122$172 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:122$171 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$257 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:122$169 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$256 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$167 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$255 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$165 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$254 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$163 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$253 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$252 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$160 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$159 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$251 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$157 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$250 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$155 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$249 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:116$153 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$248 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$151 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$150 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$247 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$148 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$246 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$146 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$245 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$144 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$143 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$244 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$243 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:110$140 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$242 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:110$138 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:156$241 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:110$136 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$270 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$134 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$133 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:154$239 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$271 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:106$130 ($sub).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:154$237 ($neg).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:106$128 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$272 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$126 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$125 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$235 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$123 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$273 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$233 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:102$120 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$274 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:102$118 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$275 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$116 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:150$230 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$114 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$276 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:150$228 ($neg).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:98$111 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:98$110 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$277 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:98$108 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:148$226 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$106 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$278 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$104 ($sub).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:148$224 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$101 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$100 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$222 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$98 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$96 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$94 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$92 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$90 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$87 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$85 ($sub).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$83 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$81 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$79 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$76 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$75 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$73 ($neg).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$71 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$70 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$68 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$66 ($neg).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$64 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$62 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$60 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:80$57 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:80$55 ($neg).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$53 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$51 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$49 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$46 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$44 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$42 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$40 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$38 ($neg).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$36 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$34 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$32 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$30 ($sub).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$27 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$25 ($add).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$23 ($neg).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$21 ($add).
+  creating $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$19 ($add).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:68$16 ($sub).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:68$14 ($neg).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$12 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$10 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$7 ($sub).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$6 ($sub).
+  creating $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$4 ($neg).
+  creating $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:62$2 ($sub).
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$4 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$6.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$6 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$7.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$10 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$12.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:68$14 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:68$16.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$19 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$21.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$23 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$25.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$25 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$27.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$30 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$32.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$32 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$34.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$34 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$36.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$38 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$40.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$40 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$42.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$42 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$44.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$44 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$46.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$49 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$51.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$51 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$53.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:80$55 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:80$57.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$60 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$62.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$62 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$64.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$66 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$68.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$68 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$70.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$70 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$71.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$73 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$75.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$75 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$76.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$79 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$81.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$83 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$85.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$85 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$87.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$90 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$92.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$266 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$265 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$264 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$263 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$262 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$261 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$260 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$259 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$258 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$257 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$256 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$255 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$254 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$253 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$252 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$251 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$250 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$249 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$248 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$247 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$246 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$245 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$244 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$243 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$242 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:62$2 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:64$7 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:66$12 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:68$16 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:70$21 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:72$27 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:74$36 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:76$46 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:78$53 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:80$57 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:82$64 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:84$71 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:86$76 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:88$81 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:90$87 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:92$92 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$101 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$100 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$98 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$96 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:94$94 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$106 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:96$104 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:98$111 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:98$110 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:98$108 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$116 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:100$114 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:102$120 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:102$118 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$126 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$125 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:104$123 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:106$130 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:106$128 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$134 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:108$133 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:110$140 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:110$138 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:110$136 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$144 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:112$143 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$151 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$150 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$148 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:114$146 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$221 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$222.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$278 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$277 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$276 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$275 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$274 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$273 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$272 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$271 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$270 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$269 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$268 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$267 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:116$153 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$160 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$159 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$157 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:118$155 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$167 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$165 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:120$163 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:122$172 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:122$171 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:122$169 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$176 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:124$175 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$181 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:126$179 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:128$187 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:128$185 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:128$183 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$193 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$192 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:130$190 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$200 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$199 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$197 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:132$195 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$204 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:134$203 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:136$208 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:136$206 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:138$210 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:148$224 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:148$226.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:150$228 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:150$230.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$233 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$235.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:154$237 into $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:154$239.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$287 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$286 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$285 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$284 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$283 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$282 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$281 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$280 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$279 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:142$215 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:142$213 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:144$218 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $neg$rtl/sweep/loss40/ffe_t48_P12_hand.sv:144$217 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:146$222 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:148$226 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:150$230 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:152$235 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $sub$rtl/sweep/loss40/ffe_t48_P12_hand.sv:154$239 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  merging $macc model for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:156$241 into $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288.
+  creating $macc cell for $add$rtl/sweep/loss40/ffe_t48_P12_hand.sv:159$288: $auto$alumacc.cc:427:replace_macc$931
+  creating $alu model for $gt$rtl/sweep/loss40/ffe_t48_P12_hand.sv:165$291 ($gt): new $alu
+  creating $alu model for $lt$rtl/sweep/loss40/ffe_t48_P12_hand.sv:167$292 ($lt): new $alu
+  creating $alu cell for $lt$rtl/sweep/loss40/ffe_t48_P12_hand.sv:167$292: $auto$alumacc.cc:578:replace_alu$934
+  creating $alu cell for $gt$rtl/sweep/loss40/ffe_t48_P12_hand.sv:165$291: $auto$alumacc.cc:578:replace_alu$941
+  created 2 $alu and 1 $macc cells.
+
+3.22. Executing OPT pass (performing simple optimizations).
+
+3.22.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~1 debug messages>
+
+3.22.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 228 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.22.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe_pam4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+3.22.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe_pam4.
+Performed a total of 0 changes.
+
+3.22.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 228 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.22.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.22.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 165 unused cells and 145 unused wires.
+<suppressed ~191 debug messages>
+
+3.22.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.22.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.22.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe_pam4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+3.22.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe_pam4.
+Performed a total of 0 changes.
+
+3.22.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 63 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.22.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.22.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.22.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.22.16. Finished fast OPT passes. (There is nothing left to do.)
+
+3.23. Executing MEMORY pass.
+
+3.23.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+3.23.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+3.23.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+3.23.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+3.23.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+3.23.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.23.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.23.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+3.23.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.23.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.25. Executing MEMORY_LIBMAP pass (mapping memories to cells).
+
+3.26. Executing TECHMAP pass (map to technology primitives).
+
+3.26.1. Executing Verilog-2005 frontend: /share/ice40/brams_map.v
+Parsing Verilog input from `/share/ice40/brams_map.v' to AST representation.
+Generating RTLIL representation for module `$__ICE40_RAM4K_'.
+Successfully finished Verilog frontend.
+
+3.26.2. Executing Verilog-2005 frontend: /share/ice40/spram_map.v
+Parsing Verilog input from `/share/ice40/spram_map.v' to AST representation.
+Generating RTLIL representation for module `$__ICE40_SPRAM_'.
+Successfully finished Verilog frontend.
+
+3.26.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+3.27. Executing ICE40_BRAMINIT pass.
+
+3.28. Executing OPT pass (performing simple optimizations).
+
+3.28.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~67 debug messages>
+
+3.28.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 74 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.28.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.28.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 11 unused cells and 11 unused wires.
+<suppressed ~12 debug messages>
+
+3.28.5. Finished fast OPT passes.
+
+3.29. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+3.30. Executing OPT pass (performing simple optimizations).
+
+3.30.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.30.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 63 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.30.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe_pam4..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+3.30.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe_pam4.
+Performed a total of 0 changes.
+
+3.30.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 63 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.30.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.30.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.30.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.30.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.31. Executing ICE40_WRAPCARRY pass (wrap carries).
+
+3.32. Executing TECHMAP pass (map to technology primitives).
+
+3.32.1. Executing Verilog-2005 frontend: /share/techmap.v
+Parsing Verilog input from `/share/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+3.32.2. Executing Verilog-2005 frontend: /share/ice40/arith_map.v
+Parsing Verilog input from `/share/ice40/arith_map.v' to AST representation.
+Generating RTLIL representation for module `\_80_ice40_alu'.
+Successfully finished Verilog frontend.
+
+3.32.3. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod$10a7fddc8a601bc8f4a5ffaf8b08ba4de3b4ca36\_80_ice40_alu for cells of type $alu.
+Using template $paramod$ec1df30a75a6f571ba98538220df9024281fe2ee\_80_ice40_alu for cells of type $alu.
+Using extmapper maccmap for cells of type $macc_v2.
+  add { \x_in 3'000 } (15 bits, signed)
+  sub \x_in (12 bits, signed)
+  sub { \x1 4'0000 } (16 bits, signed)
+  sub { \x1 2'00 } (14 bits, signed)
+  sub \x1 (12 bits, signed)
+  add { \x2 6'000000 } (18 bits, signed)
+  sub { \x2 4'0000 } (16 bits, signed)
+  sub { \x2 2'00 } (14 bits, signed)
+  sub { \x3 6'000000 } (18 bits, signed)
+  sub { \x3 4'0000 } (16 bits, signed)
+  add { \x4 7'0000000 } (19 bits, signed)
+  add { \x4 3'000 } (15 bits, signed)
+  add { \x4 1'0 } (13 bits, signed)
+  sub { \x5 8'00000000 } (20 bits, signed)
+  add { \x5 4'0000 } (16 bits, signed)
+  add { \x5 1'0 } (13 bits, signed)
+  add { \x6 9'000000000 } (21 bits, signed)
+  sub { \x6 7'0000000 } (19 bits, signed)
+  add { \x6 5'00000 } (17 bits, signed)
+  sub { \x6 3'000 } (15 bits, signed)
+  sub { \x6 1'0 } (13 bits, signed)
+  sub { \x7 10'0000000000 } (22 bits, signed)
+  add { \x7 8'00000000 } (20 bits, signed)
+  add { \x7 6'000000 } (18 bits, signed)
+  add { \x7 4'0000 } (16 bits, signed)
+  add { \x7 2'00 } (14 bits, signed)
+  add { \x8 10'0000000000 } (22 bits, signed)
+  add { \x8 6'000000 } (18 bits, signed)
+  add { \x8 3'000 } (15 bits, signed)
+  sub { \x8 1'0 } (13 bits, signed)
+  sub { \x9 11'00000000000 } (23 bits, signed)
+  add { \x9 9'000000000 } (21 bits, signed)
+  add { \x10 11'00000000000 } (23 bits, signed)
+  sub { \x10 9'000000000 } (21 bits, signed)
+  sub { \x10 4'0000 } (16 bits, signed)
+  sub { \x10 2'00 } (14 bits, signed)
+  sub { \x11 9'000000000 } (21 bits, signed)
+  add { \x11 7'0000000 } (19 bits, signed)
+  sub { \x11 2'00 } (14 bits, signed)
+  sub \x11 (12 bits, signed)
+  sub { \x12 4'0000 } (16 bits, signed)
+  add { \x12 2'00 } (14 bits, signed)
+  sub \x12 (12 bits, signed)
+  add { \x13 8'00000000 } (20 bits, signed)
+  sub { \x13 6'000000 } (18 bits, signed)
+  add { \x13 3'000 } (15 bits, signed)
+  sub { \x14 8'00000000 } (20 bits, signed)
+  sub { \x14 4'0000 } (16 bits, signed)
+  add { \x14 2'00 } (14 bits, signed)
+  add { \x15 8'00000000 } (20 bits, signed)
+  sub { \x15 5'00000 } (17 bits, signed)
+  add { \x15 3'000 } (15 bits, signed)
+  sub { \x16 8'00000000 } (20 bits, signed)
+  add { \x16 6'000000 } (18 bits, signed)
+  add { \x16 4'0000 } (16 bits, signed)
+  add { \x16 2'00 } (14 bits, signed)
+  sub \x16 (12 bits, signed)
+  add { \x17 7'0000000 } (19 bits, signed)
+  sub { \x17 5'00000 } (17 bits, signed)
+  add { \x17 1'0 } (13 bits, signed)
+  sub { \x18 6'000000 } (18 bits, signed)
+  add { \x18 2'00 } (14 bits, signed)
+  sub \x18 (12 bits, signed)
+  add { \x19 5'00000 } (17 bits, signed)
+  sub { \x19 3'000 } (15 bits, signed)
+  sub { \x19 1'0 } (13 bits, signed)
+  sub { \x20 5'00000 } (17 bits, signed)
+  sub { \x20 2'00 } (14 bits, signed)
+  add { \x21 6'000000 } (18 bits, signed)
+  sub { \x21 4'0000 } (16 bits, signed)
+  sub { \x21 2'00 } (14 bits, signed)
+  add \x21 (12 bits, signed)
+  sub { \x22 6'000000 } (18 bits, signed)
+  sub { \x22 1'0 } (13 bits, signed)
+  add { \x23 6'000000 } (18 bits, signed)
+  sub { \x23 2'00 } (14 bits, signed)
+  add \x23 (12 bits, signed)
+  sub { \x24 6'000000 } (18 bits, signed)
+  add { \x24 4'0000 } (16 bits, signed)
+  sub { \x24 1'0 } (13 bits, signed)
+  add { \x25 5'00000 } (17 bits, signed)
+  sub { \x25 3'000 } (15 bits, signed)
+  add \x25 (12 bits, signed)
+  sub { \x26 6'000000 } (18 bits, signed)
+  sub { \x26 4'0000 } (16 bits, signed)
+  sub { \x26 2'00 } (14 bits, signed)
+  sub \x26 (12 bits, signed)
+  add { \x27 8'00000000 } (20 bits, signed)
+  add \x27 (12 bits, signed)
+  sub { \x28 9'000000000 } (21 bits, signed)
+  add { \x28 6'000000 } (18 bits, signed)
+  add { \x28 3'000 } (15 bits, signed)
+  sub \x28 (12 bits, signed)
+  add { \x29 8'00000000 } (20 bits, signed)
+  add { \x29 6'000000 } (18 bits, signed)
+  add { \x29 3'000 } (15 bits, signed)
+  sub { \x29 1'0 } (13 bits, signed)
+  sub { \x30 8'00000000 } (20 bits, signed)
+  add { \x30 6'000000 } (18 bits, signed)
+  add \x30 (12 bits, signed)
+  add { \x31 5'00000 } (17 bits, signed)
+  add { \x31 3'000 } (15 bits, signed)
+  sub \x31 (12 bits, signed)
+  add { \x32 6'000000 } (18 bits, signed)
+  sub { \x32 3'000 } (15 bits, signed)
+  add { \x32 1'0 } (13 bits, signed)
+  sub { \x33 7'0000000 } (19 bits, signed)
+  add { \x33 5'00000 } (17 bits, signed)
+  sub { \x33 1'0 } (13 bits, signed)
+  add { \x34 7'0000000 } (19 bits, signed)
+  sub { \x34 5'00000 } (17 bits, signed)
+  sub { \x34 2'00 } (14 bits, signed)
+  add \x34 (12 bits, signed)
+  sub { \x35 6'000000 } (18 bits, signed)
+  sub { \x35 4'0000 } (16 bits, signed)
+  sub { \x35 2'00 } (14 bits, signed)
+  add \x35 (12 bits, signed)
+  add { \x36 6'000000 } (18 bits, signed)
+  sub { \x36 2'00 } (14 bits, signed)
+  sub \x36 (12 bits, signed)
+  sub { \x37 5'00000 } (17 bits, signed)
+  add { \x37 1'0 } (13 bits, signed)
+  add { \x38 2'00 } (14 bits, signed)
+  add \x38 (12 bits, signed)
+  add { \x39 3'000 } (15 bits, signed)
+  sub { \x40 3'000 } (15 bits, signed)
+  add { \x40 1'0 } (13 bits, signed)
+  sub { \x41 2'00 } (14 bits, signed)
+  sub \x41 (12 bits, signed)
+  add { \x42 4'0000 } (16 bits, signed)
+  sub { \x42 2'00 } (14 bits, signed)
+  add \x42 (12 bits, signed)
+  sub { \x43 3'000 } (15 bits, signed)
+  add { \x43 1'0 } (13 bits, signed)
+  sub { \x44 4'0000 } (16 bits, signed)
+  add { \x44 1'0 } (13 bits, signed)
+  add { \x45 5'00000 } (17 bits, signed)
+  sub { \x45 3'000 } (15 bits, signed)
+  add { \x45 1'0 } (13 bits, signed)
+  sub { \x46 4'0000 } (16 bits, signed)
+  sub { \x46 1'0 } (13 bits, signed)
+  add { \x47 2'00 } (14 bits, signed)
+  add \x47 (12 bits, signed)
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000111 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001000 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001001 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001011 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001100 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001101 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001110 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001111 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010110 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010101 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000010111 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011000 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011001 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011010 for cells of type $fa.
+Using template $paramod$7af98a8d3d01ff58dee4212ab52569c379e064a1\_80_ice40_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $and.
+No more expansions possible.
+<suppressed ~1252 debug messages>
+
+3.33. Executing OPT pass (performing simple optimizations).
+
+3.33.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~2524 debug messages>
+
+3.33.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 16803 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 15470 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 14941 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 14488 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 14253 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 14007 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13788 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13675 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13549 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13439 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13387 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13333 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13285 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13261 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13235 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13215 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13205 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13197 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13195 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13194 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+<suppressed ~10827 debug messages>
+Removed a total of 3609 cells.
+
+3.33.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.33.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 118 unused cells and 1735 unused wires.
+<suppressed ~119 debug messages>
+
+3.33.5. Finished fast OPT passes.
+
+3.34. Executing ICE40_OPT pass (performing simple optimizations).
+
+3.34.1. Running ICE40 specific optimizations.
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) ffe_pam4.$auto$maccmap.cc:240:synth$1670.slice[0].carry: CO=1'0
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) ffe_pam4.$auto$alumacc.cc:578:replace_alu$934.slice[0].carry: CO=\acc [21]
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) ffe_pam4.$auto$alumacc.cc:578:replace_alu$941.slice[0].carry: CO=\acc [10]
+
+3.34.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~60 debug messages>
+
+3.34.3. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 13016 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13012 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13010 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13009 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 13007 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+<suppressed ~27 debug messages>
+Removed a total of 9 cells.
+
+3.34.4. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.34.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 4 unused cells and 0 unused wires.
+<suppressed ~4 debug messages>
+
+3.34.6. Rerunning OPT passes. (Removed registers in this run.)
+
+3.34.7. Running ICE40 specific optimizations.
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) ffe_pam4.$auto$maccmap.cc:240:synth$1670.slice[1].carry: CO=1'0
+
+3.34.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~1 debug messages>
+
+3.34.9. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 13003 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.34.10. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.34.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 2 unused cells and 0 unused wires.
+<suppressed ~2 debug messages>
+
+3.34.12. Rerunning OPT passes. (Removed registers in this run.)
+
+3.34.13. Running ICE40 specific optimizations.
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) ffe_pam4.$auto$maccmap.cc:240:synth$1670.slice[2].carry: CO=1'0
+
+3.34.14. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~1 debug messages>
+
+3.34.15. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 13001 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.34.16. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.34.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 2 unused cells and 0 unused wires.
+<suppressed ~2 debug messages>
+
+3.34.18. Rerunning OPT passes. (Removed registers in this run.)
+
+3.34.19. Running ICE40 specific optimizations.
+Optimized $__ICE40_CARRY_WRAPPER cell back to logic (without SB_CARRY) ffe_pam4.$auto$maccmap.cc:240:synth$1670.slice[3].carry: CO=1'0
+
+3.34.20. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~1 debug messages>
+
+3.34.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 12999 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.34.22. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.34.23. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 2 unused cells and 0 unused wires.
+<suppressed ~2 debug messages>
+
+3.34.24. Rerunning OPT passes. (Removed registers in this run.)
+
+3.34.25. Running ICE40 specific optimizations.
+
+3.34.26. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~1 debug messages>
+
+3.34.27. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 12997 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.34.28. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.34.29. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.34.30. Rerunning OPT passes. (Removed registers in this run.)
+
+3.34.31. Running ICE40 specific optimizations.
+
+3.34.32. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.34.33. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 12997 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.34.34. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.34.35. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.34.36. Finished OPT passes. (There is nothing left to do.)
+
+3.35. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+
+3.36. Executing TECHMAP pass (map to technology primitives).
+
+3.36.1. Executing Verilog-2005 frontend: /share/ice40/ff_map.v
+Parsing Verilog input from `/share/ice40/ff_map.v' to AST representation.
+Generating RTLIL representation for module `$_DFF_N_'.
+Generating RTLIL representation for module `$_DFF_P_'.
+Generating RTLIL representation for module `$_DFFE_NP_'.
+Generating RTLIL representation for module `$_DFFE_PP_'.
+Generating RTLIL representation for module `$_DFF_NP0_'.
+Generating RTLIL representation for module `$_DFF_NP1_'.
+Generating RTLIL representation for module `$_DFF_PP0_'.
+Generating RTLIL representation for module `$_DFF_PP1_'.
+Generating RTLIL representation for module `$_DFFE_NP0P_'.
+Generating RTLIL representation for module `$_DFFE_NP1P_'.
+Generating RTLIL representation for module `$_DFFE_PP0P_'.
+Generating RTLIL representation for module `$_DFFE_PP1P_'.
+Generating RTLIL representation for module `$_SDFF_NP0_'.
+Generating RTLIL representation for module `$_SDFF_NP1_'.
+Generating RTLIL representation for module `$_SDFF_PP0_'.
+Generating RTLIL representation for module `$_SDFF_PP1_'.
+Generating RTLIL representation for module `$_SDFFCE_NP0P_'.
+Generating RTLIL representation for module `$_SDFFCE_NP1P_'.
+Generating RTLIL representation for module `$_SDFFCE_PP0P_'.
+Generating RTLIL representation for module `$_SDFFCE_PP1P_'.
+Successfully finished Verilog frontend.
+
+3.36.2. Continuing TECHMAP pass.
+Using template $_SDFF_PP0_ for cells of type $_SDFF_PP0_.
+No more expansions possible.
+<suppressed ~598 debug messages>
+
+3.37. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.38. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+3.39. Executing ICE40_OPT pass (performing simple optimizations).
+
+3.39.1. Running ICE40 specific optimizations.
+
+3.39.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~1 debug messages>
+
+3.39.3. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 13572 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 12997 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+<suppressed ~1725 debug messages>
+Removed a total of 575 cells.
+
+3.39.4. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.39.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 0 unused cells and 3455 unused wires.
+<suppressed ~1 debug messages>
+
+3.39.6. Rerunning OPT passes. (Removed registers in this run.)
+
+3.39.7. Running ICE40 specific optimizations.
+
+3.39.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.39.9. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 12997 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.39.10. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.39.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.39.12. Finished OPT passes. (There is nothing left to do.)
+
+3.40. Executing CHECK pass (checking for obvious problems).
+Checking module ffe_pam4...
+Found and reported 0 problems.
+
+3.41. Executing TECHMAP pass (map to technology primitives).
+
+3.41.1. Executing Verilog-2005 frontend: /share/ice40/latches_map.v
+Parsing Verilog input from `/share/ice40/latches_map.v' to AST representation.
+Generating RTLIL representation for module `$_DLATCH_N_'.
+Generating RTLIL representation for module `$_DLATCH_P_'.
+Successfully finished Verilog frontend.
+
+3.41.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+3.42. Executing Verilog-2005 frontend: /share/ice40/abc9_model.v
+Parsing Verilog input from `/share/ice40/abc9_model.v' to AST representation.
+Generating RTLIL representation for module `$__ICE40_CARRY_WRAPPER'.
+Successfully finished Verilog frontend.
+
+3.43. Executing ABC9 pass.
+
+3.43.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+3.43.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+3.43.3. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module ffe_pam4.
+Found 0 SCCs.
+
+3.43.4. Executing ABC9_OPS pass (helper functions for ABC9).
+
+3.43.5. Executing TECHMAP pass (map to technology primitives).
+
+3.43.5.1. Executing Verilog-2005 frontend: /share/techmap.v
+Parsing Verilog input from `/share/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+3.43.5.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~130 debug messages>
+
+3.43.6. Executing OPT pass (performing simple optimizations).
+
+3.43.6.1. Executing OPT_EXPR pass (perform const folding).
+
+3.43.6.2. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+3.43.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Removed 0 multiplexer ports.
+
+3.43.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+Performed a total of 0 changes.
+
+3.43.6.5. Executing OPT_MERGE pass (detect identical cells).
+Removed a total of 0 cells.
+
+3.43.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.43.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+
+3.43.6.8. Executing OPT_EXPR pass (perform const folding).
+
+3.43.6.9. Finished fast OPT passes. (There is nothing left to do.)
+
+3.43.7. Executing TECHMAP pass (map to technology primitives).
+
+3.43.7.1. Executing Verilog-2005 frontend: /share/abc9_map.v
+Parsing Verilog input from `/share/abc9_map.v' to AST representation.
+Lexer warning: The SystemVerilog keyword `bit' (at /share/abc9_map.v:35) is not recognized unless read_verilog is called with -sv!
+Generating RTLIL representation for module `$__ABC9_BARRIER_MAP'.
+Successfully finished Verilog frontend.
+
+3.43.7.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+3.43.8. Executing Verilog-2005 frontend: /share/abc9_model.v
+Parsing Verilog input from `/share/abc9_model.v' to AST representation.
+Generating RTLIL representation for module `$__ABC9_DELAY'.
+Generating RTLIL representation for module `$__ABC9_BARRIER'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Generating RTLIL representation for module `$__DFF_N__$abc9_flop'.
+Generating RTLIL representation for module `$__DFF_P__$abc9_flop'.
+Successfully finished Verilog frontend.
+
+3.43.9. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~1154 debug messages>
+
+3.43.10. Executing ABC9_OPS pass (helper functions for ABC9).
+
+3.43.11. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~2 debug messages>
+
+3.43.12. Executing TECHMAP pass (map to technology primitives).
+
+3.43.12.1. Executing Verilog-2005 frontend: /share/techmap.v
+Parsing Verilog input from `/share/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+3.43.12.2. Continuing TECHMAP pass.
+Using template $paramod$__ICE40_CARRY_WRAPPER\LUT=16'0110100110010110\I3_IS_CI=1'1 for cells of type $paramod$__ICE40_CARRY_WRAPPER\LUT=16'0110100110010110\I3_IS_CI=1'1.
+Using template SB_CARRY for cells of type SB_CARRY.
+Using template $paramod\SB_LUT4\LUT_INIT=16'0110100110010110 for cells of type SB_LUT4.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $logic_and.
+No more expansions possible.
+<suppressed ~151 debug messages>
+
+3.43.13. Executing OPT pass (performing simple optimizations).
+
+3.43.13.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+<suppressed ~4 debug messages>
+
+3.43.13.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 30 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 20 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Computing hashes of 18 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+<suppressed ~29 debug messages>
+Removed a total of 12 cells.
+
+3.43.13.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe_pam4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.43.13.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe_pam4.
+Performed a total of 0 changes.
+
+3.43.13.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 18 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.43.13.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.43.13.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+Removed 0 unused cells and 24 unused wires.
+<suppressed ~1 debug messages>
+
+3.43.13.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.43.13.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.43.13.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ffe_pam4..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.43.13.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ffe_pam4.
+Performed a total of 0 changes.
+
+3.43.13.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ffe_pam4'.
+Computing hashes of 18 cells of `\ffe_pam4'.
+Finding duplicate cells in `\ffe_pam4'.
+Removed a total of 0 cells.
+
+3.43.13.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.43.13.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ffe_pam4..
+
+3.43.13.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ffe_pam4.
+
+3.43.13.16. Finished fast OPT passes. (There is nothing left to do.)
+
+3.43.14. Executing AIGMAP pass (map logic to AIG).
+Module ffe_pam4: replaced 7111 cells with 42679 new cells, skipped 7038 cells.
+  replaced 3 cell types:
+      22 $_MUX_
+    2366 $_OR_
+    4723 $_XOR_
+  not replaced 6 cell types:
+    4691 $_AND_
+     578 $_NOT_
+     576 SB_DFFSR
+     576 $paramod$__ABC9_DELAY\DELAY=32'00000000000000000000000000010101
+     576 $paramod$__ABC9_DELAY\DELAY=32'00000000000000000000000011001011
+      41 $paramod$__ICE40_CARRY_WRAPPER\LUT=16'0110100110010110\I3_IS_CI=1'1
+
+3.43.14.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+3.43.14.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+3.43.14.3. Executing XAIGER2 backend.
+<suppressed ~3598 debug messages>
+Extracted 23084 AND gates and 0 wires from module `ffe_pam4' to a netlist network with 1824 inputs and 3147 outputs.
+
+3.43.14.4. Executing ABC9_EXE pass (technology mapping using ABC9).
+
+3.43.14.5. Executing ABC9.
+Running ABC command: "/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+
+3.43.14.6. Executing AIGER frontend.
+<suppressed ~10 debug messages>
+Removed 61553 unused cells and 65887 unused wires.
+
+3.43.14.7. Executing ABC_OPS_REINTEGRATE pass (reintegrate ABC mapped design into module).
+ABC RESULTS:              $lut cells:     4642
+ABC RESULTS:   $paramod$__ICE40_CARRY_WRAPPER\LUT=16'0110100110010110\I3_IS_CI=1'1 cells:       41
+ABC RESULTS:           input signals:       62
+ABC RESULTS:          output signals:        1
+<suppressed ~2380 debug messages>
+Removing temp directory.
+
+3.43.15. Executing TECHMAP pass (map to technology primitives).
+
+3.43.15.1. Executing Verilog-2005 frontend: /share/abc9_unmap.v
+Parsing Verilog input from `/share/abc9_unmap.v' to AST representation.
+Generating RTLIL representation for module `$__DFF_x__$abc9_flop'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Generating RTLIL representation for module `$__ABC9_BARRIER'.
+Successfully finished Verilog frontend.
+
+3.43.15.2. Continuing TECHMAP pass.
+Using template $paramod$__ICE40_CARRY_WRAPPER\LUT=16'0110100110010110\I3_IS_CI=1'1 for cells of type $paramod$__ICE40_CARRY_WRAPPER\LUT=16'0110100110010110\I3_IS_CI=1'1.
+No more expansions possible.
+<suppressed ~48 debug messages>
+
+3.44. Executing ICE40_WRAPCARRY pass (wrap carries).
+
+3.45. Executing TECHMAP pass (map to technology primitives).
+
+3.45.1. Executing Verilog-2005 frontend: /share/ice40/ff_map.v
+Parsing Verilog input from `/share/ice40/ff_map.v' to AST representation.
+Generating RTLIL representation for module `$_DFF_N_'.
+Generating RTLIL representation for module `$_DFF_P_'.
+Generating RTLIL representation for module `$_DFFE_NP_'.
+Generating RTLIL representation for module `$_DFFE_PP_'.
+Generating RTLIL representation for module `$_DFF_NP0_'.
+Generating RTLIL representation for module `$_DFF_NP1_'.
+Generating RTLIL representation for module `$_DFF_PP0_'.
+Generating RTLIL representation for module `$_DFF_PP1_'.
+Generating RTLIL representation for module `$_DFFE_NP0P_'.
+Generating RTLIL representation for module `$_DFFE_NP1P_'.
+Generating RTLIL representation for module `$_DFFE_PP0P_'.
+Generating RTLIL representation for module `$_DFFE_PP1P_'.
+Generating RTLIL representation for module `$_SDFF_NP0_'.
+Generating RTLIL representation for module `$_SDFF_NP1_'.
+Generating RTLIL representation for module `$_SDFF_PP0_'.
+Generating RTLIL representation for module `$_SDFF_PP1_'.
+Generating RTLIL representation for module `$_SDFFCE_NP0P_'.
+Generating RTLIL representation for module `$_SDFFCE_NP1P_'.
+Generating RTLIL representation for module `$_SDFFCE_PP0P_'.
+Generating RTLIL representation for module `$_SDFFCE_PP1P_'.
+Successfully finished Verilog frontend.
+
+3.45.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~22 debug messages>
+Removed 59 unused cells and 4587 unused wires.
+
+3.46. Executing OPT_LUT pass (optimize LUTs).
+Discovering LUTs.
+Number of LUTs:     4660
+  1-LUT                1
+  2-LUT              558
+  3-LUT             2479
+  4-LUT             1622
+  with \SB_CARRY    (#0)   17
+  with \SB_CARRY    (#1)   18
+
+Eliminating LUTs.
+Number of LUTs:     4660
+  1-LUT                1
+  2-LUT              558
+  3-LUT             2479
+  4-LUT             1622
+  with \SB_CARRY    (#0)   17
+  with \SB_CARRY    (#1)   18
+
+Combining LUTs.
+Number of LUTs:     4659
+  1-LUT                1
+  2-LUT              558
+  3-LUT             2477
+  4-LUT             1623
+  with \SB_CARRY    (#0)   17
+  with \SB_CARRY    (#1)   18
+
+Eliminated 0 LUTs.
+Combined 1 LUTs.
+<suppressed ~9969 debug messages>
+
+3.47. Executing TECHMAP pass (map to technology primitives).
+
+3.47.1. Executing Verilog-2005 frontend: /share/ice40/cells_map.v
+Parsing Verilog input from `/share/ice40/cells_map.v' to AST representation.
+Generating RTLIL representation for module `$lut'.
+Successfully finished Verilog frontend.
+
+3.47.2. Continuing TECHMAP pass.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11101000 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01101001 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10110010 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10010110 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01001101 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010111 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01110001 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0110 for cells of type $lut.
+Using template $paramod$e87c652d68339e0a13e8ac3dd39fd0a21e0079b7$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1001 for cells of type $lut.
+Using template $paramod$4282def8dbd6df3d1248ad282c629bee684502c2$lut for cells of type $lut.
+Using template $paramod$5829f5d2a4c5757263ee6385c6142d3c7cf9e5be$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00101011 for cells of type $lut.
+Using template $paramod$bb71bff1269f21262324e9e77ea2b51236b5cf06$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11010100 for cells of type $lut.
+Using template $paramod$239a649c3c5dcff42e28a38401931acf401ef810$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0001 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00110110 for cells of type $lut.
+Using template $paramod$fd904e9e35cfd343a9df248824bd3f1408724879$lut for cells of type $lut.
+Using template $paramod$3fbf9e179448527cc5870685155541058c0f9f7a$lut for cells of type $lut.
+Using template $paramod$60c57a531d15ac3dc4cc2d9845c81479cc8e53ec$lut for cells of type $lut.
+Using template $paramod$ed4b624f477a67dbd878e676981471b9a7808c29$lut for cells of type $lut.
+Using template $paramod$ee55d4d1d1d7325f58dbdbfce0ec75c463d4291c$lut for cells of type $lut.
+Using template $paramod$f063c5b7c9574ecb60b8e3b89232ce5fe4a5fdc5$lut for cells of type $lut.
+Using template $paramod$51adb1afea57a9560b9534400e9af12cb2df0ba0$lut for cells of type $lut.
+Using template $paramod$37275f9005096a8b3beded7be16e5d19f7397fa0$lut for cells of type $lut.
+Using template $paramod$61af77eed7f358aa49c13132fc0b60ac3ba6c211$lut for cells of type $lut.
+Using template $paramod$b2077130d89736f5191d0d24f7f6ffd3bddb0a2d$lut for cells of type $lut.
+Using template $paramod$7f91b6aba53c47e1460722c8a4023f8d724a9eb1$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01110010 for cells of type $lut.
+Using template $paramod$718208d0d7c444e4924e09c40d40e7ac2bd4dfe6$lut for cells of type $lut.
+Using template $paramod$5c24efb1ef00c2fbe6898cb18002d4748c418328$lut for cells of type $lut.
+Using template $paramod$6f625205336ac6ce7b8747324becdbce1049bc9c$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00100111 for cells of type $lut.
+Using template $paramod$868427562418b5dc988caeac6a54689ec9c9025e$lut for cells of type $lut.
+Using template $paramod$3c3fed19c6fd1d349196eeef2e653fb0a32b5a50$lut for cells of type $lut.
+Using template $paramod$80f946146bef16ab80f57cb9ccdc968800d96b80$lut for cells of type $lut.
+Using template $paramod$5740df651bf8a31549e87c57e874438f4231ceba$lut for cells of type $lut.
+Using template $paramod$e3cb46169a670fed3cc26ed7eae42c258f417688$lut for cells of type $lut.
+Using template $paramod$ef14303192218c8dd28cb97c03357085cb7c4d4d$lut for cells of type $lut.
+Using template $paramod$f43bf15400946f565ec15cd72d115c6878b68aca$lut for cells of type $lut.
+Using template $paramod$2e242b3870fd1c78b14e7f95ffa17bf0b3a3339c$lut for cells of type $lut.
+Using template $paramod$da8235fdb7c8af343b6a7543e36ecc9dee50e540$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00111001 for cells of type $lut.
+Using template $paramod$fd48056f53c4a57c8ab017dbb88904826477cf28$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10001110 for cells of type $lut.
+Using template $paramod$b30bebc72dd0e5d803f249e61f4e944f7b20c163$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01111110 for cells of type $lut.
+Using template $paramod$851af557e065840865b91eaecf2ad85c674f7599$lut for cells of type $lut.
+Using template $paramod$b0e917d968da941a2ca2dd33b04074a0f4d50222$lut for cells of type $lut.
+Using template $paramod$7c03b26c73478ecb1b7fb0017db3d8ee4c9a9376$lut for cells of type $lut.
+Using template $paramod$ddd306177b06ebfc38e3b3b6e76dfd2f85a87218$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10111101 for cells of type $lut.
+Using template $paramod$332580cd4b70c9316ca9e998685f22615849f93c$lut for cells of type $lut.
+Using template $paramod$6b12a4130b7ace38cfbe620b3ae7010a46a5aaee$lut for cells of type $lut.
+Using template $paramod$01c608da0c772a10858492e8ba4f65bc04f42266$lut for cells of type $lut.
+Using template $paramod$c0795ecad0e59c7cbab3bd9ddefffec9c5ea41ca$lut for cells of type $lut.
+Using template $paramod$28ba90bb95963b63750b27cda749dbcd75757c3a$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01011001 for cells of type $lut.
+Using template $paramod$b2b7a0f49688ec95df23179fc8f24d920f097d82$lut for cells of type $lut.
+Using template $paramod$bfe22c8b84d59da01a0d5f64a43ce85bbe441179$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000000 for cells of type $lut.
+Using template $paramod$d1f95fa448f9c02616219cbeb5efe8dcba946c66$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00101101 for cells of type $lut.
+Using template $paramod$480632dc6f7c037df6062cf8bf88300b5262c395$lut for cells of type $lut.
+Using template $paramod$658b9ed803f0d3d335616d3858b53e0a2522f1e8$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11100011 for cells of type $lut.
+Using template $paramod$b8251bd6a6009b7f8717eeee6d4ce1ee764681fb$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11011011 for cells of type $lut.
+Using template $paramod$c11c416c6f0f04261a8c2eab35675e4e25d673ef$lut for cells of type $lut.
+Using template $paramod$a587c1fcf59d0d189a71852ec78cfa754743eaf1$lut for cells of type $lut.
+Using template $paramod$d285fa12ff128f10e974409599fea6505146e7ca$lut for cells of type $lut.
+Using template $paramod$da2f95476331ffa2143f8212db8aff730de806a0$lut for cells of type $lut.
+Using template $paramod$a39d2f30c3520182e3f501923ab7a15c4ebc2d20$lut for cells of type $lut.
+Using template $paramod$364c9ffbffac467d60dfec81bba4e18476c15602$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010011 for cells of type $lut.
+Using template $paramod$5b13d2ee598c87cdbe912286a35c6fd102e2087c$lut for cells of type $lut.
+Using template $paramod$31ae2c3ffbd353a1d527beeb6f2b7bbabd6ac9bc$lut for cells of type $lut.
+Using template $paramod$704cad882e2bedddf5c55ef18de55c67afe1e0ec$lut for cells of type $lut.
+Using template $paramod$06effc70d6b09a40fe0953589de086c272e03a84$lut for cells of type $lut.
+Using template $paramod$c6705c2d9a5ca1e5236b47844e83005fc173deff$lut for cells of type $lut.
+Using template $paramod$9ae69a1ca176dac85cb4bbc42fd7109d3ae9e495$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000100 for cells of type $lut.
+Using template $paramod$a63d84c9dd26caf4e75c7cc2f6f70f64a5b14aa1$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0010 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11100001 for cells of type $lut.
+Using template $paramod$2844c7fef2a755a9af80c70990cd830291c4b71c$lut for cells of type $lut.
+Using template $paramod$75dcfd74bd1cf702ac7b089ad1128b3bf8e03227$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001011 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000100 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00110001 for cells of type $lut.
+Using template $paramod$408a02644e8d331299a8fe898306bcda6330c9a0$lut for cells of type $lut.
+Using template $paramod$3f6fe0730f7978b946a57d55a78e206b053e637b$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101101 for cells of type $lut.
+Using template $paramod$bf06169ef550db86000bc1cd8f12ae4424083453$lut for cells of type $lut.
+Using template $paramod$545506bd116676813f41816e238f31427fbb4a59$lut for cells of type $lut.
+Using template $paramod$9fb8dfcc2c32440f549a0c4c7f729c6cf679de04$lut for cells of type $lut.
+Using template $paramod$510a7340b4f60ca9990f7505cadf24dcdeae0f32$lut for cells of type $lut.
+Using template $paramod$30305e55a780880b9c824fe3509a4d981acb0f2b$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000000 for cells of type $lut.
+Using template $paramod$595b4955041ceff09e28d600fe79275c24ba9878$lut for cells of type $lut.
+Using template $paramod$f5598bdf7d99fbb010b9ad37cfc115d5aefe2f8c$lut for cells of type $lut.
+Using template $paramod$b0141a4c59a5a6f707e9bde5277d6b169d632950$lut for cells of type $lut.
+Using template $paramod$74db7ebdc203ab2b8e34f5d81b5d1b49c6ee3ec6$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+Using template $paramod$5eb28a5d456895f3b6e5b376ebc78fa90fd15665$lut for cells of type $lut.
+Using template $paramod$acf49cb7bd2805dee4b4ebb218aa5924b1be7704$lut for cells of type $lut.
+Using template $paramod$a85ebd6dbce260a424aa930b9de7e23340032580$lut for cells of type $lut.
+Using template $paramod$70aaf70eb32e221098b6eb52bf2b64b3c0b4a0fb$lut for cells of type $lut.
+Using template $paramod$cb3276f3672cc3a92840800028eccff018c3dc1d$lut for cells of type $lut.
+Using template $paramod$78e1751931755f088c8bc676bcbc3bb642c26bfc$lut for cells of type $lut.
+Using template $paramod$b7fdd0c84cd866112dd628bfae92e1724de8f106$lut for cells of type $lut.
+Using template $paramod$24b67fade1852074c0ac6a4c585dd4228e286f08$lut for cells of type $lut.
+Using template $paramod$586ef75bf8ee20c4f1c1ac4c7aea0840478fd79d$lut for cells of type $lut.
+Using template $paramod$929df4559ac3f8d989adb1b6de8b44988603934c$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001101 for cells of type $lut.
+Using template $paramod$3f0549729b9cf7d6fa6533d688d092bceca9764e$lut for cells of type $lut.
+Using template $paramod$e6c2f84b29bee64f450d97e51b4fe307777f0652$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00100011 for cells of type $lut.
+Using template $paramod$48acdc8c0e264c39a907da098bd42b150f4169b5$lut for cells of type $lut.
+Using template $paramod$9798dc7b835de63a1443e7bcdee66539bde35d8f$lut for cells of type $lut.
+Using template $paramod$d6ca727e39f31d51d29072e0f33aa09c65e37336$lut for cells of type $lut.
+Using template $paramod$f18e1dd8e1d067e61d3e388b5cd6b162b57f9f7b$lut for cells of type $lut.
+Using template $paramod$bc7adf6c2ae4cc71761e4075da1eae9e7af32d89$lut for cells of type $lut.
+Using template $paramod$76d0ea536190a3437235c1f66fd79de05aae7348$lut for cells of type $lut.
+Using template $paramod$be717389d3ca12bf838b4d26288d53da90d71e59$lut for cells of type $lut.
+Using template $paramod$0d4690069fe2dfddf2f34a209eb228623f986a1e$lut for cells of type $lut.
+Using template $paramod$53a931967d4390280138fe919abce921b83af282$lut for cells of type $lut.
+Using template $paramod$e3fc9b30b58fba9f0d7b53dcaa617e2b28b350ae$lut for cells of type $lut.
+Using template $paramod$45bc8a035811672fb24512b03898abf475979d07$lut for cells of type $lut.
+Using template $paramod$ca209542bd629054585e025c08ec38b9cb8d9afd$lut for cells of type $lut.
+Using template $paramod$2e2222461fa8d6f04456b90983e68514b0e7e272$lut for cells of type $lut.
+Using template $paramod$ee6820144e1da7a0189b2d6197f621e9eac152a7$lut for cells of type $lut.
+Using template $paramod$765dca61dbfa835dacf2a260c8a4c5a36939a046$lut for cells of type $lut.
+Using template $paramod$46f7e44fb5d42c7c6e4c2d1915650ac9397db4dd$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001001 for cells of type $lut.
+Using template $paramod$9c1670359a2ba245562201086b4b298e0f6af6de$lut for cells of type $lut.
+Using template $paramod$041aa1dcdd60d3c4ff6eb6326c9e544a0334c607$lut for cells of type $lut.
+Using template $paramod$3761ea369995bad12b802065ff9d35a1c62ea8ef$lut for cells of type $lut.
+Using template $paramod$7e1598d4ad491765d69c7a5c02ece8d7ef10c4d6$lut for cells of type $lut.
+Using template $paramod$de52a65f985bb8c1904b1b12752998fc37477714$lut for cells of type $lut.
+Using template $paramod$8466aae7f3132f822e70bbd8738850d820750479$lut for cells of type $lut.
+Using template $paramod$8e44661def013b6bf9fe6f8b049ef2c838d749f9$lut for cells of type $lut.
+Using template $paramod$8f669f07f0a766ca1455ce2308a59037952b6d67$lut for cells of type $lut.
+Using template $paramod$2c637120c6d9fc5c5bf88b8f5959bb09ad31cbae$lut for cells of type $lut.
+Using template $paramod$0e3b92163337f2e219624ed5cc4f8fbb4537d621$lut for cells of type $lut.
+Using template $paramod$7996097aa7e74872f48a5ea7d10d2b685895e6b4$lut for cells of type $lut.
+Using template $paramod$50b99034fbf984a51c265442496081454147f31e$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10110001 for cells of type $lut.
+Using template $paramod$c01d1f1a2c22a23f58c65a92a9c94eaeebcde834$lut for cells of type $lut.
+Using template $paramod$4e309f6669eadcfa589d4ae302672e3a030a20a5$lut for cells of type $lut.
+Using template $paramod$d3ef1e4c51780d0a5425e32110ea022c31c1404f$lut for cells of type $lut.
+Using template $paramod$4ac73e90cabe3fd5423b3897754e1be51d1645fa$lut for cells of type $lut.
+Using template $paramod$f4ae1b1baef5c12e8f4145811caebb30472d171f$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10001101 for cells of type $lut.
+Using template $paramod$cde361a621e929168e2e29211efd6e41391c35c1$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10000111 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01100000 for cells of type $lut.
+Using template $paramod$4a7aa3912ceee3b0f19a96cd6b9dc271a63d3568$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01001110 for cells of type $lut.
+Using template $paramod$c67ff654dfa9062d61db52bd013fb1271e5b9a9b$lut for cells of type $lut.
+Using template $paramod$6d8ea6ec30cd62f2b50d9388b117d71e69ebed7f$lut for cells of type $lut.
+Using template $paramod$d89b437f6e04585fb6ec63e66c2a620393b6245e$lut for cells of type $lut.
+Using template $paramod$69f20e0703606f2ffd2ee27cd26f815bd5eeb6e9$lut for cells of type $lut.
+Using template $paramod$e56d99447d8a3ece8eda45209ed4b9fdcdbf8d26$lut for cells of type $lut.
+Using template $paramod$111f8c0bfad19fd2eab2ccc44f00d5beb136fc1a$lut for cells of type $lut.
+Using template $paramod$0222e2b08f130df49ebbff43b8743449720698ed$lut for cells of type $lut.
+Using template $paramod$c24ed72ebb67e9ead6029e42e909ef7fc0abbb11$lut for cells of type $lut.
+Using template $paramod$7df4c08fb0cde7880ba83f9b205aeb94a0e38509$lut for cells of type $lut.
+Using template $paramod$df2642f05f5a74776850200bc94ea206bfacf03d$lut for cells of type $lut.
+Using template $paramod$5aade32a42eeea80d52be580c6f168f2efa73bd2$lut for cells of type $lut.
+Using template $paramod$97f21fc6caedb01e3e413e66042b2fa0473d00e4$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00011011 for cells of type $lut.
+Using template $paramod$a20d493743c6e762e93052351143ea302aa9a813$lut for cells of type $lut.
+Using template $paramod$dae52fb1e9bc95ca8dd1aef83db5b4f880d0fd98$lut for cells of type $lut.
+Using template $paramod$fddb87a19dd9200b6161309e26c00c73ebbba317$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00000110 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00101000 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01110100 for cells of type $lut.
+Using template $paramod$2710cc0e9668521b53603134f096f003b9cf293d$lut for cells of type $lut.
+Using template $paramod$f857bdfd499f2d260fec7676092360e160d92149$lut for cells of type $lut.
+Using template $paramod$a81cf453a316218febe7a33c0cf3157f69dfa7dc$lut for cells of type $lut.
+Using template $paramod$a41d0e3b97911dca5b893a7d849ab04257ab9d97$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11100100 for cells of type $lut.
+Using template $paramod$0de052767abdccc3aefc818722bdc3c7850d25d6$lut for cells of type $lut.
+Using template $paramod$243fb93e736df5581df7bafa378886f2bdf5bea9$lut for cells of type $lut.
+Using template $paramod$0ff0701fa7307c511b76c9daa95f87e048e89d50$lut for cells of type $lut.
+Using template $paramod$f64e06c4ad54749b2f05ed816bc69de4695bbdd2$lut for cells of type $lut.
+Using template $paramod$6d66cbd93dd0f02e48ed7ca569cd9de8ccc265c1$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11011000 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010000 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10010101 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00100001 for cells of type $lut.
+Using template $paramod$7793af14a1d1a9df09b7264353e3dfaa774cd044$lut for cells of type $lut.
+Using template $paramod$c65acfd61ae70b5ce04c0aafaf2a256ff80af4df$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001000 for cells of type $lut.
+Using template $paramod$d107573456a7bff27c9c4a37149fbe7cd3e40181$lut for cells of type $lut.
+Using template $paramod$2f2b9b736b3ea0a0b958cef6434418c8f6a25d02$lut for cells of type $lut.
+Using template $paramod$3fd12db03aeee29b04c450792ea328ef1bb1f18d$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10011010 for cells of type $lut.
+Using template $paramod$5f1d3a143c9c87ab46abfde5f2b7762cf4000f70$lut for cells of type $lut.
+Using template $paramod$fe70bb3280659663b8fa2b45f42fda9ccf4ccfaa$lut for cells of type $lut.
+Using template $paramod$5ddfd1ea4f5227b248c326983159684afd6d7d86$lut for cells of type $lut.
+Using template $paramod$2f7deae5fb594b0c70bb82efd4d3682a7baaa352$lut for cells of type $lut.
+Using template $paramod$679c0497bd344cd028193ec8906efb780eb00cd8$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01001000 for cells of type $lut.
+Using template $paramod$85b779ce5ab505dbf25e5e046fb43ca2b76b878b$lut for cells of type $lut.
+Using template $paramod$f4281cc75e71c5647c0767b4f2e4b2b5e0b782ca$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01111000 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'01000001 for cells of type $lut.
+Using template $paramod$bca52bc9f7edd73160c86be7a013550d6d7a8e2e$lut for cells of type $lut.
+Using template $paramod$9e354e0162d9e2cbf1a0c914f3be74df92b5399d$lut for cells of type $lut.
+Using template $paramod$5ce0414f30742591cfbc3ba73903b522793ddcd1$lut for cells of type $lut.
+Using template $paramod$7f86a259a7cf46ca8099838af83e6a0981877ae2$lut for cells of type $lut.
+Using template $paramod$475b64a38eacafc470aca805cdefbbb8ebebdd94$lut for cells of type $lut.
+Using template $paramod$2af7fd5c408581c2b6e80048f54948ce05a232f8$lut for cells of type $lut.
+Using template $paramod$c9baf19a346f9036c5c5e1d377838949e9012aa7$lut for cells of type $lut.
+Using template $paramod$10a6d42c84663fca6c1622800fdec61acbd34667$lut for cells of type $lut.
+Using template $paramod$e96de5e9fcce737e52eacf39c70c8f533dc27d63$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00010100 for cells of type $lut.
+Using template $paramod$a70c36ce9c272ff5b653554a904c7bf311d2f478$lut for cells of type $lut.
+Using template $paramod$71a1fb2714a48cbfef2a9f16a821cbdf400acac4$lut for cells of type $lut.
+Using template $paramod$7d543ae2e8fe33ac0974876c5158731349731655$lut for cells of type $lut.
+Using template $paramod$bd7578d8ce3e2437ea907b1d5f654d907114be68$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00011110 for cells of type $lut.
+Using template $paramod$c3e1dc7b9e539f115f21c9fa61c94c4df05b91c1$lut for cells of type $lut.
+Using template $paramod$514a3911060fb980dd078532320cd172e1e80625$lut for cells of type $lut.
+Using template $paramod$0dd26dc33db10671dd5dbd19fcd0df2680097d6e$lut for cells of type $lut.
+Using template $paramod$024f437069ede126a08cbaf2540201977a378569$lut for cells of type $lut.
+Using template $paramod$6c15da6150ce36eeff7fb8c09f7ef22f5448d679$lut for cells of type $lut.
+Using template $paramod$033b10bccacf92b808634d8cf260cef1a432a306$lut for cells of type $lut.
+Using template $paramod$629288805861db2492386648ff94cc9e61d6fd7b$lut for cells of type $lut.
+Using template $paramod$bdb40c0ae556f7ad752dbfe2273cf4f2265f7b32$lut for cells of type $lut.
+Using template $paramod$2d07c1a6c53c7b878509360922c4fa5ebedc3011$lut for cells of type $lut.
+Using template $paramod$01c2ba0d5fa454e49f20c5667ef7cfab937f9ed6$lut for cells of type $lut.
+Using template $paramod$708ff7e971fdbc9b041ef4977b41c8d828262923$lut for cells of type $lut.
+Using template $paramod$f1029f646005abda698426a043a7c8fe4e2bd078$lut for cells of type $lut.
+Using template $paramod$a067ca065a0e8fdac308d6893e69914865d54ec4$lut for cells of type $lut.
+Using template $paramod$19e5b38cca183d8b6b3a15d20dc995c09cd71893$lut for cells of type $lut.
+Using template $paramod$835c3d4e1052824b85e41b069b2dce76edbd7f42$lut for cells of type $lut.
+Using template $paramod$d70afe532c66c381db66176e68a0fd16e8677a90$lut for cells of type $lut.
+Using template $paramod$05e1a45a09369190ff0f0c7b9b8dfa3a31ac93c1$lut for cells of type $lut.
+Using template $paramod$c932cb819d5ae2efe49a66858ab2e320baefeeb4$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00001110 for cells of type $lut.
+Using template $paramod$94d5fc7f7d3f71ae26b9c1532bd8787f0c4d523d$lut for cells of type $lut.
+Using template $paramod$e1394f544e14de163334238067bf8a804ae8a567$lut for cells of type $lut.
+Using template $paramod$b1d41c251992348e752b19c12db8a58434359feb$lut for cells of type $lut.
+Using template $paramod$1d3e3dda7513a26513dc7c9f8a4ac0e6b682116c$lut for cells of type $lut.
+Using template $paramod$014b659db5d002405936b374e32d204782099707$lut for cells of type $lut.
+Using template $paramod$571404c0889eaf57f492cb5e37f8acb5df5852f9$lut for cells of type $lut.
+Using template $paramod$272652f6c6fbe9a75eff76e45cc7e2788835518b$lut for cells of type $lut.
+Using template $paramod$0b3dae0cf9ba4ff0f31b6a740f162807f52296cf$lut for cells of type $lut.
+Using template $paramod$9042ec5a981e5dbdf7a01c41ab9787497c42b61d$lut for cells of type $lut.
+Using template $paramod$9ce83c401f07863ef6c07aa36141bf86d010bac8$lut for cells of type $lut.
+Using template $paramod$badb3c1c69caa5f720b71d9bbc9a910359e2e894$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10010000 for cells of type $lut.
+No more expansions possible.
+<suppressed ~7500 debug messages>
+Removed 0 unused cells and 12188 unused wires.
+
+3.48. Executing AUTONAME pass.
+Renamed 7105 objects in module ffe_pam4.
+<suppressed ~7105 debug messages>
+
+3.49. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `ffe_pam4'. Setting top module to ffe_pam4.
+
+3.49.1. Analyzing design hierarchy..
+Top module:  \ffe_pam4
+
+3.49.2. Analyzing design hierarchy..
+Top module:  \ffe_pam4
+Removed 0 unused modules.
+
+3.50. Printing statistics.
+
+=== ffe_pam4 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1882 wires
+     6663 wire bits
+     1882 public wires
+     6663 public wire bits
+        4 ports
+       26 port bits
+     5275 submodules
+       40   SB_CARRY
+      576   SB_DFFSR
+     4659   SB_LUT4
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+        - ffe_pam4
+
+        +----------Count including submodules.
+        | 
+     1882 wires
+     6663 wire bits
+     1882 public wires
+     6663 public wire bits
+        4 ports
+       26 port bits
+        - memories
+        - memory bits
+        - processes
+        - cells
+     5275 submodules
+       40   SB_CARRY
+      576   SB_DFFSR
+     4659   SB_LUT4
+
+3.51. Executing CHECK pass (checking for obvious problems).
+Checking module ffe_pam4...
+Found and reported 0 problems.
+
+3.52. Executing JSON backend.
+
+4. Printing statistics.
+
+=== ffe_pam4 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1882 wires
+     6663 wire bits
+     1882 public wires
+     6663 public wire bits
+        4 ports
+       26 port bits
+     5275 cells
+       40   SB_CARRY
+      576   SB_DFFSR
+     4659   SB_LUT4
+
+End of script. Logfile hash: 336f38dcc7, time: 137.90s, user: 137.90s, system: 0.00s
+Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)
+Time spent: 96% 1x abc9_exe (132 sec), 0% 21x read_verilog (0 sec), ...
