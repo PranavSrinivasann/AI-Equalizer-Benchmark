@@ -1,0 +1,2 @@
+$ /usr/local/bin/yowasp-yosys -q -l results/agent/arms/hand/yosys.log -p read_verilog -sv rtl/dj/ffe5tap_dj_loss30_hand.sv; hierarchy -top ffe5tap_pam4; synth_ice40 -top ffe5tap_pam4 -json results/agent/arms/hand/design.json; tee -o results/agent/arms/hand/stat.txt stat
+

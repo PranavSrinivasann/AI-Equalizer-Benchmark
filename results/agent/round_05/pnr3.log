@@ -1,0 +1,303 @@
+$ /usr/local/bin/yowasp-nextpnr-ice40 --up5k --package sg48 --freq 12 --seed 3 --json /home/claude/ai-equalizer-benchmark/results/agent/round_05/design.json
+
+Warning: No PCF file specified; IO pins will be placed automatically
+
+Info: Packing constants..
+Info: Packing IOs..
+Info: Packing LUT-FFs..
+Info:      247 LCs used as LUT4 only
+Info:       69 LCs used as LUT4 and DFF
+Info: Packing non-LUT FFs..
+Info:        5 LCs used as DFF only
+Info: Packing carries..
+Info:        0 LCs used as CARRY only
+Info: Packing indirect carry+LUT pairs...
+Info:        0 LUTs merged into carry LCs
+Info: Packing RAMs..
+Info: Placing PLLs..
+Info: Packing special functions..
+Info: Packing PLLs..
+Info: Promoting globals..
+Info: promoting clk$SB_IO_IN (fanout 74)
+Info: promoting rst_n_SB_LUT4_I3_O [reset] (fanout 74)
+Info: Constraining chains...
+Info:        0 LCs used to legalise carry chains.
+Info: Checksum: 0xa0b35d4d
+
+Info: Device utilisation:
+Info: 	         ICESTORM_LC:     323/   5280     6%
+Info: 	        ICESTORM_RAM:       0/     30     0%
+Info: 	               SB_IO:      26/     39    66%
+Info: 	               SB_GB:       2/      8    25%
+Info: 	        ICESTORM_PLL:       0/      1     0%
+Info: 	         SB_WARMBOOT:       0/      1     0%
+Info: 	        ICESTORM_DSP:       0/      8     0%
+Info: 	      ICESTORM_HFOSC:       0/      1     0%
+Info: 	      ICESTORM_LFOSC:       0/      1     0%
+Info: 	              SB_I2C:       0/      2     0%
+Info: 	              SB_SPI:       0/      2     0%
+Info: 	              IO_I3C:       0/      2     0%
+Info: 	         SB_LEDDA_IP:       0/      1     0%
+Info: 	         SB_RGBA_DRV:       0/      1     0%
+Info: 	      ICESTORM_SPRAM:       0/      4     0%
+
+Info: Placed 0 cells based on constraints.
+Info: Creating initial analytic placement for 255 cells, random placement wirelen = 8477.
+Info:     at initial placer iter 0, wirelen = 566
+Info:     at initial placer iter 1, wirelen = 492
+Info:     at initial placer iter 2, wirelen = 497
+Info:     at initial placer iter 3, wirelen = 497
+Info: Running main analytical placer, max placement attempts per cell = 15400.
+Info:     at iteration #1, type ALL: wirelen solved = 497, spread = 1594, legal = 1671; time = 0.01s
+Info:     at iteration #2, type ALL: wirelen solved = 552, spread = 1510, legal = 1554; time = 0.01s
+Info:     at iteration #3, type ALL: wirelen solved = 564, spread = 1469, legal = 1557; time = 0.01s
+Info:     at iteration #4, type ALL: wirelen solved = 625, spread = 1321, legal = 1413; time = 0.01s
+Info:     at iteration #5, type ALL: wirelen solved = 680, spread = 1353, legal = 1424; time = 0.01s
+Info:     at iteration #6, type ALL: wirelen solved = 682, spread = 1426, legal = 1482; time = 0.01s
+Info:     at iteration #7, type ALL: wirelen solved = 740, spread = 1398, legal = 1522; time = 0.01s
+Info:     at iteration #8, type ALL: wirelen solved = 757, spread = 1433, legal = 1546; time = 0.01s
+Info:     at iteration #9, type ALL: wirelen solved = 834, spread = 1542, legal = 1661; time = 0.01s
+Info: HeAP Placer Time: 0.09s
+Info:   of which solving equations: 0.07s
+Info:   of which spreading cells: 0.00s
+Info:   of which strict legalisation: 0.00s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 110, wirelen = 1413
+Info:   at iteration #5: temp = 0.000000, timing cost = 108, wirelen = 1164
+Info:   at iteration #10: temp = 0.000000, timing cost = 94, wirelen = 1105
+Info:   at iteration #15: temp = 0.000000, timing cost = 93, wirelen = 1083
+Info:   at iteration #19: temp = 0.000000, timing cost = 91, wirelen = 1071 
+Info: SA placement time 0.20s
+
+Info: Max frequency for clock 'clk$SB_IO_IN_$glb_clk': 46.96 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                       -> posedge clk$SB_IO_IN_$glb_clk: 27.41 ns
+Info: Max delay posedge clk$SB_IO_IN_$glb_clk -> <async>                      : 7.95 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ 62038,  62857) |********************** 
+Info: [ 62857,  63676) | 
+Info: [ 63676,  64495) |** 
+Info: [ 64495,  65314) |********** 
+Info: [ 65314,  66133) |*** 
+Info: [ 66133,  66952) |* 
+Info: [ 66952,  67771) | 
+Info: [ 67771,  68590) |********* 
+Info: [ 68590,  69409) |**** 
+Info: [ 69409,  70228) |******************** 
+Info: [ 70228,  71047) |**************** 
+Info: [ 71047,  71866) |******************* 
+Info: [ 71866,  72685) |************************** 
+Info: [ 72685,  73504) |***************** 
+Info: [ 73504,  74323) |************ 
+Info: [ 74323,  75142) |******* 
+Info: [ 75142,  75961) |***** 
+Info: [ 75961,  76780) | 
+Info: [ 76780,  77599) | 
+Info: [ 77599,  78418) |***** 
+Info: Checksum: 0x602efc8b
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 1130 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      120        825 |  120   825 |       284|       0.25       0.25|
+Info:       1349 |      167       1124 |   47   299 |         0|       0.12       0.37|
+Info: Routing complete.
+Info: Router1 time 0.37s
+Info: Checksum: 0xf8130eb2
+
+Info: Critical path report for clock 'clk$SB_IO_IN_$glb_clk' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  1.39  1.39 Source s1_SB_DFFSR_Q_8_D_SB_LUT4_O_LC.O
+Info:    routing  2.30  3.69 Net s1[7] (5,4) -> (2,4)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I3_SB_LUT4_O_LC.I1
+Info:                          Defined in:
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  1.23  4.93 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I3_SB_LUT4_O_LC.O
+Info:    routing  1.76  6.69 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I3[2] (2,4) -> (2,5)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I3_SB_LUT4_I3_LC.I3
+Info:                          Defined in:
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.87  7.56 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I3_SB_LUT4_I3_LC.O
+Info:    routing  1.76  9.32 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I3_SB_LUT4_I3_O[1] (2,5) -> (2,4)
+Info:                          Sink y_out_SB_DFFSR_Q_4_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_1_LC.I2
+Info:                          Defined in:
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  1.21  10.53 Source y_out_SB_DFFSR_Q_4_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_1_LC.O
+Info:    routing  1.76  12.29 Net y_out_SB_DFFSR_Q_4_D_SB_LUT4_O_I0_SB_LUT4_O_I2[1] (2,4) -> (3,3)
+Info:                          Sink y_out_SB_DFFSR_Q_4_D_SB_LUT4_O_I0_SB_LUT4_O_LC.I1
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.68  12.96 Source y_out_SB_DFFSR_Q_4_D_SB_LUT4_O_I0_SB_LUT4_O_LC.COUT
+Info:    routing  0.56  13.52 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I3_O[3] (3,3) -> (3,4)
+Info:                          Sink y_out_SB_DFFSR_Q_3_D_SB_LUT4_O_I0_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  13.80 Source y_out_SB_DFFSR_Q_3_D_SB_LUT4_O_I0_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  13.80 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I2[3] (3,4) -> (3,4)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  14.07 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  14.07 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO (3,4) -> (3,4)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_LUT4_I3_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.28  14.35 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_LUT4_I3_LC.COUT
+Info:    routing  0.00  14.35 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO (3,4) -> (3,4)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_LUT4_I3_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.28  14.63 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_LUT4_I3_LC.COUT
+Info:    routing  0.66  15.29 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_CARRY_CI_CO (3,4) -> (3,4)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_LUT4_I3_O_SB_LUT4_O_LC.I3
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.87  16.17 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_LUT4_I3_O_SB_LUT4_O_LC.O
+Info:    routing  1.76  17.93 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_LUT4_I3_O[1] (3,4) -> (2,3)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_LUT4_I3_O_SB_LUT4_O_1_LC.I2
+Info:                          Defined in:
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  1.21  19.13 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_LUT4_I3_O_SB_LUT4_O_1_LC.O
+Info:    routing  1.76  20.89 Net y_out_SB_DFFSR_Q_10_D_SB_LUT4_O_I0[2] (2,3) -> (2,3)
+Info:                          Sink y_out_SB_DFFSR_Q_5_D_SB_LUT4_O_LC.I2
+Info:                          Defined in:
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      setup  1.15  22.05 Source y_out_SB_DFFSR_Q_5_D_SB_LUT4_O_LC.I2
+Info: 9.72 ns logic, 12.33 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge clk$SB_IO_IN_$glb_clk':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source x_in[11]$sb_io.D_IN_0
+Info:    routing  6.84  6.84 Net s3_SB_DFFSR_Q_5_D_SB_LUT4_O_I2_SB_LUT4_O_1_I3_SB_LUT4_O_I3[0] (9,31) -> (10,6)
+Info:                          Sink s3_SB_DFFSR_Q_5_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_1_I3_SB_LUT4_O_LC.I1
+Info:                          Defined in:
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  1.23  8.07 Source s3_SB_DFFSR_Q_5_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_1_I3_SB_LUT4_O_LC.O
+Info:    routing  2.85  10.92 Net s3_SB_DFFSR_Q_5_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_1_I3[3] (10,6) -> (4,6)
+Info:                          Sink s3_SB_DFFSR_Q_5_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_1_I3_SB_LUT4_I3_1_LC.I3
+Info:                          Defined in:
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.87  11.79 Source s3_SB_DFFSR_Q_5_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_1_I3_SB_LUT4_I3_1_LC.O
+Info:    routing  3.06  14.85 Net s3_SB_DFFSR_Q_5_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_1_I3_SB_LUT4_I3_1_O[2] (4,6) -> (4,3)
+Info:                          Sink y_out_SB_DFFSR_Q_7_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_1_LC.I3
+Info:                          Defined in:
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.87  15.72 Source y_out_SB_DFFSR_Q_7_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_1_LC.O
+Info:    routing  1.76  17.48 Net y_out_SB_DFFSR_Q_7_D_SB_LUT4_O_I0_SB_LUT4_O_I2[1] (4,3) -> (3,3)
+Info:                          Sink y_out_SB_DFFSR_Q_7_D_SB_LUT4_O_I0_SB_LUT4_O_LC.I1
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.68  18.16 Source y_out_SB_DFFSR_Q_7_D_SB_LUT4_O_I0_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  18.16 Net y_out_SB_DFFSR_Q_6_D_SB_LUT4_O_I0_SB_LUT4_O_I2[3] (3,3) -> (3,3)
+Info:                          Sink y_out_SB_DFFSR_Q_6_D_SB_LUT4_O_I0_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  18.44 Source y_out_SB_DFFSR_Q_6_D_SB_LUT4_O_I0_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  18.44 Net y_out_SB_DFFSR_Q_4_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I3_O[3] (3,3) -> (3,3)
+Info:                          Sink y_out_SB_DFFSR_Q_5_D_SB_LUT4_O_I0_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  18.72 Source y_out_SB_DFFSR_Q_5_D_SB_LUT4_O_I0_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  18.72 Net y_out_SB_DFFSR_Q_4_D_SB_LUT4_O_I0_SB_LUT4_O_I2[3] (3,3) -> (3,3)
+Info:                          Sink y_out_SB_DFFSR_Q_4_D_SB_LUT4_O_I0_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  18.99 Source y_out_SB_DFFSR_Q_4_D_SB_LUT4_O_I0_SB_LUT4_O_LC.COUT
+Info:    routing  0.56  19.55 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I3_O[3] (3,3) -> (3,4)
+Info:                          Sink y_out_SB_DFFSR_Q_3_D_SB_LUT4_O_I0_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  19.83 Source y_out_SB_DFFSR_Q_3_D_SB_LUT4_O_I0_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  19.83 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I2[3] (3,4) -> (3,4)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/abc9_model.v:4.9-4.11
+Info:      logic  0.28  20.10 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_LC.COUT
+Info:    routing  0.00  20.10 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO (3,4) -> (3,4)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_LUT4_I3_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.28  20.38 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_LUT4_I3_LC.COUT
+Info:    routing  0.00  20.38 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO (3,4) -> (3,4)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_LUT4_I3_LC.CIN
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.28  20.66 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_LUT4_I3_LC.COUT
+Info:    routing  0.66  21.32 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_CARRY_CI_CO (3,4) -> (3,4)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_LUT4_I3_O_SB_LUT4_O_LC.I3
+Info:                          Defined in:
+Info:                               /share/ice40/arith_map.v:62.5-70.4
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  0.87  22.20 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_LUT4_I3_O_SB_LUT4_O_LC.O
+Info:    routing  1.76  23.96 Net y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_CARRY_CI_CO_SB_LUT4_I3_O[1] (3,4) -> (2,3)
+Info:                          Sink y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_LUT4_I3_O_SB_LUT4_O_1_LC.I2
+Info:                          Defined in:
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      logic  1.21  25.16 Source y_out_SB_DFFSR_Q_2_D_SB_LUT4_O_I0_SB_LUT4_O_I3_SB_CARRY_CI_CO_SB_LUT4_I3_O_SB_LUT4_O_1_LC.O
+Info:    routing  1.76  26.92 Net y_out_SB_DFFSR_Q_10_D_SB_LUT4_O_I0[2] (2,3) -> (2,3)
+Info:                          Sink y_out_SB_DFFSR_Q_5_D_SB_LUT4_O_LC.I2
+Info:                          Defined in:
+Info:                               /share/ice40/cells_map.v:6.21-6.22
+Info:      setup  1.15  28.08 Source y_out_SB_DFFSR_Q_5_D_SB_LUT4_O_LC.I2
+Info: 8.83 ns logic, 19.25 ns routing
+
+Info: Critical path report for cross-domain path 'posedge clk$SB_IO_IN_$glb_clk' -> '<async>':
+Info:       type curr  total name
+Info:   clk-to-q  1.39  1.39 Source y_out_SB_DFFSR_Q_8_D_SB_LUT4_O_LC.O
+Info:    routing  7.04  8.43 Net y_out[3]$SB_IO_OUT (2,4) -> (4,31)
+Info:                          Sink y_out[3]$sb_io.D_OUT_0
+Info:                          Defined in:
+Info:                               rtl/agent/round_05.sv:7.32-7.37
+Info: 1.39 ns logic, 7.04 ns routing
+
+Info: Max frequency for clock 'clk$SB_IO_IN_$glb_clk': 45.36 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                       -> posedge clk$SB_IO_IN_$glb_clk: 28.08 ns
+Info: Max delay posedge clk$SB_IO_IN_$glb_clk -> <async>                      : 8.43 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ 61285,  62142) |********************** 
+Info: [ 62142,  62999) | 
+Info: [ 62999,  63856) |************ 
+Info: [ 63856,  64713) | 
+Info: [ 64713,  65570) |*** 
+Info: [ 65570,  66427) | 
+Info: [ 66427,  67284) |* 
+Info: [ 67284,  68141) |****** 
+Info: [ 68141,  68998) |************ 
+Info: [ 68998,  69855) |******************** 
+Info: [ 69855,  70712) |********************* 
+Info: [ 70712,  71569) |*********************** 
+Info: [ 71569,  72426) |************************* 
+Info: [ 72426,  73283) |********** 
+Info: [ 73283,  74140) |********** 
+Info: [ 74140,  74997) |****** 
+Info: [ 74997,  75854) |** 
+Info: [ 75854,  76711) | 
+Info: [ 76711,  77568) |** 
+Info: [ 77568,  78425) |*** 
+1 warning, 0 errors
+
+Info: Program finished normally.

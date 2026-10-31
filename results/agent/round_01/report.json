@@ -1,0 +1,125 @@
+{
+  "rtl": "rtl/agent/round_01.sv",
+  "valid": false,
+  "g1_build": {
+    "pass": true
+  },
+  "g2_directed": {
+    "pass": false,
+    "cycles": 5693,
+    "failing_cycles": 37,
+    "exact_mismatches": 37,
+    "max_abs_error_lsb": 4095,
+    "reset_cycles_nonzero": 0,
+    "per_group": {
+      "power-up reset": {
+        "cycles": 9,
+        "exact_mismatches": 0,
+        "max_abs_error_lsb": 0,
+        "failures": 0
+      },
+      "constant extremes": {
+        "cycles": 33,
+        "exact_mismatches": 0,
+        "max_abs_error_lsb": 0,
+        "failures": 0
+      },
+      "alternating extremes": {
+        "cycles": 32,
+        "exact_mismatches": 13,
+        "max_abs_error_lsb": 4095,
+        "failures": 13
+      },
+      "worst-case accumulation": {
+        "cycles": 40,
+        "exact_mismatches": 21,
+        "max_abs_error_lsb": 4095,
+        "failures": 21
+      },
+      "mid-stream reset": {
+        "cycles": 60,
+        "exact_mismatches": 2,
+        "max_abs_error_lsb": 4095,
+        "failures": 2
+      },
+      "reset held with active input": {
+        "cycles": 19,
+        "exact_mismatches": 1,
+        "max_abs_error_lsb": 4095,
+        "failures": 1
+      },
+      "PAM4 levels": {
+        "cycles": 500,
+        "exact_mismatches": 0,
+        "max_abs_error_lsb": 0,
+        "failures": 0
+      },
+      "random full range": {
+        "cycles": 5000,
+        "exact_mismatches": 0,
+        "max_abs_error_lsb": 0,
+        "failures": 0
+      }
+    },
+    "examples": [
+      {
+        "cycle": 46,
+        "group": "alternating extremes",
+        "rst_n": 1,
+        "x_in": 2047,
+        "expected": 2047,
+        "rtl": -2048
+      },
+      {
+        "cycle": 47,
+        "group": "alternating extremes",
+        "rst_n": 1,
+        "x_in": -2048,
+        "expected": -2048,
+        "rtl": 2047
+      },
+      {
+        "cycle": 48,
+        "group": "alternating extremes",
+        "rst_n": 1,
+        "x_in": 2047,
+        "expected": 2047,
+        "rtl": -2048
+      },
+      {
+        "cycle": 49,
+        "group": "alternating extremes",
+        "rst_n": 1,
+        "x_in": -2048,
+        "expected": -2048,
+        "rtl": 2047
+      },
+      {
+        "cycle": 50,
+        "group": "alternating extremes",
+        "rst_n": 1,
+        "x_in": 2047,
+        "expected": 2047,
+        "rtl": -2048
+      },
+      {
+        "cycle": 51,
+        "group": "alternating extremes",
+        "rst_n": 1,
+        "x_in": -2048,
+        "expected": -2048,
+        "rtl": 2047
+      }
+    ]
+  },
+  "g3_link": {
+    "pass": true,
+    "symbols": 2000010,
+    "bit_errors": 33,
+    "symbol_errors": 33,
+    "ber": 8.249958750206249e-06,
+    "der": 1.6499917500412497e-05,
+    "mismatches_vs_fixed_model": 0,
+    "max_abs_error_vs_fixed_model_lsb": 0
+  }
+}

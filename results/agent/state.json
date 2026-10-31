@@ -1,0 +1,90 @@
+{
+  "attempts": [
+    {
+      "round": 1,
+      "rtl": "rtl/agent/round_01.sv",
+      "report": "results/agent/round_01/report.json",
+      "valid": false,
+      "note": "- Replaced the generic multipliers with CSD shift-add constants (4, 4, 4, 4 and 2 terms). - Switched from direct form to transposed form. The sample delay line becomes partial-sum registers, so the critical path is one constant...",
+      "hypothesis": "Logic cells should fall from 867 to roughly 500-600, because the multiplier LUT logic goes away and the partial-sum flip-flops share cells with the adders. Fmax should rise from about 17.8 MHz to roughly 25-30 MHz, because the long 5-product adder chain is split across registers.",
+      "failed": "G2"
+    },
+    {
+      "round": 2,
+      "rtl": "rtl/agent/round_02.sv",
+      "report": "results/agent/round_02/report.json",
+      "valid": true,
+      "note": "- Widened the accumulator and partial-sum registers from 24 to 25 bits. The worst-case sum is about 8.53M, which is above 2^23 and wrapped around. - Widened the saturation check to match: it now looks at sum[24:10] and tests...",
+      "hypothesis": "Round 1 failed G2 only on extreme inputs, which matches the 24-bit overflow, so this should pass G2 and G3. Logic cells rise slightly from the extra bit per stage. Fmax should be about the same as round 1 would have been, set by one 4-term constant add and the adder into the partial-sum register.",
+      "logic_cells": 487,
+      "fmax": 39.81,
+      "score": 0.6737093270830791
+    },
+    {
+      "round": 3,
+      "rtl": "rtl/agent/round_03.sv",
+      "report": "results/agent/round_03/report.json",
+      "valid": true,
+      "note": "- Rescaled the whole datapath by 2^-6. Each shift-add term is now floor(x*2^k / 64), so the partial-sum registers and adders are 19 bits instead of 25. - The saturation slice moves to sum[18:4], which is the same output...",
+      "hypothesis": "Logic cells should drop by about 20-25% (roughly 370-390), because adders, carry cells and flip-flops are about 6 bits narrower. Fmax should rise a little, to roughly 42-45 MHz, from shorter carry chains. Truncation error is about 1-2 output LSB at worst, so G2 and G3 should still pass.",
+      "logic_cells": 388,
+      "fmax": 44.16,
+      "score": 0.5096322241681261
+    },
+    {
+      "round": 4,
+      "rtl": "rtl/agent/round_04.sv",
+      "report": "results/agent/round_04/report.json",
+      "valid": true,
+      "note": "- Rescaled the datapath from 2^-6 to 2^-8, so the partial-sum registers and adders are 17 bits instead of 19. - The shift terms are rebased to match, and the saturation slice moves to sum[16:2].",
+      "hypothesis": "Logic cells should fall by about 10% (roughly 350) because every adder and register is 2 bits narrower. Fmax should rise slightly from the shorter carry chains. The worst-case truncation error should stay under about 5 LSB, so G2 and G3 should still pass.",
+      "logic_cells": 347,
+      "fmax": 47.73,
+      "score": 0.43840292705879413
+    },
+    {
+      "round": 5,
+      "rtl": "rtl/agent/round_05.sv",
+      "report": "results/agent/round_05/report.json",
+      "valid": true,
+      "note": "- Rescaled the datapath from 2^-8 to 2^-9, so the partial-sum registers and adders are 16 bits instead of 17. - Rebased every shift term to floor(x*2^k/512), and moved the saturation slice to sum[15:1].",
+      "hypothesis": "About 16 fewer logic cells (roughly 330) and a slightly shorter carry chain, so Fmax rises by about 1 MHz. Worst-case error should grow to about 2 LSB, well inside the 8 LSB limit, and the BER should stay near 1e-5.",
+      "logic_cells": 323,
+      "fmax": 45.36,
+      "score": 0.41860622938355246
+    },
+    {
+      "round": 6,
+      "rtl": "rtl/agent/round_06.sv",
+      "report": "results/agent/round_06/report.json",
+      "valid": true,
+      "note": "- Rescaled the datapath from 2^-9 to 2^-10, so the partial-sum registers and adders are 15 bits instead of 16. - Rebased every shift term to floor(x*2^k/1024). The output slice is now sum[14:0], with no fractional guard bit.",
+      "hypothesis": "Logic cells should fall by about 20 to 25 (one bit less in each of 4 adders, 4 registers and the shift-term adders). Fmax should be about the same or slightly higher because the carry chains are one bit shorter. The max error should grow to about 3 to 5 LSB, which is still under the 8 LSB limit.",
+      "logic_cells": 295,
+      "fmax": 46.5,
+      "score": 0.3776028182774261
+    },
+    {
+      "round": 7,
+      "rtl": "rtl/agent/round_07.sv",
+      "report": "results/agent/round_07/report.json",
+      "valid": true,
+      "note": "- Approximated c0 from 163 to 164 by dropping the -(x>>>10) term, so m0 has 3 shift terms instead of 4. - Everything else is unchanged.",
+      "hypothesis": "Removing one 15-bit adder from m0 should save about 15 logic cells, to roughly 280, with Fmax about the same (the critical path is not through m0). The added error is at most about 2 LSB, so the worst case should stay under 8 LSB and the BER should stay well under the limit.",
+      "logic_cells": 283,
+      "fmax": 56.74,
+      "score": 0.3279302327771914
+    },
+    {
+      "round": 8,
+      "rtl": "rtl/agent/round_08.sv",
+      "report": "results/agent/round_08/report.json",
+      "valid": true,
+      "note": "- Approximated c1 from -417 to -416 by dropping the +(xe>>>10) term, so m1 has 3 shift terms instead of 4. - Everything else is unchanged from round 7.",
+      "hypothesis": "One 15-bit adder goes away, so I expect about 12-15 fewer logic cells (roughly 270) and a slightly shorter m1 path, with Fmax flat or a little higher. The extra error is at most about 2 LSB, which should keep the maximum error under the 8 LSB limit and BER/SER well under 2e-4.",
+      "logic_cells": 274,
+      "fmax": 54.1,
+      "score": 0.3251558842945684
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+G1 build/synthesis: PASS
+G2 directed tests (reset cycles must output 0; every output within 8 LSB of the reference): PASS  (0 failing cycles of 5693, max error 7 LSB, 2660 cycles not bit-exact)
+   - power-up reset: 0 failing, max error 0 LSB
+   - constant extremes: 0 failing, max error 4 LSB
+   - alternating extremes: 0 failing, max error 2 LSB
+   - worst-case accumulation: 0 failing, max error 2 LSB
+   - mid-stream reset: 0 failing, max error 5 LSB
+   - reset held with active input: 0 failing, max error 4 LSB
+   - PAM4 levels: 0 failing, max error 3 LSB
+   - random full range: 0 failing, max error 7 LSB
+G3 link BER/DER through the RTL on the channel (2,000,010 symbols): BER 8.75e-06, DER 1.75e-05 -> PASS (limit 0.0002); 1,573,875 outputs differ from the exact reference, max difference 7 LSB
+Synthesis (iCE40 UP5K): 274 logic cells (268 LUT4, 70 flip-flops, 64 carry cells); Fmax median 54.1 MHz (range 54.1-54.9, 3 placement seeds)
+Score 0.325 (lower is better; 1.000 = hand-written CSD reference)
