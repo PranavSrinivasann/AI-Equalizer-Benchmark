@@ -87,3 +87,13 @@ Do not infer functional correctness from successful synthesis. A result should b
 - Timing-path excerpts do not necessarily identify the overall critical path.
 
 These limitations are intentionally documented instead of being filled with assumptions.
+
+## 802.3dj channel study (Phase 3)
+
+```bash
+./scripts/fetch_8023dj_channels.sh      # channel files into data/8023dj/ (git-ignored)
+python3 python/dj/run_phase3.py         # results/dj/, rtl/dj/
+```
+
+Needs scikit-rf, SciPy, matplotlib and Verilator. See
+`documentation/phase3_802_3dj.md`.
