@@ -1,0 +1,2 @@
+$ /usr/local/bin/yowasp-yosys -q -l results/agent/arms/baseline/yosys.log -p read_verilog -sv rtl/dj/ffe5tap_dj_loss30_baseline.sv; hierarchy -top ffe5tap_pam4; synth_ice40 -top ffe5tap_pam4 -json results/agent/arms/baseline/design.json; tee -o results/agent/arms/baseline/stat.txt stat
+

@@ -1,0 +1,40 @@
+$ /home/claude/ai-equalizer-benchmark/results/channel/rebuild/notebook_ai/obj_ffe5tap_directed_tb/sim +VECTORS=/home/claude/ai-equalizer-benchmark/test_vectors/directed/case_notebook.txt +CYCLES=5693
+
+Mismatch cycle 10 (group 2): rst_n=1 x_in=2047 expected=-966 actual=-2048
+Mismatch cycle 12 (group 2): rst_n=1 x_in=2047 expected=1309 actual=2047
+Mismatch cycle 13 (group 2): rst_n=1 x_in=2047 expected=979 actual=2047
+Mismatch cycle 14 (group 2): rst_n=1 x_in=2047 expected=1191 actual=2047
+Mismatch cycle 15 (group 2): rst_n=1 x_in=2047 expected=1191 actual=2047
+Mismatch cycle 16 (group 2): rst_n=1 x_in=2047 expected=1191 actual=2047
+Mismatch cycle 17 (group 2): rst_n=1 x_in=2047 expected=1191 actual=2047
+Mismatch cycle 20 (group 2): rst_n=1 x_in=-2048 expected=-1428 actual=-2048
+Mismatch cycle 21 (group 2): rst_n=1 x_in=-2048 expected=-769 actual=-2048
+Mismatch cycle 22 (group 2): rst_n=1 x_in=-2048 expected=-1192 actual=-2048
+Mismatch cycle 23 (group 2): rst_n=1 x_in=-2048 expected=-1192 actual=-2048
+Mismatch cycle 24 (group 2): rst_n=1 x_in=-2048 expected=-1192 actual=-2048
+Mismatch cycle 25 (group 2): rst_n=1 x_in=-2048 expected=-1192 actual=-2048
+Mismatch cycle 27 (group 2): rst_n=1 x_in=0 expected=914 actual=2047
+Mismatch cycle 28 (group 2): rst_n=1 x_in=0 expected=118 actual=2047
+Mismatch cycle 29 (group 2): rst_n=1 x_in=0 expected=-212 actual=-2048
+Mismatch cycle 43 (group 3): rst_n=1 x_in=2047 expected=-965 actual=-2048
+Mismatch cycle 119 (group 6): rst_n=1 x_in=-45 expected=21 actual=2047
+Mismatch cycle 120 (group 6): rst_n=1 x_in=450 expected=-280 actual=-2048
+Mismatch cycle 121 (group 6): rst_n=1 x_in=80 expected=654 actual=2047
+========================================
+Directed Verification: /home/claude/ai-equalizer-benchmark/test_vectors/directed/case_notebook.txt
+  group 1: 9 cycles, 0 mismatches
+  group 2: 33 cycles, 16 mismatches
+  group 3: 32 cycles, 1 mismatches
+  group 4: 40 cycles, 0 mismatches
+  group 6: 60 cycles, 41 mismatches
+  group 7: 19 cycles, 5 mismatches
+  group 8: 500 cycles, 500 mismatches
+  group 9: 5000 cycles, 3335 mismatches
+Cycles tested: 5693
+Total mismatches: 3898
+RESULT: FAIL
+========================================
+- /home/claude/ai-equalizer-benchmark/testbench/directed/ffe5tap_directed_tb.sv:112: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.49
+- Verilator: $finish at 57ns; walltime 0.010 s; speed 5.524 us/s
+- Verilator: cpu 0.010 s on 1 threads; allocated 6 MB

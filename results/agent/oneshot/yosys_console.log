@@ -1,0 +1,2 @@
+$ /usr/local/bin/yowasp-yosys -q -l results/agent/oneshot/yosys.log -p read_verilog -sv rtl/agent/oneshot.sv; hierarchy -top ffe5tap_pam4; synth_ice40 -top ffe5tap_pam4 -json results/agent/oneshot/design.json; tee -o results/agent/oneshot/stat.txt stat
+

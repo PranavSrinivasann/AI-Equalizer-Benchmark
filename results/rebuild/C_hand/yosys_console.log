@@ -1,0 +1,2 @@
+$ /usr/local/bin/yowasp-yosys -q -l results/rebuild/C_hand/yosys.log -p read_verilog -sv rtl/hand/ffe5tap_caseC_hand.sv; hierarchy -top ffe5tap_pam4; synth_ice40 -top ffe5tap_pam4 -json results/rebuild/C_hand/design.json; tee -o results/rebuild/C_hand/yosys_stat.txt stat
+

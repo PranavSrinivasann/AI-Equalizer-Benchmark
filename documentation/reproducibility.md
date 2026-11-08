@@ -46,6 +46,26 @@ Depending on the implementation, the directories contain Verilator logs, generat
 
 The Phase 4 timing investigation artifacts are under `results/phase4/`.
 
+## One-command rebuild
+
+`scripts/rebuild_all.py` reruns verification, synthesis and place-and-route
+for every design (baseline, optimized and hand-optimized for Cases A-C):
+
+```bash
+python3 scripts/rebuild_all.py --seeds 10
+```
+
+It records tool versions, saves per-design logs under `results/rebuild/`,
+and writes `results/rebuild/summary.csv` and `results/rebuild/fmax_seeds.csv`.
+See `documentation/week1_walkthrough.md` for what each check covers.
+
+## Channel experiments
+
+`python/channel/hardware_ber.py` runs the floating-point, fixed-point and
+RTL FFEs on the same PAM4 channel samples and writes `results/channel/`.
+See `documentation/channel_connection.md` and
+`documentation/week2_walkthrough.md`.
+
 ## Recommended rerun procedure
 
 1. Confirm the current Git state and make a backup of any results that must be preserved.
@@ -62,8 +82,35 @@ Do not infer functional correctness from successful synthesis. A result should b
 
 ## Current evidence limitations
 
-- Case A functional verification was not established by the artifacts identified during the Phase 4 audit.
+- Case A functional verification was not established by the artifacts identified during the Phase 4 audit; it is now re-established by the saved logs in `results/rebuild/A_*/`.
 - Exact AI model/version, prompt count, and manual RTL change history are not fully recorded.
 - Timing-path excerpts do not necessarily identify the overall critical path.
 
 These limitations are intentionally documented instead of being filled with assumptions.
+
+## 802.3dj channel study (Phase 3)
+
+```bash
+./scripts/fetch_8023dj_channels.sh      # channel files into data/8023dj/ (git-ignored)
+python3 python/dj/run_phase3.py         # results/dj/, rtl/dj/
+```
+
+Needs scikit-rf, SciPy, matplotlib and Verilator. See
+`documentation/phase3_802_3dj.md`.
+
+## Agent loop (Phase 5)
+
+```bash
+export V=/usr/local/lib/python3.13/site-packages/verilator   # wherever Verilator lives
+export PATH=$V/bin:$PATH VERILATOR_ROOT=$V
+python3 python/agent/loop.py setup          # evaluate the baseline and the hand CSD reference
+python3 python/agent/loop.py prompt N       # writes results/agent/round_NN/prompt.md
+# ... the model's reply is saved as results/agent/round_NN/response.md ...
+python3 python/agent/loop.py evaluate N     # gates G1-G3, synthesis, place and route; updates state.json
+python3 python/agent/loop.py control NAME   # evaluate a single-shot control sample
+python3 python/agent/report_agent.py        # results/agent/summary.csv and score_by_round.png
+```
+
+Every prompt, reply, report and synthesis log is kept under `results/agent/`.
+The model's replies cannot be regenerated bit for bit; the saved replies are the record.
+See `documentation/phase5_agent_loop.md`.

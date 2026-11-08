@@ -1,0 +1,18 @@
+G1 build/synthesis: PASS
+G2 directed tests (reset cycles must output 0; every output within 8 LSB of the reference): FAIL  (37 failing cycles of 5693, max error 4095 LSB, 37 cycles not bit-exact)
+   - power-up reset: 0 failing, max error 0 LSB
+   - constant extremes: 0 failing, max error 0 LSB
+   - alternating extremes: 13 failing, max error 4095 LSB
+   - worst-case accumulation: 21 failing, max error 4095 LSB
+   - mid-stream reset: 2 failing, max error 4095 LSB
+   - reset held with active input: 1 failing, max error 4095 LSB
+   - PAM4 levels: 0 failing, max error 0 LSB
+   - random full range: 0 failing, max error 0 LSB
+   failing example: cycle 46 (alternating extremes) rst_n=1 x_in=2047 expected=2047 got=-2048
+   failing example: cycle 47 (alternating extremes) rst_n=1 x_in=-2048 expected=-2048 got=2047
+   failing example: cycle 48 (alternating extremes) rst_n=1 x_in=2047 expected=2047 got=-2048
+   failing example: cycle 49 (alternating extremes) rst_n=1 x_in=-2048 expected=-2048 got=2047
+   failing example: cycle 50 (alternating extremes) rst_n=1 x_in=2047 expected=2047 got=-2048
+   failing example: cycle 51 (alternating extremes) rst_n=1 x_in=-2048 expected=-2048 got=2047
+G3 link BER/DER through the RTL on the channel (2,000,010 symbols): BER 8.25e-06, DER 1.65e-05 -> PASS (limit 0.0002); 0 outputs differ from the exact reference, max difference 0 LSB
+Synthesis not run (gates G2/G3 must pass first).

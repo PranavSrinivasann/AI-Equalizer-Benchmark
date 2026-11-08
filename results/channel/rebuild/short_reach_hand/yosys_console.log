@@ -1,0 +1,2 @@
+$ /usr/local/bin/yowasp-yosys -q -l results/channel/rebuild/short_reach_hand/yosys.log -p read_verilog -sv rtl/channel/ffe5tap_short_reach_hand.sv; hierarchy -top ffe5tap_pam4; synth_ice40 -top ffe5tap_pam4 -json results/channel/rebuild/short_reach_hand/design.json; tee -o results/channel/rebuild/short_reach_hand/yosys_stat.txt stat
+

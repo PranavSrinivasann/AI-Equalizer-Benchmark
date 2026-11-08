@@ -1,0 +1,3 @@
+$ /usr/local/bin/yowasp-yosys -q -l results/rebuild/A_ai/yosys.log -p read_verilog -sv rtl/ffe5tap_pam4_claude_resource1.sv; hierarchy -top ffe5tap_pam4; synth_ice40 -top ffe5tap_pam4 -json results/rebuild/A_ai/design.json; tee -o results/rebuild/A_ai/yosys_stat.txt stat
+
+Warning: Encountered `translate_off' comment! Such legacy hot comments are supported by Yosys, but are not part of any formal language specification. Using a portable and standards-compliant construct such as `ifdef is recommended!
