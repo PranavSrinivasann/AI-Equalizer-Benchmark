@@ -6,6 +6,10 @@ This project investigates hardware optimization of a five-tap PAM4 feed-forward 
 
 The main evaluation metrics are logic-cell utilization, LUT4 count, maximum reported clock frequency, and use of dedicated FPGA resources. Functional verification results are documented separately from synthesis results.
 
+## Latest results
+
+The work now covers the public 802.3dj 200G/lane channels (about 20, 30 and 40 dB), a tap and precision sweep with a DFE model, and an agent loop for RTL optimization. Start with `documentation/final_report.md`. Phase write-ups are `documentation/phase3_802_3dj.md`, `phase4_tap_precision_sweep.md` and `phase5_agent_loop.md`; reproduction steps are in `documentation/reproducibility.md`. The sections below describe the original three-coefficient-set experiment.
+
 ## Design specification
 
 - Architecture: five-tap feed-forward equalizer
