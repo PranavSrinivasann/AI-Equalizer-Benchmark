@@ -15,8 +15,11 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path[:0] = [str(HERE)]
+import margin_design as md  # noqa: E402
 import run_flow  # noqa: E402
 from run_flow import sweep  # noqa: E402
+
+MIN_HAND_WIDTH = 6   # ffe_gen.hand_csd_rtl refuses narrower inputs
 
 
 def main():
@@ -32,8 +35,15 @@ def main():
         sweep.PRECISIONS[f"W{w}"] = (w, w - 2)
     rows = []
     for w in args.widths:
-        rec = run_flow.run(args.level, args.taps, f"W{w}", args.symbols, args.seeds, args.pnr_seeds,
-                           name=f"{args.level}_t{args.taps}_W{w}_uniform")
+        name = f"{args.level}_t{args.taps}_W{w}_uniform"
+        if w >= MIN_HAND_WIDTH:
+            rec = run_flow.run(args.level, args.taps, f"W{w}", args.symbols, args.seeds, args.pnr_seeds, name=name)
+        else:   # same arithmetic as the hand generator (checked for W7..W12), narrower inputs allowed
+            pulses, th, front = sweep.load_front_end(args.level)
+            entry = sweep.designs_for(pulses, th)[args.taps]
+            d = md.Design(w, w - 2, [w - 2] * args.taps, [0] * args.taps, [float(v) for v in entry["float"]], 0)
+            rec = run_flow.run_design(args.level, d, md.rtl(d, f"uniform W{w}"), lambda xi, d=d: md.model(xi, d),
+                                      args.symbols, args.seeds, args.pnr_seeds, name, context=(pulses, th, front, entry))
         b, p = rec["stages"]["ber"], rec["stages"]["pnr"]
         rows.append({"level": args.level, "taps": args.taps, "width": w, "coef_frac": w - 2,
                      "rtl": rec["stages"]["rtl"]["status"], "symbols": b["symbols"],

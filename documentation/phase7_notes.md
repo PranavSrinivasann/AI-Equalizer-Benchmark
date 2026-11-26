@@ -99,3 +99,74 @@ Reading:
   coefficient set.
 
 Plot: `results/phase7/ber_vs_cells_loss30_t5.png`.
+
+## Phase 4: second channel (20 dB)
+
+The second channel is the 20 dB 802.3dj backplane (100 mm), a different pulse response
+and crosstalk set from the 30 dB one (1200 mm). It needed no added noise: the float
+design has no errors in 100M symbols, but narrow fixed-point designs do fail, so the
+curve is not flat. (The 40 dB channel needs more than five taps, so it is not used.)
+Same scripts, with `--level loss20`. Widths below 6 use the per-tap generator with
+t = 0, f = F, b = 0, which is the same arithmetic as the hand generator (the hand
+generator refuses inputs narrower than 6 bits).
+
+Uniform baseline:
+
+| Width | Logic cells | BER | DER | Meets DER <= 2e-4 |
+|---|---|---|---|---|
+| W4 | 65 | 6.32e-02 | 1.26e-01 | no |
+| W5 | 106 | 6.52e-03 | 1.30e-02 | no |
+| W6 | 169 | 2.08e-05 | 4.16e-05 | yes |
+| W7 | 225 | 0 | 0 | yes |
+| W8 | 281 | 0 | 0 | yes |
+| W9 | 360 | 0 | 0 | yes |
+| W10 | 400 | 0 | 0 | yes |
+| W11 | 472 | 0 | 0 | yes |
+| W12 | 507 | 0 | 0 | yes |
+
+Margin-guided designs (greedy search from W4 to W8, 55 candidates, 40 screened with the
+real flow, 32 single-bit neighbours of the best three screened, then the Pareto front
+validated at 100M symbols with 3 place-and-route seeds):
+
+| Design | Logic cells | BER | DER | Fmax (MHz) |
+|---|---|---|---|---|
+| W6_F4_f33324_t00000_b7 | 115 | 4.62e-05 | 9.24e-05 | 38.1 |
+| W7_F5_f33325_t00111_b30 | 122 | 1.41e-05 | 2.83e-05 | 34.7 |
+| W6_F4_f33344_t00000_b8 | 124 | 8.01e-06 | 1.60e-05 | 32.8 |
+| W7_F5_f43435_t01111_b28 | 155 | 5.77e-06 | 1.15e-05 | 30.8 |
+| W7_F5_f33435_t01111_b27 | 157 | 4.47e-06 | 8.94e-06 | 31.4 |
+| W7_F5_f44435_t01111_b29 | 166 | 7.50e-07 | 1.50e-06 | 31.2 |
+| W6_F4_f44444_t00000_b7 | 170 | 4.48e-06 | 8.95e-06 | 30.9 |
+| W7_F5_f45545_t01111_b28 | 178 | 4.85e-07 | 9.70e-07 | 31.5 |
+| W7_F5_f45545_t00000_b16 | 190 | 5.00e-09 | 1.00e-08 | 29.4 |
+
+Reading:
+
+- Smallest margin-guided design meeting DER <= 2e-4: `W6_F4_f33324_t00000_b7`, 115
+  cells, DER 9.2e-5. The best uniform design is W6 at 169 cells (DER 4.2e-5), so the
+  saving is 32%; against the 507-cell P12 reference it is 77%.
+- The output offset alone (W6 uniform + offset, 170 cells) lowers DER from 4.2e-5 to
+  8.9e-6 at the same cost (+1 cell), so at 20 dB it buys a lot of margin but no area.
+- Neighbours that remove one more bit break the limit (W6 f33324 with dropped sample
+  LSBs: DER 1e-3 to 3e-3).
+
+## Across the two channels
+
+| | 30 dB | 20 dB |
+|---|---|---|
+| Hand CSD reference (P12) | 571 cells | 507 cells |
+| Smallest uniform width meeting DER <= 2e-4 | W7, 216 cells | W6, 169 cells |
+| Smallest margin-guided design meeting DER <= 2e-4 | 177 cells | 115 cells |
+| Saving over the best uniform width | 18% | 32% |
+| Saving over the reference | 69% | 77% |
+| DER of the margin-guided design (limit 2e-4) | 1.65e-4 | 9.2e-5 |
+
+The pattern is the same on both channels: the taps with the smallest coefficients keep
+3 bits (f = 33555 at 30 dB, 33324 at 20 dB) and the output offset recovers margin. The
+saving over uniform widths holds on a second, different response and is larger on the
+easier channel. Each channel's best design is tuned to that channel's coefficients, so
+this does not show that one design works for both. Dropping sample LSBs never helped
+near the limit on either channel.
+
+Plots: `results/phase7/ber_vs_cells_loss20_t5.png`. Candidate lists and screening tables
+for 20 dB are in `margin_candidates_loss20_t5.json` and `margin_screen_loss20_t5.csv`.

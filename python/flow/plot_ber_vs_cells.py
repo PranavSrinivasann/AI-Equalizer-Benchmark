@@ -31,7 +31,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--level", default="loss30")
     ap.add_argument("--taps", type=int, default=5)
+    ap.add_argument("--ablation-offset", default="-100,-62", help="label offset in points, dx,dy")
     args = ap.parse_args()
+    adx, ady = (float(v) for v in args.ablation_offset.split(","))
     uni = read(OUT / f"uniform_{args.level}_t{args.taps}.csv")
     mpath = OUT / f"margin_{args.level}_t{args.taps}.csv"
     margin = read(mpath) if mpath.exists() else []
@@ -81,7 +83,7 @@ def main():
             parts = r["label"].split("_")
             if parts[2] == "f" + parts[1][1:] * 5 and set(parts[3][1:]) == {"0"} and int(parts[4][1:]) != 0:
                 ax.annotate("uniform widths + output offset\n(only the trim, no per-tap change)",
-                            (r["logic_cells"], max(r["ber"], floor)), xytext=(-100, -62),
+                            (r["logic_cells"], max(r["ber"], floor)), xytext=(adx, ady),
                             textcoords="offset points", ha="left", va="center", fontsize=8, color=INK2,
                             arrowprops=dict(arrowstyle="-", color=INK2, lw=0.8))
                 break
@@ -89,14 +91,18 @@ def main():
     lo = min(r["logic_cells"] for r in uni + margin)
     hi = max(r["logic_cells"] for r in uni + margin)
     pad = 0.06 * (hi - lo)
-    ax.set_xlim(lo - 4 * pad, hi + pad)
-    ymax = max(r["ber"] for r in uni) * 2
+    left = max(lo - 4 * pad, 0)
+    ax.set_xlim(left, hi + pad)
+    ymax = max(r["ber"] for r in uni) * 4
     ax.set_ylim(floor / 1.4, max(ymax, 3e-4))
     ax.text(hi + pad - 2, 1.1e-4, "DER limit 2e-4 (DER ≈ 2 × BER, so BER ≈ 1e-4)", color=INK2,
             fontsize=8, ha="right", va="bottom")
     if ref_ber > 0:
-        ax.text(lo - 4 * pad + 4, ref_ber * 0.92, "float FFE (no quantization)", color=INK2, fontsize=8,
+        ax.text(left + 4, ref_ber * 0.92, "float FFE (no quantization)", color=INK2, fontsize=8,
                 ha="left", va="top")
+    if any(r["ber"] == 0 for r in uni + margin):
+        ax.text(hi + pad - 2, floor * 25, "BER = 0 (no errors in 100M symbols)\nis drawn on the bottom edge",
+                color=INK2, fontsize=8, ha="right", va="bottom")
     ax.set_xlabel("Logic cells (iCE40 UP5K, lower is smaller)", color=INK)
     ax.set_ylabel("BER", color=INK)
     ax.set_title(f"{args.taps}-tap FFE, {args.level.replace('loss', '')} dB channel: BER versus logic cells",
