@@ -1,0 +1,130 @@
+{
+ "name": "W10_F10_f99aaa_t00000_b511",
+ "date_utc": "2026-11-26T02:19:07+00:00",
+ "git_commit": "9b4f5fc",
+ "tools": {
+  "verilator": "Verilator 5.020 2024-01-01 rev (Debian 5.020-1)",
+  "yosys": "Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)",
+  "nextpnr": "\"yowasp-nextpnr-ice40\" -- Next Generation Place and Route (Version nextpnr-0.11.1)"
+ },
+ "config": {
+  "channel": "loss30",
+  "taps": 5,
+  "architecture": "hand CSD, per-tap widths",
+  "W": 10,
+  "F": 10,
+  "coef_bits_per_tap": [
+   9,
+   9,
+   10,
+   10,
+   10
+  ],
+  "dropped_sample_lsbs_per_tap": [
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "accumulator_offset": 511,
+  "throughput": "1 sample/cycle",
+  "latency_cycles": 1,
+  "ber_limit": 0.0002
+ },
+ "stages": {
+  "reference": {
+   "status": "PASS",
+   "coefficients_int_at_F": [
+    164,
+    -416,
+    782,
+    -1268,
+    1536
+   ],
+   "coefficients_float": [
+    0.15956415475390145,
+    -0.4067432260154345,
+    0.7637430130596669,
+    -1.238594646952122,
+    1.5
+   ],
+   "max_coef_quant_error": 0.0005920952460985451
+  },
+  "rtl": {
+   "status": "PASS",
+   "mismatches": 0,
+   "rtl_file": "results/phase7/W10_F10_f99aaa_t00000_b511/ffe_W10_F10_f99aaa_t00000_b511.sv",
+   "check": "20000-cycle random + extreme + reset stream vs fixed-point model"
+  },
+  "ber": {
+   "symbols": 100000000,
+   "seeds": 5,
+   "samples_clipped": 0,
+   "per_seed": [
+    {
+     "seed": 1000,
+     "symbols": 20000000,
+     "bit_errors_fixed": 316
+    },
+    {
+     "seed": 1001,
+     "symbols": 20000000,
+     "bit_errors_fixed": 335
+    },
+    {
+     "seed": 1002,
+     "symbols": 20000000,
+     "bit_errors_fixed": 327
+    },
+    {
+     "seed": 1003,
+     "symbols": 20000000,
+     "bit_errors_fixed": 353
+    },
+    {
+     "seed": 1004,
+     "symbols": 20000000,
+     "bit_errors_fixed": 342
+    }
+   ],
+   "bit_errors_fixed": 1673,
+   "symbol_errors_fixed": 1673,
+   "ber_fixed": 8.365e-06,
+   "der_fixed": 1.673e-05,
+   "bit_errors_float": 1597,
+   "symbol_errors_float": 1597,
+   "ber_float": 7.985e-06,
+   "der_float": 1.597e-05,
+   "ber_primary": "PASS",
+   "der_primary": "PASS",
+   "ber_stretch": "FAIL",
+   "status": "PASS"
+  },
+  "pnr": {
+   "status": "PASS",
+   "lut4": 403,
+   "dff": 50,
+   "carry": 30,
+   "logic_cells": 464,
+   "logic_cells_all_seeds": [
+    464,
+    464,
+    464
+   ],
+   "fmax_median_mhz": 24.79,
+   "fmax_min_mhz": 23.55,
+   "fmax_max_mhz": 25.08,
+   "seeds_ok": 3,
+   "fits_up5k": true
+  }
+ },
+ "summary": {
+  "all_stages_pass": true,
+  "ber": 8.365e-06,
+  "der": 1.673e-05,
+  "logic_cells": 464,
+  "fmax_median_mhz": 24.79,
+  "runtime_s": 39.6
+ }
+}
