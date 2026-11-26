@@ -170,3 +170,46 @@ near the limit on either channel.
 
 Plots: `results/phase7/ber_vs_cells_loss20_t5.png`. Candidate lists and screening tables
 for 20 dB are in `margin_candidates_loss20_t5.json` and `margin_screen_loss20_t5.csv`.
+
+## Phase 5: single agent versus simple search (30 dB, 21 design points)
+
+Question from Chen: does an agent find comparable designs in fewer evaluations than a
+simple search? Design space: taps {5, 8, 12, 16, 24, 32, 48} x precision {P8, P10, P12}.
+Each "evaluation" returns the stored Phase 4 result for that point (BER, DER, logic cells,
+Fmax). Budget: 6 evaluations. Two targets:
+
+- Primary: BER and DER <= 2e-4. Every point passes, so the optimum is the smallest design,
+  5 taps P8, 295 cells.
+- Stretch: BER <= 1e-6 and DER <= 2e-4. The 5-tap designs fail (BER 8e-6 to 1.7e-5), so the
+  optimum is 8 taps P8, 409 cells.
+
+Searchers: random order (20000 shuffles), a scan ordered by taps x bits, hill climbing from
+each of the 21 starts, and agents (3 on the primary target, 4 on the stretch target).
+Each agent was a fresh instance with no tools and no files. It saw only the task text and
+its own evaluation table, and chose the next design or stopped.
+
+| Searcher | Primary: evaluations to optimum | Stretch: evaluations to optimum |
+|---|---|---|
+| Random order | 11.0 expected; 29% chance within 6 | 11.0 expected; 29% chance within 6 |
+| Scan by taps x bits | 1 | 4 |
+| Hill climb | 71% within 6; 3.9 when found | 71% within 6; 4.4 when found |
+| Agents | 3 in all 3 trials | 2 in all 4 trials |
+
+All agents reported the true optimum and stopped on their own, after 3 to 4 evaluations
+(of 6 allowed). On the stretch target the agents beat the scan (2 against 4) and the hill
+climb. On the primary target the scan wins (1 against 3).
+
+Caveats:
+
+1. The space is tiny and monotone: cells rise with taps and bits, so "try the smallest,
+   then step up" works. The scan encodes that prior and is a strong baseline.
+2. The agents' result is the same in every trial. That is consistent, but it comes from 7
+   runs on one task, not a statistical sample.
+3. The evaluator is a lookup of precomputed Phase 4 results. It is not MOSAIC's broker or
+   mock pool. Wiring this into MOSAIC is a possible follow-up.
+4. Per Chen's criterion (MLCAD only if agents consistently find comparable designs in
+   fewer evaluations), this is mildly positive on the stretch target and not
+   discriminating on the primary one. A larger space is the fairer test.
+
+Files: `python/flow/design_search.py`, `results/phase7/search/baselines.json`,
+`results/phase7/search/agent_state.json`.

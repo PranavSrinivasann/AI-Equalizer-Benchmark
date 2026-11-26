@@ -1,0 +1,354 @@
+{
+ "budget": 6,
+ "trials": {
+  "primary_1": {
+   "target": "primary",
+   "evals": [
+    {
+     "taps": 16,
+     "precision": "P10",
+     "ber": 0.0,
+     "der": 0.0,
+     "logic_cells": 1176,
+     "fmax": 18.38,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 8,
+     "precision": "P8",
+     "ber": 5e-09,
+     "der": 1e-08,
+     "logic_cells": 409,
+     "fmax": 24.36,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P8",
+     "ber": 1.6755e-05,
+     "der": 3.351e-05,
+     "logic_cells": 295,
+     "fmax": 26.76,
+     "feasible": true,
+     "repeat": false
+    }
+   ],
+   "replies": [
+    "PICK taps=16 precision=P10 | WHY: With no data yet, a mid-range design is the best first probe, because whether it meets the 2e-4 target tells us which way to search (fewer taps or lower precision if it passes, more if it fails) and a binary search needs far fewer than 6 evaluations.",
+    "PICK taps=8 precision=P8 | WHY: The 16-tap P10 design has zero errors, which suggests there is margin, so I'll probe a much smaller, cheaper design (8 taps, P8) to see whether the logic cell count can drop substantially while still meeting the target.",
+    "PICK taps=5 precision=P8 | WHY: The 8-tap P8 design already passes with huge margin (BER 5e-9 vs 2e-4 target) at 409 cells, so the smallest tap count at the cheapest precision is the most likely cheaper passing design.",
+    "STOP best=5,P8 | WHY: It meets the target (BER 1.68e-5, DER 3.35e-5) at 295 logic cells, and 5 taps at P8 is the smallest design in the space, so no other design can use fewer cells."
+   ],
+   "stopped": "stop:5/P8"
+  },
+  "primary_2": {
+   "target": "primary",
+   "evals": [
+    {
+     "taps": 16,
+     "precision": "P10",
+     "ber": 0.0,
+     "der": 0.0,
+     "logic_cells": 1176,
+     "fmax": 18.38,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 8,
+     "precision": "P8",
+     "ber": 5e-09,
+     "der": 1e-08,
+     "logic_cells": 409,
+     "fmax": 24.36,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P8",
+     "ber": 1.6755e-05,
+     "der": 3.351e-05,
+     "logic_cells": 295,
+     "fmax": 26.76,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P10",
+     "ber": 8.46e-06,
+     "der": 1.692e-05,
+     "logic_cells": 419,
+     "fmax": 23.63,
+     "feasible": true,
+     "repeat": false
+    }
+   ],
+   "replies": [
+    "PICK taps=16 precision=P10 | WHY: With no data yet, a mid-range design is the most informative first probe, since passing or failing it lets me bisect the taps and precision axes for the cheapest design that still meets 2e-4.",
+    "PICK taps=8 precision=P8 | WHY: The 16-tap P10 design has zero errors, so there is likely margin to shrink both taps and precision, and 8 taps at P8 is a cheap mid-point probe that either passes (and gives a much smaller design) or bounds the feasible region.",
+    "PICK taps=5 precision=P8 | WHY: The 8-tap P8 design already meets the target at 409 cells with near-zero BER, so the smallest-tap, lowest-precision corner (5 taps, P8) is the only plausible cheaper design and is worth testing.",
+    "PICK taps=5 precision=P10 | WHY: Taps=5 at P8 (295 cells) already meets the target with BER 1.7e-5, so only a smaller design could beat it, and the 5-tap P8 design is already the minimum on both axes, so no unevaluated design has fewer cells and the remaining budget is better spent confirming nothing; however P10 at 5 taps costs more cells, so STOP is actually optimal.",
+    "STOP best=5,P8 | WHY: Among evaluated designs 5-tap P8 has the fewest logic cells (295) and meets the BER/DER target, and no smaller design exists."
+   ],
+   "stopped": "stop:5/P8"
+  },
+  "primary_3": {
+   "target": "primary",
+   "evals": [
+    {
+     "taps": 16,
+     "precision": "P10",
+     "ber": 0.0,
+     "der": 0.0,
+     "logic_cells": 1176,
+     "fmax": 18.38,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 8,
+     "precision": "P8",
+     "ber": 5e-09,
+     "der": 1e-08,
+     "logic_cells": 409,
+     "fmax": 24.36,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P8",
+     "ber": 1.6755e-05,
+     "der": 3.351e-05,
+     "logic_cells": 295,
+     "fmax": 26.76,
+     "feasible": true,
+     "repeat": false
+    }
+   ],
+   "replies": [
+    "PICK taps=16 precision=P10 | WHY: With no data yet, a mid-range design is the most informative first probe, since it shows whether a smaller or larger design is needed and lets the next picks bisect the 21-design space.",
+    "PICK taps=8 precision=P8 | WHY: The 16-tap P10 design has zero errors, so there is likely headroom to cut logic cells, and 8 taps at P8 is a mid-low point that tests how far down the design space still meets the target.",
+    "PICK taps=5 precision=P8 | WHY: The 8-tap P8 design already meets the target at 409 cells and BER near zero, so a smaller 5-tap P8 is the cheapest untested design that could still pass.",
+    "STOP best=5,P8 | WHY: 5 taps at P8 is the smallest-tap, narrowest-precision design in the space, already meets the target with 295 logic cells, and no unevaluated design can use fewer cells."
+   ],
+   "stopped": "stop:5/P8"
+  },
+  "stretch_1": {
+   "target": "stretch",
+   "evals": [
+    {
+     "taps": 16,
+     "precision": "P10",
+     "ber": 0.0,
+     "der": 0.0,
+     "logic_cells": 1176,
+     "fmax": 18.38,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 8,
+     "precision": "P8",
+     "ber": 5e-09,
+     "der": 1e-08,
+     "logic_cells": 409,
+     "fmax": 24.36,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P8",
+     "ber": 1.6755e-05,
+     "der": 3.351e-05,
+     "logic_cells": 295,
+     "fmax": 26.76,
+     "feasible": false,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P10",
+     "ber": 8.46e-06,
+     "der": 1.692e-05,
+     "logic_cells": 419,
+     "fmax": 23.63,
+     "feasible": false,
+     "repeat": false
+    }
+   ],
+   "replies": [
+    "PICK taps=16 precision=P10 | WHY: With no data yet, a mid-range design is a good first probe: if it passes I can move toward fewer taps or lower precision, and if it fails I know to move up.",
+    "PICK taps=8 precision=P8 | WHY: The 16-tap P10 design has zero errors with 1176 cells, so a much smaller design (8 taps, 8-bit) probes the low-cost end of the space where the target may still be met.",
+    "PICK taps=5 precision=P8 | WHY: The 8-tap P8 design already meets the target at 409 cells and BER near 5e-9, so the fewest-cell candidates are fewer taps at the lowest precision, and 5 taps P8 is the smallest design in the space.",
+    "PICK taps=5 precision=P10 | WHY: Evaluation 2 (8 taps, P8) meets the target at 409 cells, and 5 taps at P8 fails by a small margin (BER 1.68e-5). Higher precision at 5 taps might cut that error enough to pass, and it would likely still use fewer cells than 409.",
+    "STOP best=8,P8 | WHY: The only designs with fewer logic cells than 409 are 5-tap P8 (295 cells), which fails the target, so 8-tap P8 is the cheapest design that meets the target."
+   ],
+   "stopped": "stop:8/P8"
+  },
+  "stretch_2": {
+   "target": "stretch",
+   "evals": [
+    {
+     "taps": 16,
+     "precision": "P10",
+     "ber": 0.0,
+     "der": 0.0,
+     "logic_cells": 1176,
+     "fmax": 18.38,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 8,
+     "precision": "P8",
+     "ber": 5e-09,
+     "der": 1e-08,
+     "logic_cells": 409,
+     "fmax": 24.36,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P8",
+     "ber": 1.6755e-05,
+     "der": 3.351e-05,
+     "logic_cells": 295,
+     "fmax": 26.76,
+     "feasible": false,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P10",
+     "ber": 8.46e-06,
+     "der": 1.692e-05,
+     "logic_cells": 419,
+     "fmax": 23.63,
+     "feasible": false,
+     "repeat": false
+    }
+   ],
+   "replies": [
+    "PICK taps=16 precision=P10 | WHY: With no data yet, a mid-range design is a good first probe: if it meets BER/DER I can search downward for fewer logic cells, and if it fails I know to go up.",
+    "PICK taps=8 precision=P8 | WHY: The 16-tap P10 design has zero errors with margin, so a much smaller design (fewer taps and narrower precision) likely still meets the target and probes the low-cost end of the space.",
+    "PICK taps=5 precision=P8 | WHY: The 8-tap P8 design already meets the target with margin (BER 5e-9, 409 cells), so the smallest design (5 taps, P8) is the next cheapest candidate that could meet the target with fewer logic cells.",
+    "PICK taps=5 precision=P10 | WHY: Cost is driven mostly by taps and precision, so 5 taps at P8 failed (BER 1.68e-5) and 8 taps P8 passed at 409 cells, while the only cheaper untested candidates are 5-tap P10 or P12 (which would cost more than 295 but might be under 409), so test 5-tap P10 to see whether extra precision alone closes the gap.",
+    "STOP best=8,P8 | WHY: 8-tap P8 meets the target at 409 cells, while the only cheaper design (5-tap P8, 295 cells) fails."
+   ],
+   "stopped": "stop:8/P8"
+  },
+  "stretch_3": {
+   "target": "stretch",
+   "evals": [
+    {
+     "taps": 16,
+     "precision": "P10",
+     "ber": 0.0,
+     "der": 0.0,
+     "logic_cells": 1176,
+     "fmax": 18.38,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 8,
+     "precision": "P8",
+     "ber": 5e-09,
+     "der": 1e-08,
+     "logic_cells": 409,
+     "fmax": 24.36,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P8",
+     "ber": 1.6755e-05,
+     "der": 3.351e-05,
+     "logic_cells": 295,
+     "fmax": 26.76,
+     "feasible": false,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P10",
+     "ber": 8.46e-06,
+     "der": 1.692e-05,
+     "logic_cells": 419,
+     "fmax": 23.63,
+     "feasible": false,
+     "repeat": false
+    }
+   ],
+   "replies": [
+    "PICK taps=16 precision=P10 | WHY: With no data yet, a mid-range design is a good first probe: if it passes I can step down toward fewer taps or lower precision, and if it fails I know to go larger.",
+    "PICK taps=8 precision=P8 | WHY: The 16-tap P10 design has zero errors, so a much smaller design likely still meets the target, and 8 taps at P8 is a mid-small point that shows how far logic cells can be cut.",
+    "PICK taps=5 precision=P8 | WHY: The 8-tap P8 design already meets target with 409 cells, so the smallest/cheapest corner (5 taps, P8) is the most informative next probe for fewer logic cells.",
+    "PICK taps=5 precision=P10 | WHY: 8-tap P8 already passes at 409 cells and 5-tap P8 fails at 1.68e-05, so the only cheaper candidates are 5-tap at higher precision (the quantization-limited error may drop below 1e-6) and 6-7 tap options aren't in the grid, making 5-tap P10 the single plausible design under 409 cells worth testing.",
+    "STOP best=8,P8 | WHY: 8 taps at P8 meets target with 409 cells, and the only cheaper design fails."
+   ],
+   "stopped": "stop:8/P8"
+  },
+  "stretch_4": {
+   "target": "stretch",
+   "evals": [
+    {
+     "taps": 16,
+     "precision": "P10",
+     "ber": 0.0,
+     "der": 0.0,
+     "logic_cells": 1176,
+     "fmax": 18.38,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 8,
+     "precision": "P8",
+     "ber": 5e-09,
+     "der": 1e-08,
+     "logic_cells": 409,
+     "fmax": 24.36,
+     "feasible": true,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P8",
+     "ber": 1.6755e-05,
+     "der": 3.351e-05,
+     "logic_cells": 295,
+     "fmax": 26.76,
+     "feasible": false,
+     "repeat": false
+    },
+    {
+     "taps": 5,
+     "precision": "P12",
+     "ber": 8.085e-06,
+     "der": 1.617e-05,
+     "logic_cells": 571,
+     "fmax": 24.84,
+     "feasible": false,
+     "repeat": false
+    }
+   ],
+   "replies": [
+    "PICK taps=16 precision=P10 | WHY: A mid-range design is a good first probe: if it meets BER 1e-6 and DER 2e-4 I can search downward for fewer logic cells, and if it fails I can search upward.",
+    "PICK taps=8 precision=P8 | WHY: The 16-tap P10 design has zero errors with margin, so a much smaller design (fewer taps and narrower precision) likely still meets the target and uses far fewer logic cells.",
+    "PICK taps=5 precision=P8 | WHY: The 8-tap P8 design already meets the target with only 409 cells and BER 5e-9, so the smallest design (5 taps, P8) is the next candidate to check for fewer cells while still possibly meeting BER.",
+    "PICK taps=5 precision=P12 | WHY: The 5-tap P8 design missed the target at 1.68e-05, so higher precision may close the gap at far fewer cells than the 409-cell 8-tap P8 design, and an intermediate such as 5-tap P10 or 5-tap P12 is the cheapest design still worth testing.",
+    "STOP best=8,P8 | WHY: The 8-tap P8 design (409 cells) meets the target and is the cheapest passing candidate."
+   ],
+   "stopped": "stop:8/P8"
+  }
+ }
+}
